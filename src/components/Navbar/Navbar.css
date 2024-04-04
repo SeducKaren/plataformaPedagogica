@@ -1,0 +1,100 @@
+.navegation {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  gap: 2.5em;
+}
+
+.navegation .logo-plataforma {
+  padding: 5px;
+  max-width: 5%;
+  background-color: #fff;  
+}
+
+.navegation .logo-prefeitura {
+  padding: 5px;
+  max-width: 5%;
+  border-radius: 50%; 
+}
+
+
+
+#foto-usuario {
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-file-upload i {
+  position: absolute;
+  top: 70%;
+  right: 20%;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.info-user {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 10px;
+}
+
+.buttons-back {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+
+.file-gestor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-logout {
+  background-color: #953333;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.btn-logout:hover {
+  transform: none;
+}
+
+.back-arrow {
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.escola-info {
+  color: #f0f0f0;
+  background-color: #2e4e7e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 10px 30px 10px 10px;
+}
+
+.img-logo-secretaria {
+  max-width: 10%;
+  background-color: #2e4e7e;
+  border-radius: 50%;
+}

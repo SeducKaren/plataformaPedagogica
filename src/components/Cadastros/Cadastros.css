@@ -1,0 +1,71 @@
+.Cadastros {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.main-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.cadastro-gestor {
+  flex: 1;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+.cadastro-gestor {
+  border: 3px solid #2e4e7e; 
+}
+
+.title-gestor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-gestor-titulo {
+  max-width: 100px; 
+  max-height: 100px; 
+}
+
+.Cadastros label {
+  display: block;
+}
+
+.Cadastros input[type="text"] {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+}
+
+.Cadastros .submit-button {
+  display: block;
+  max-width: 100%;
+  padding: 10px 20px 10px 20px;
+  background-color: #2e4e7e;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.Cadastros .submit-button:hover {
+  transform: none;
+  background-color: #1c3558;
+}
+
+.Cadastros .error-message {
+  color: red;
+  font-size: 14px;
+}

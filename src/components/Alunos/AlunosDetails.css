@@ -1,0 +1,21 @@
+.AlunosDetails {
+    padding: 20px;
+  }
+  
+  .alunos-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .aluno-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+  }
+  
+  .aluno-card h2 {
+    margin-top: 0;
+  }
+    

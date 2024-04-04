@@ -1,0 +1,45 @@
+.CadastroAluno {
+  width: 1100px;
+  /* margin: 0 auto; */
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.CadastroAluno form {
+  display: flex;
+  flex-direction: column;
+}
+
+.CadastroAluno label {
+  margin-bottom: 10px;
+}
+
+.CadastroAluno input[type="text"],
+.CadastroAluno input[type="date"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.CadastroAluno button {
+  max-width: 20%;
+  padding: 10px;
+  background-color: #2e4e7e;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transform: none;
+}
+
+.CadastroAluno button:hover {
+  background-color: #1c3558;
+}
+
+.CadastroAluno .error-message {
+  color: red;
+  font-size: 14px;
+}
