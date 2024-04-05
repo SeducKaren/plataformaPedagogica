@@ -81,7 +81,7 @@ const Login = () => {
     }
   
     try {
-      const response = await api.get(`/api/gestor/cpf/${cpf}`);
+      const response = await api.get(`api/gestor/cpf/${cpf}`);
 
       if (response.data) {
         setUserData(response.data);
