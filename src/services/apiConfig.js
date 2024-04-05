@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'https://api-plataforma-pedagogica-rn7v.onrender.com/';
+const apiUrl = 'https://api-plataforma-pedagogica-zc02.onrender.com/';
 
 const api = axios.create({
   baseURL: apiUrl,
