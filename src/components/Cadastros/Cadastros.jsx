@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer'
+import api from '../../services/apiConfig';
 
 import './Cadastros.css'
 
@@ -64,18 +65,29 @@ const Cadastros = () => {
     return true;
   };
 
-  const handleSubmitGestor = (e) => {
+  const handleSubmitGestor = async (e) => {
     e.preventDefault();
+    try {
+      
+      const response = await api.post('api/cadastro', formDataGestor); 
+      
+      console.log('Resposta do servidor:', response.data);
+      
+      console.log('Dados do formulário gestor:', formDataGestor);
 
-    console.log('Dados do formulário gestor:', formDataGestor);
+      setFormDataGestor({
+        nome: '',
+        cpf: '',
+        escola: '',
+        contato: '',
+        email: '',
+      });
 
-    setFormDataGestor({
-      nome: '',
-      cpf: '',
-      escola: '',
-      contato: '',
-      email: '',
-    });
+      alert('Dados enviados')
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
+
+    }
   };
 
   return (
