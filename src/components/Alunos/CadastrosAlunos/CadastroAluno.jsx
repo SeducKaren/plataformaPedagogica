@@ -57,7 +57,7 @@ const CadastroAluno = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        await api.post('api/aluno', formDataAluno);
+        await api.post('/api/aluno', formDataAluno);
 
         setFormDataAluno({
           matricula: '',
