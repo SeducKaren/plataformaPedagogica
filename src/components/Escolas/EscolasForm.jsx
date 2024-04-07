@@ -218,12 +218,12 @@ const EscolasForm = () => {
                 <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} />
               </label>
             </div>
-            <div className="form-row">
+            {/* <div className="form-row">
               <label>
                 Centro:
                 <input type="text" value={centro} onChange={(e) => setCentro(e.target.value)} disabled={!isEditing} />
               </label>
-            </div>
+            </div> */}
             <div className="form-row">
               <label>
                 Município:
@@ -275,13 +275,13 @@ const EscolasForm = () => {
                 <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} />
               </label>
             </div>
-            <div className="form-row">
+            {/* <div className="form-row">
               <label>
                 Instituição:
                 <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} />
               </label>
-            </div>
-            <div className="form-row">
+            </div> */}
+            {/* <div className="form-row">
               <label>
                 Curso:
                 <select value={curso} onChange={(e) => setCurso(e.target.value)} disabled={!isEditing} className='curso'>
@@ -289,20 +289,20 @@ const EscolasForm = () => {
                   <option value="medio">Médio</option>
                 </select>
               </label>
-            </div>
+            </div> */}
             <div className="form-row">
               <label>
                 Série:
-                <select value={serieAluno} onChange={(e) => setSerieAluno(e.target.value)} disabled={!isEditing}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="5">6</option>
-                  <option value="5">7</option>
-                  <option value="5">8</option>
-                  <option value="5">9</option>
+                <select className='serie'>
+                  <option value="1">Grupo 1</option>
+                  <option value="2">Grupo 2</option>
+                  <option value="3">Grupo 3</option>
+                  <option value="4">Grupo 4</option>
+                  <option value="5">Grupo 5</option>
+                  <option value="5">Grupo 6</option>
+                  <option value="5">Grupo 7</option>
+                  <option value="5">Grupo 8</option>
+                  <option value="5">Grupo 9</option>
                 </select>
               </label>
             </div>
@@ -317,20 +317,24 @@ const EscolasForm = () => {
                 <option value="Anos Finais">Ensino Fundamental - Anos Finais</option>
                 <option value="Anos Inicias">Ensino Fundamental - Anos Inicias</option>
                 <option value="9 anos">Ensino Fundamental de 9 anos - Multi (migração até 2021)</option>
-                <option value="Secretaria">Secretaria de Educação (demanda do ticket #76999)</option>
+                <option value="Ensino medio">Ensino medio</option>
               </select>
             </div>
-            <div className='formulario'>
+            {/* <div className='formulario'>
               <label For="Autorização">Autorização</label>
               <input type="text" id="Autorização" name="Autorização" />
-            </div>
-            <div className='formulario'>
+            </div> */}
+            {/* <div className='formulario'>
               <label For="Anos letivos">Anos letivos</label>
               <input type="text" id="Anos letivos" name="Anos letivos" />
-            </div>
-            <div className='formulario'>
-              <label For="Secretario Escolar">Secretário Escolar</label>
-              <input type="text" id="Secretário Escolar" name="Secretário Escolar" placeholder='Informe o nome, código, CPF ou RG da pessoa' />
+            </div> */}
+            {/* <div className='formulario'>
+              <label For="Quantidade de alunos">Quantidade de alunos matriculado na sua escola</label>
+              <input type="numb" id="Quantidade de alunos" name="Quantidade de alunos" />
+            </div> */}
+            <div className="form-row">            
+              <label> Quantidade de alunos matriculado na sua escola</label>
+              <input type="numb" id="Quantidade de alunos" name="Quantidade de alunos" />
             </div>
 
             </form>

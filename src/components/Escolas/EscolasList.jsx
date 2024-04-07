@@ -18,14 +18,16 @@ const EscolasList = () => {
 
 
 
+
+
   return (
     <div className='EscolasList'>
       <Navbar />
       <main>
-        <div className='ancora_escola'>
+        <div className='ancora_escola'>                  
           <button onClick={() => handleSectionChange('detalhe')}>Detalhe da Escola</button>
-          <button onClick={() => handleSectionChange('endereco')}>Endereço</button>
-          <button onClick={() => handleSectionChange('modalidade')}>Modalidade</button>
+          {/* <button onClick={() => handleSectionChange('endereco')}>Endereço</button>
+          <button onClick={() => handleSectionChange('modalidade')}>Modalidade</button> */}
           <button onClick={() => handleSectionChange('equipe')}>Equipe Gestores da Escola</button>
         </div>
 
@@ -35,7 +37,7 @@ const EscolasList = () => {
               <EscolasForm />
             </div>
           )}
-          {section === 'endereco' && (
+          {/* {section === 'endereco' && (
             <div>
               Endereço Escola
             </div>
@@ -44,7 +46,7 @@ const EscolasList = () => {
             <div>
               Modalidade
             </div>
-          )}
+          )} */}
           {section === 'equipe' && (
             <div>
               Equipe de gestores da escola

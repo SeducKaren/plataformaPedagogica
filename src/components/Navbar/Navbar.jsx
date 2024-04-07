@@ -42,16 +42,16 @@ const Navbar = () => {
 
   return (
     <div className='Navbar'>
-      <nav className='navegation'>        
+      <nav className='navegation'>   
+        <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>       
+        <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
         <img src="\logo_avaliandocomvoce.jpeg" alt="logo" className='logo-plataforma'/>
-        <img src="\logo_secretaria.jpeg" alt="logo" className='logo-prefeitura'/>
-        <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-plataforma'/>
 
-        <div className="buttons-back">
+        {/* <div className="buttons-back">
           <span className='back-arrow' onClick={() => window.history.back()}>
             &#8592;
           </span>
-        </div>
+        </div> */}
 
         <h1 className='file-gestor'>
           <label htmlFor="file-upload" className="custom-file-upload">
@@ -60,7 +60,7 @@ const Navbar = () => {
           </label>
           <input type="file" accept="image/*" id="file-upload" onChange={handleFotoChange} style={{ display: 'none' }} />
           <div className="info-user">
-            <p className='usuario'>{gestorInfo.nome}</p>
+            <p className='usuario'>{gestorInfo.nome.toUpperCase()}</p>
           </div>
         </h1>
 
