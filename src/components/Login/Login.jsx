@@ -6,10 +6,10 @@ import api from '../../services/apiConfig';
 
 import './Login.css'
 
-
 const Login = () => {
   const [cpf, setCpf] = useState('');
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate()
   const { setUserData } = useContext(DadosContext);
   
@@ -81,6 +81,8 @@ const Login = () => {
     }
   
     try {
+      setLoading(true);
+      
       const response = await api.get(`api/gestor/cpf/${cpf}`);
 
       if (response.data) {
@@ -107,6 +109,8 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Erro ao fazer a requisição:', error);
+    } finally {
+      setLoading(false); 
     }
   };
   
@@ -138,7 +142,12 @@ const Login = () => {
         <p id='paragrafo3'><strong>*Login feito com sucesso</strong></p>
         <br />
         <button 
-        onClick={handleLogin} id='btn-login'>Entrar</button>
+        onClick={handleLogin} 
+        id='btn-login'
+        disabled={loading} 
+        >
+          {loading ? 'Carregando...' : 'Entrar'} 
+        </button>
       </div>
     </div>
   );
