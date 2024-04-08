@@ -66,7 +66,7 @@ const Navbar = () => {
 
 
       <div className='escola-info'>
-        <img src="/logo_avaliaedu 2c2c.jpeg" alt="logo" className="img-logo-secretaria"/>
+        <img src="/logo_avaliaedu 2c2c.jpeg" alt="logo" className="logo-plataforma"/>
 
         <div className="gestor-escola-info">
         <h1 className='escola'>{userData ? userData.escola : "Escola do Gestor"}</h1>
