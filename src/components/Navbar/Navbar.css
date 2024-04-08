@@ -13,6 +13,11 @@
 
 .navegation .logo-prefeitura {
   padding: 5px;
+  max-width: 11%;
+}
+
+.navegation .logo-secretaria {
+  padding: 5px;
   max-width: 5%;
   border-radius: 50%; 
 }
@@ -52,14 +57,15 @@
   margin-left: 10px;
 }
 
-.buttons-back {
+/* .buttons-back {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 3em;
-}
+} */
 
 .file-gestor {
+  margin-left: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -88,13 +94,23 @@
   background-color: #2e4e7e;
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
   gap: 1em;
   padding: 10px 30px 10px 10px;
+  /* justify-content: space-between; */
 }
 
-.img-logo-secretaria {
+
+.escola-info h3 {
+  font-size: 0.9em;
+  margin-top: -10px;
+}
+
+.escola-info .logo-plataforma {  
+  /* margin-right: auto; */
+  padding: 5px;
   max-width: 10%;
-  background-color: #2e4e7e;
-  border-radius: 50%;
+  background-color:#2e4e7e;
+  border-radius: 50%;  
 }

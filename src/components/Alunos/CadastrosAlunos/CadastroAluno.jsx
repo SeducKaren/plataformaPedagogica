@@ -7,6 +7,7 @@ const CadastroAluno = () => {
     matricula: '',
     nomeAluno: '',
     dataNascimento: '',
+    genero: '',
     escola: '',
     cpf: '',
     turma: '',
@@ -63,6 +64,7 @@ const CadastroAluno = () => {
           matricula: '',
           nomeAluno: '',
           dataNascimento: '',
+          genero: '',
           escola: '',
           cpf: '',
           turma: '',
@@ -117,6 +119,13 @@ const CadastroAluno = () => {
           Data de Nascimento:
           <input style={inputStyle(errors.dataNascimento)} type='date' name='dataNascimento' value={formDataAluno.dataNascimento} onChange={handleInputChangeAluno} />
           {errors.dataNascimento && <span className='error-msg'>{errors.dataNascimento}</span>}
+        </label>
+        <br />
+
+        <label>
+          Gênero:
+          <input style={inputStyle(errors.genero)} type='text' name='genero' value={formDataAluno.genero} onChange={handleInputChangeAluno} placeholder='Gênero' />
+          {errors.genero && <span className='error-msg'>{errors.genero}</span>}
         </label>
         <br />
 
