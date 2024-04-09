@@ -24,6 +24,10 @@
   border-radius: 3px;
 }
 
+.CadastroAluno select{
+  padding: 10px;
+}
+
 .CadastroAluno button {
   max-width: 20%;
   padding: 10px;
