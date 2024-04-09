@@ -78,7 +78,6 @@ const CadastroAluno = () => {
         });
         setFormSubmitted(false);
 
-        console.log('passou porra');
       } catch (error) {
         console.error('Erro ao cadastrar aluno:', error);
       }
@@ -124,7 +123,16 @@ const CadastroAluno = () => {
 
         <label>
           Gênero:
-          <input style={inputStyle(errors.genero)} type='text' name='genero' value={formDataAluno.genero} onChange={handleInputChangeAluno} placeholder='Gênero' />
+          <select style={inputStyle(errors.genero)} name='genero' value={formDataAluno.genero} onChange={handleInputChangeAluno} placeholder='Gênero'>
+            <option value=''>Selecione o Gênero</option>
+            <option value='mulher'>Mulher</option>
+            <option value='homem'>Homem</option>
+            <option value='mulher trans'>Mulher Trans</option>
+            <option value='travesti'>Travesti</option>
+            <option value='homem trans'>Homem Trans</option>
+            <option value='não binário'>Não Binário</option>
+            <option value='outra'>Outra</option>
+          </select>
           {errors.genero && <span className='error-msg'>{errors.genero}</span>}
         </label>
         <br />
