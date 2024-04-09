@@ -4,14 +4,25 @@ import Navbar from '../Navbar/Navbar';
 
 const Gabarito = () => {
   const [level, setLevel] = useState('facil');
+  const [registrationNumber, setRegistrationNumber] = useState('');
   const [schoolName, setSchoolName] = useState('');
   const [registrationDate, setRegistrationDate] = useState('');
   const [studentName, setStudentName] = useState('');
-  const [serie, setSerie] = useState('');
+  const [serie, setSerie] = useState('');     
+  const [classroom, setClassroom] = useState('');
+  const [question, setQuestion] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
   const handleChangeLevel = (e) => {
     setLevel(e.target.value);
+  };
+
+  const handleRegistrationNumberChange = (e) => {
+    const enteredNumber = e.target.value;
+    setRegistrationNumber(enteredNumber);
+    // Simulação de uma função que busca o nome do aluno pelo número de matrícula
+    const studentName = getStudentNameByRegistrationNumber(enteredNumber);
+    setStudentName(studentName);
   };
 
   const handleSchoolNameChange = (e) => {
@@ -30,17 +41,39 @@ const Gabarito = () => {
     setSerie(e.target.value);
   };
 
+  const handleClassroomChange = (e) => {
+    setClassroom(e.target.value);
+  };
+
+  const handleQuestionChange = (e) => {
+    setQuestion(e.target.value);
+  };
+
   const handleEditClick = () => {
-    setIsEditing(!isEditing); 
+    setIsEditing(!isEditing);
+  };
+
+  // Função para simular a busca do nome do aluno pelo número de matrícula
+  const getStudentNameByRegistrationNumber = (registrationNumber) => {
+    // Aqui você faria a lógica real para buscar o nome do aluno no banco de dados ou de onde quer que seja
+    // Por enquanto, vamos apenas retornar um nome fictício
+    return "Fulano de Tal";
   };
 
   return (
     <>
-    <Navbar />
-    <div className="container">
-      <div className="info-container">
+      <Navbar />
+      <div className="container">
+        <div className="info-container">
           <form>
             <div className="info">
+              <p>Número de Matrícula:</p>
+              <input
+                type="text"
+                value={registrationNumber}
+                onChange={handleRegistrationNumberChange}
+                disabled={!isEditing}
+              />
               <p>Nome do Aluno:</p>
               <input
                 type="text"
@@ -68,69 +101,75 @@ const Gabarito = () => {
                 <option value="rural">Rural</option>
               </select>
               <div className="info-2">
-                  <p>Ano Letivo da Prova:</p>
-                  <select disabled={!isEditing}>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="OUTRA">OUTRA</option>
-                  </select>
-                  <input type="text" placeholder="Qual ?" disabled={!isEditing} />
-                  <p>Série:</p>
-                  <select onChange={handleSerieChange} value={serie} disabled={!isEditing}>
-                    <optgroup label="Anos Iniciais">
-                      <option value="2">2ª Ano</option>
-                      <option value="3">3ª Ano</option>
-                      <option value="4">4ª Ano</option>
-                      <option value="5">5ª Ano</option>
-                    </optgroup>
-                    <optgroup label="Anos Finais">
-                      <option value="6">6ª Ano</option>
-                      <option value="7">7ª Ano</option>
-                      <option value="8">8ª Ano</option>
-                      <option value="9">9ª Ano</option>
-                    </optgroup>
-                    <optgroup label="Ensino Médio">
-                      <option value="10">1ª Ano</option>
-                      <option value="11">2ª Ano</option>
-                      <option value="12">3ª Ano</option>
-                    </optgroup>
-                    <optgroup label="Educação de Jovens e Adultos (EJA)">
-                      <option value="13">Fase 1</option>
-                      <option value="14">Fase 2</option>
-                      <option value="15">Fase 3</option>
-                      <option value="16">Fase 4</option>
-                    </optgroup>
-                  </select>
-                  <p>Deficiência: Se sim, qual?</p>
-                  <select disabled={!isEditing}>
-                    <option value="auditiva">Auditiva</option>
-                    <option value="visual">Visual</option>
-                    <option value="intelectual">Intelectual</option>
-                    <option value="múltipla">Múltipla</option>
-                    <option value="autismo">Autismo</option>
-                    <option value="OUTRA">Nenhuma</option>
-                    <option value="OUTRA">Outra</option>
-                  </select>
-                  <input type="text" placeholder="Qual a deficiência?" disabled={!isEditing} />
+                <p>Ano Letivo da Prova:</p>
+                <select disabled={!isEditing}>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="OUTRA">OUTRA</option>
+                </select>
+                <input type="text" placeholder="Qual ?" disabled={!isEditing} />
+                <p>Série:</p>
+                <select onChange={handleSerieChange} value={serie} disabled={!isEditing}>
+                  <optgroup label="Anos Iniciais">
+                    <option value="2">2ª Ano</option>
+                    <option value="3">3ª Ano</option>
+                    <option value="4">4ª Ano</option>
+                    <option value="5">5ª Ano</option>
+                  </optgroup>
+                  <optgroup label="Anos Finais">
+                    <option value="6">6ª Ano</option>
+                    <option value="7">7ª Ano</option>
+                    <option value="8">8ª Ano</option>
+                    <option value="9">9ª Ano</option>
+                  </optgroup>
+                  <optgroup label="Ensino Médio">
+                    <option value="10">1ª Ano</option>
+                    <option value="11">2ª Ano</option>
+                    <option value="12">3ª Ano</option>
+                  </optgroup>
+                  <optgroup label="Educação de Jovens e Adultos (EJA)">
+                    <option value="13">Fase 1</option>
+                    <option value="14">Fase 2</option>
+                    <option value="15">Fase 3</option>
+                    <option value="16">Fase 4</option>
+                  </optgroup>
+                </select>
+                <p>Turma:</p>
+                <select onChange={handleClassroomChange} value={classroom} disabled={!isEditing}>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="G">G</option>
+                  <option value="H">H</option>
+                  <option value="OUTRA">Outra</option>
+                </select>
+                <p> Qual? </p>
+                <input type="text" value={question} onChange={handleQuestionChange} disabled={!isEditing} />
               </div>
             </div>
           </form>
-      </div>
-      <div className="questions">
-        <div className="subject">
-          <p>LÍNGUA PORTUGUESA</p>
         </div>
-        {renderQuestions('portugues')}
-        <div className="subject">
-          <p>MATEMÁTICA</p>
+        <div className="questions">
+          <div className="subject">
+            <p>LÍNGUA PORTUGUESA</p>
+          </div>
+          {renderQuestions('portugues')}
         </div>
-        {renderQuestions('matematica')}
+        <div className="questions">
+          <div className="subject">
+            <p>MATEMÁTICA</p>
+          </div>
+          {renderQuestions('matematica')}
+        </div>
+        {/* Botão de editar */}
+        <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
       </div>
-      {/* Botão de editar */}
-      <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
-    </div>
     </>
   );
 };
