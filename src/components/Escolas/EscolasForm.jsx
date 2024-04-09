@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TiDelete } from "react-icons/ti";
 import { IoMdAddCircle } from "react-icons/io";
+import api from '../../services/apiConfig';
 
 import './EscolasForm.css';
 
@@ -72,9 +73,11 @@ const EscolasForm = () => {
   };
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-      console.log({
+    
+    try {
+      const response = await api.post('/api/escola', {
         codigoINEP,
         escola,
         sigla,
@@ -96,8 +99,17 @@ const EscolasForm = () => {
         serieAluno,
         endereco
       });
-    setIsEditing(false); // Desativa o modo de edição após o envio
-    setShowSaveButton(false); // Esconde o botão "Salvar" após enviar
+      
+      console.log('Resposta do servidor:', response.data);
+
+      setCodigoINEP('');
+      setEscola('');
+      setSigla('');
+      
+      
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
+    }
   };
 
   const handleEdit = () => {
