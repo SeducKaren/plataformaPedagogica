@@ -14,15 +14,21 @@ import EscolasDetails from './components/Escolas/EscolasDetails'
 import AlunosDetails from './components/Alunos/AlunosDetails'
 import AlunosList from './components/Alunos/AlunosList'
 import Cadastros from './components/Cadastros/Cadastros';
+import Gabarito from './components/Gabaritos/GabaritoMain';
+import GabaritoNivel1 from './components/Gabaritos/GabaritoNivel1';
+
+
 
 import{ createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+import { DadosProvider } from './components/Context/DadosContext';
 import './index.css';
 
 
 
+
 const router = createBrowserRouter([
-  { path: '/', element: <App />},
+  { path: '/', element: <App /> },
   { path: '/login', element: <Login /> }, 
   { path: '/home', element: <Home /> },
 
@@ -39,13 +45,20 @@ const router = createBrowserRouter([
   { path: '/api/turma', element: <TurmasList /> },
   { path: '/api/turma:id', element: <TurmaDetails /> },
 
-  { path: '/cadastros', element: <Cadastros />}
+  { path: '/cadastros', element: <Cadastros />},
+  { path: '/gabaritos', element: <Gabarito />},
+
+  { path: '/gabaritosNivel1', element: <GabaritoNivel1 />}
+
+  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <DadosProvider>
     <RouterProvider router={router}/>
+    </DadosProvider>
   </React.StrictMode>
 );
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import './SectionMainHome.css'
 import { Link } from 'react-router-dom'
@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 const SectionMainHome = () => {
   return (
     <div className='SectionMainHome'>
-        <div className='escola-section'><img src="/escola2.png" alt="escola" /><Link to={'/api/escola'} target='_blank'>Escola</Link></div>
+        <div className='escola-section'><img src="/escola2.png" alt="escola"/><Link to={'/api/escola'}>Escola</Link></div>
 
-        <div className='leitura-de-prova-section'><img src="/leitura-de-prova.png" alt="gabaritos" />Gabaritos</div>
+        <div className='leitura-de-prova-section'><img src="/leitura-de-prova.png" alt="gabaritos"/><Link to={'/gabaritos'} target='_blank'>Gabaritos</Link></div>
 
-        <div className='alunos-section'><img src="/aluna.png" alt="aluna"/><Link to={'/api/aluno'} target="_blank">Alunos</Link></div>
+        <div className='alunos-section'><img src="/aluna.png" alt="aluna"/><Link to={'/api/aluno'}>Alunos</Link></div>
 
         <div className='painel'><img src="/painel.png" alt="dashboard"/>
         <Link to={'https://app.powerbi.com/view?r=eyJrIjoiOWQ4MDlkZTUtZjI1OS00NzYzLWE4ZDctYzY2NjVlMmY2YWU4IiwidCI6IjVmMTYzNWI1LTk5MmMtNDc2NC05NTViLWQyNTg2ZTQyYjQyNSJ9'} 
