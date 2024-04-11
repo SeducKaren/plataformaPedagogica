@@ -25,7 +25,6 @@
 
 .SectionMainHome .escola-section a{
     font-weight: bold;
-    max-width: 10%;
     color: #000;
     text-decoration: none;
 }
@@ -44,11 +43,10 @@
 .SectionMainHome .alunos-section:hover{
     border: 5px solid #04944c;
     transform: translateY(-5px);
-    
+
 }
 
 .SectionMainHome .alunos-section a{
-    max-width: 10%;
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -71,7 +69,6 @@
 }
 
 .SectionMainHome .adicionar-usuario-section a{
-    max-width: 10%;
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -90,7 +87,6 @@
 }
 
 .SectionMainHome .leitura-de-prova-section a{
-    max-width: 10%;
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -118,7 +114,6 @@
 }
 
 .SectionMainHome .painel a{
-    max-width: 10%;
     font-weight: bold;
     color: #000;
     text-decoration: none;
