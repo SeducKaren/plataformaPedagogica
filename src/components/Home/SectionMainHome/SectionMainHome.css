@@ -2,37 +2,26 @@
     display: flex;
     align-items: center;
     overflow-x: auto;
-    gap: 3em;
     margin: 70px 0 0 30px;
 }
 
-.SectionMainHome > div {
-    flex-shrink: 0; /* Evita que as divs sejam reduzidas */
-    width: fit-content; /* Define a largura com base no conteúdo */
-    padding: 10px; /* Adicionando espaçamento interno */
+.SectionMainHome > * {
+    flex: 0 0 10%; /* Ajustando o tamanho para ocupar 10% da largura da tela */
+    max-width: 10%;
+    text-align: center;
     border: 5px solid #2e4e7e;
     border-radius: 8px;
-    text-align: center;
-    transition: border-color 0.4s, transform 0.4s;
+    padding: 10px;
+    transition: .4s;
 }
 
-.SectionMainHome > div:hover {
-    border-color: #04944c;
+.SectionMainHome > *:hover {
+    border: 5px solid #04944c;
     transform: translateY(-5px);
 }
 
-.SectionMainHome > div > a {
-    font-weight: bold;
-    color: #000;
+.SectionMainHome a {
     text-decoration: none;
-    transition: color 0.4s;
-}
-
-.SectionMainHome > div:hover > a {
-    color: #04944c;
-}
-
-.SectionMainHome > div img {
-    width: 30px; /* Reduzindo o tamanho dos ícones */
-    height: auto;
+    color: black;
+    font-weight: bold;
 }
