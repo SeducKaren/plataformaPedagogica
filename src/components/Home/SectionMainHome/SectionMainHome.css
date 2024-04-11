@@ -21,9 +21,9 @@
     border: 3px solid #04944c;
 }
 
-/* Remover tamanho máximo dos links */
 .SectionMainHome a {
-    max-width: none;
+    text-decoration: none;
+    color: #000;
 }
 
 /* Remover borda dos ícones */
