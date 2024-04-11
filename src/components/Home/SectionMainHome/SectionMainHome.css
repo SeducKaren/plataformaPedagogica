@@ -16,6 +16,7 @@
 }
 
 .SectionMainHome > div > a {
+    width: 30px; /* Reduzindo o tamanho dos ícones */
     display: block;
     font-weight: bold;
     color: #000;
@@ -30,6 +31,5 @@
 .SectionMainHome > div img {
     display: block;
     margin: 0 auto;
-    width: 30px; /* Reduzindo o tamanho dos ícones */
     height: auto;
 }
