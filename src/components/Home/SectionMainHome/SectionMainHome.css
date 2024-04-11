@@ -1,8 +1,8 @@
 .SectionMainHome {
     display: flex;
     align-items: center;
-    gap: 3em;
-    margin: 70px 0 0 30px; 
+    gap: 2.5em;
+    margin: 70px 0 0 20px; 
 }
 
 /* Ajustar tamanho dos ícones */
@@ -31,8 +31,8 @@
 
 /* Ajustar tamanho das imagens dentro dos ícones */
 .SectionMainHome div img {
-    width: 80px; /* Ajuste o tamanho conforme necessário */
-    height: 80px; /* Ajuste o tamanho conforme necessário */
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
     margin-right: 10px; /* Espaçamento entre a imagem e o texto */
 }
 
