@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { DadosContext } from '../Context/DadosContext';
-import SectionText from './SectionText/SectionText';
+// import SectionText from './SectionText/SectionText';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/apiConfig';
 
@@ -119,7 +119,7 @@ const Login = () => {
   return (
     <div className='login'>
       <div className="section-text">
-        <SectionText />
+        {/* <SectionText /> */}
       </div>  
       <div className="section-input">
         <h1>AvaliaEdu</h1>
