@@ -1,7 +1,6 @@
 .login{
     display: flex;
     justify-content: space-between;
-    background-color: var(--branco);
     max-width: 100%;
     height: 90vh;
 }
