@@ -31,6 +31,7 @@
 
 /* Ajustar tamanho das imagens dentro dos ícones */
 .SectionMainHome div img {
+    margin: 0 auto;
     width: 100px; /* Ajuste o tamanho conforme necessário */
     height: 100px; /* Ajuste o tamanho conforme necessário */
     margin-right: 10px; /* Espaçamento entre a imagem e o texto */
