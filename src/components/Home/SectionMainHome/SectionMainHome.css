@@ -14,19 +14,11 @@
 .SectionMainHome .painel,
 .SectionMainHome .suporte-online,
 .SectionMainHome .video-tutorial {
-    max-width: auto; /* Remover tamanho máximo */
-    width: auto; /* Permitir que o tamanho se ajuste automaticamente */
-}
-
-/* Remover margem da barra lateral */
-.SectionMainHome .escola-section,
-.SectionMainHome .alunos-section,
-.SectionMainHome .adicionar-usuario-section,
-.SectionMainHome .leitura-de-prova-section,
-.SectionMainHome .painel,
-.SectionMainHome .suporte-online,
-.SectionMainHome .video-tutorial {
+    max-width: 100%; /* Remover tamanho máximo */
+    width: 10%; /* Permitir que o tamanho se ajuste automaticamente */
     margin-left: 0; 
+    transition: border .4s, transform .4s;
+    border: 3px solid #04944c;
 }
 
 /* Remover tamanho máximo dos links */
@@ -41,17 +33,6 @@
 .SectionMainHome .leitura-de-prova-section,
 .SectionMainHome .painel,
 .SectionMainHome .suporte-online,
-.SectionMainHome .video-tutorial {
-    border: none;
-}
-
-/* Manter transição nos ícones */
-.SectionMainHome .escola-section,
-.SectionMainHome .alunos-section,
-.SectionMainHome .adicionar-usuario-section,
-.SectionMainHome .leitura-de-prova-section,
-.SectionMainHome .painel,
-.SectionMainHome .suporte-online,
-.SectionMainHome .video-tutorial {
-    transition: border .4s, transform .4s;
+.SectionMainHome .video-tutorial:hover {
+    border: 3px solid #2e4e7e;
 }
