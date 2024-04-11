@@ -2,12 +2,11 @@
     display: flex;
     align-items: center;
     gap: 3em;
-    margin: 70px 0 0 0; /* Remover margem da barra lateral */
+    margin: 70px 0 0 30px; 
 }
 
 /* Ajustar tamanho dos ícones */
 .SectionMainHome div {
-    text-decoration: none;
     color: #000;
     display: flex;
     align-items: center;
@@ -24,9 +23,14 @@
     transform: translateY(-5px);
 }
 
+.SectionMainHome a{
+    text-decoration: none;
+
+}
+
 /* Ajustar tamanho das imagens dentro dos ícones */
 .SectionMainHome div img {
-    width: 50px; /* Ajuste o tamanho conforme necessário */
+    width: 10%; /* Ajuste o tamanho conforme necessário */
     height: 50px; /* Ajuste o tamanho conforme necessário */
     margin-right: 10px; /* Espaçamento entre a imagem e o texto */
 }
