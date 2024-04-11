@@ -7,8 +7,13 @@
 }
 
 .SectionMainHome > div {
-    width: 30px; /* Reduzindo o tamanho dos ícones */
-    flex: 1;
+    flex-shrink: 0; /* Evita que as divs sejam reduzidas */
+    width: fit-content; /* Define a largura com base no conteúdo */
+    padding: 10px; /* Adicionando espaçamento interno */
+    border: 5px solid #2e4e7e;
+    border-radius: 8px;
+    text-align: center;
+    transition: border-color 0.4s, transform 0.4s;
 }
 
 .SectionMainHome > div:hover {
@@ -17,7 +22,6 @@
 }
 
 .SectionMainHome > div > a {
-    display: block;
     font-weight: bold;
     color: #000;
     text-decoration: none;
@@ -29,7 +33,6 @@
 }
 
 .SectionMainHome > div img {
-    display: block;
-    margin: 0 auto;
+    width: 30px; /* Reduzindo o tamanho dos ícones */
     height: auto;
 }
