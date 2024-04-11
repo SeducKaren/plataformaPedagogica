@@ -30,7 +30,7 @@
 
 /* Ajustar tamanho das imagens dentro dos ícones */
 .SectionMainHome div img {
-    width: 10%; /* Ajuste o tamanho conforme necessário */
+    width: 100%; /* Ajuste o tamanho conforme necessário */
     height: 50px; /* Ajuste o tamanho conforme necessário */
     margin-right: 10px; /* Espaçamento entre a imagem e o texto */
 }
