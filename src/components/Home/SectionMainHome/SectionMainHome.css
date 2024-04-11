@@ -1,159 +1,35 @@
-.SectionMainHome{
+.SectionMainHome {
     display: flex;
     align-items: center;
-    max-width: 80%;
-    cursor: pointer;
+    overflow-x: auto; /* Adicionando overflow-x para evitar scroll horizontal */
     gap: 3em;
     margin: 70px 0 0 30px;
 }
 
-.SectionMainHome .escola-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .4s;
+.SectionMainHome > div {
+    flex: 1; /* Todos os elementos ocupam o mesmo espaço */
 }
 
-.SectionMainHome .escola-section:hover{
-    border: 5px solid #04944c;
+.SectionMainHome > div:hover {
+    border-color: #04944c;
     transform: translateY(-5px);
 }
 
-.SectionMainHome .escola-section a{
-    max-width: 10%;
+.SectionMainHome > div > a {
+    display: block; /* Transforma os links em blocos para ocupar todo o espaço da div */
     font-weight: bold;
     color: #000;
     text-decoration: none;
+    transition: color 0.4s; /* Adicionando transição de cor */
 }
 
-.SectionMainHome .alunos-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .4s;
+.SectionMainHome > div:hover > a {
+    color: #04944c; /* Alterando a cor do link ao passar o mouse */
 }
 
-.SectionMainHome .alunos-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-
-}
-
-.SectionMainHome .alunos-section a{
-    max-width: 10%;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.SectionMainHome .adicionar-usuario-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 8px 10px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .adicionar-usuario-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .adicionar-usuario-section a{
-    max-width: 10%;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.SectionMainHome .leitura-de-prova-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .leitura-de-prova-section a{
-    max-width: 10%;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.SectionMainHome .leitura-de-prova-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .painel{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .painel:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .painel a{
-    max-width: 10%;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-}
-
-.SectionMainHome .suporte-online{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .suporte-online:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .video-tutorial{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .video-tutorial:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+.SectionMainHome > div img {
+    display: block; /* Ajustando as imagens para ocuparem todo o espaço da div */
+    margin: 0 auto; /* Centralizando as imagens horizontalmente */
+    width: 50px; /* Ajustando o tamanho das imagens */
+    height: auto; /* Mantendo a proporção */
 }
