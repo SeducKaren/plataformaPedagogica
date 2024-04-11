@@ -12,7 +12,7 @@ function App() {
       <NavbarLogin />
       <Login />
       <Outlet/>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
