@@ -6,6 +6,7 @@
 }
 
 .section-input{
+    background-color: var(--branco);
     padding: 50px;
     border-radius: 8px;
     border: 5px solid var(--azul2);
