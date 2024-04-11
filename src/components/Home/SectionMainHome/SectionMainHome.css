@@ -1,38 +1,34 @@
 .SectionMainHome {
     display: flex;
     align-items: center;
-    cursor: pointer;
     gap: 3em;
     margin: 70px 0 0 0; /* Remover margem da barra lateral */
 }
 
 /* Ajustar tamanho dos ícones */
-.SectionMainHome .escola-section,
-.SectionMainHome .alunos-section,
-.SectionMainHome .adicionar-usuario-section,
-.SectionMainHome .leitura-de-prova-section,
-.SectionMainHome .painel,
-.SectionMainHome .suporte-online,
-.SectionMainHome .video-tutorial {
-    max-width: 100%; /* Remover tamanho máximo */
-    margin-left: 0; 
+.SectionMainHome div {
+    display: flex;
+    align-items: center;
+    border: 5px solid #2e4e7e;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
     transition: border .4s, transform .4s;
-    border: 3px solid #04944c;
 }
 
-.SectionMainHome a {
-    width: 10%;
-    text-decoration: none;
-    color: #000;
+.SectionMainHome div:hover {
+    border: 5px solid #04944c;
+    transform: translateY(-5px);
 }
 
-/* Remover borda dos ícones */
-.SectionMainHome .escola-section,
-.SectionMainHome .alunos-section,
-.SectionMainHome .adicionar-usuario-section,
-.SectionMainHome .leitura-de-prova-section,
-.SectionMainHome .painel,
-.SectionMainHome .suporte-online,
-.SectionMainHome .video-tutorial:hover {
-    border: 3px solid #2e4e7e;
+/* Ajustar tamanho das imagens dentro dos ícones */
+.SectionMainHome div img {
+    width: 50px; /* Ajuste o tamanho conforme necessário */
+    height: 50px; /* Ajuste o tamanho conforme necessário */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+/* Remover margem da barra lateral */
+.SectionMainHome div:first-child {
+    margin-left: 0;
 }
