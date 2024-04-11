@@ -8,6 +8,7 @@
 .SectionMainHome > * {
     flex: 0 0 10%; /* Ajustando o tamanho para ocupar 10% da largura da tela */
     max-width: 10%;
+    max-height: 50vh;
     text-align: center;
     border: 5px solid #2e4e7e;
     border-radius: 8px;
