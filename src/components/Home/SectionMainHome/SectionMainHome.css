@@ -1,7 +1,6 @@
 .SectionMainHome {
     display: flex;
     align-items: center;
-    overflow-x: auto;
     margin: 70px 0 0 30px;
 }
 
