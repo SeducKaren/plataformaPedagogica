@@ -7,6 +7,7 @@
 }
 
 .SectionMainHome > div {
+    width: 30px; /* Reduzindo o tamanho dos ícones */
     flex: 1;
 }
 
@@ -16,7 +17,6 @@
 }
 
 .SectionMainHome > div > a {
-    width: 30px; /* Reduzindo o tamanho dos ícones */
     display: block;
     font-weight: bold;
     color: #000;
