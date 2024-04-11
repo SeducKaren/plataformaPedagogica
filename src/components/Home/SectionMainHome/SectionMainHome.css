@@ -1,159 +1,57 @@
-.SectionMainHome{
+.SectionMainHome {
     display: flex;
     align-items: center;
-    max-width: 20%;
     cursor: pointer;
     gap: 3em;
-    margin: 70px 0 0 30px;
+    margin: 70px 0 0 0; /* Remover margem da barra lateral */
 }
 
-.SectionMainHome .escola-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .4s;
+/* Ajustar tamanho dos ícones */
+.SectionMainHome .escola-section,
+.SectionMainHome .alunos-section,
+.SectionMainHome .adicionar-usuario-section,
+.SectionMainHome .leitura-de-prova-section,
+.SectionMainHome .painel,
+.SectionMainHome .suporte-online,
+.SectionMainHome .video-tutorial {
+    max-width: auto; /* Remover tamanho máximo */
+    width: auto; /* Permitir que o tamanho se ajuste automaticamente */
 }
 
-.SectionMainHome .escola-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+/* Remover margem da barra lateral */
+.SectionMainHome .escola-section,
+.SectionMainHome .alunos-section,
+.SectionMainHome .adicionar-usuario-section,
+.SectionMainHome .leitura-de-prova-section,
+.SectionMainHome .painel,
+.SectionMainHome .suporte-online,
+.SectionMainHome .video-tutorial {
+    margin-left: 0; 
 }
 
-.SectionMainHome .escola-section a{
-    max-width: 10%;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
+/* Remover tamanho máximo dos links */
+.SectionMainHome a {
+    max-width: none;
 }
 
-.SectionMainHome .alunos-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .4s;
+/* Remover borda dos ícones */
+.SectionMainHome .escola-section,
+.SectionMainHome .alunos-section,
+.SectionMainHome .adicionar-usuario-section,
+.SectionMainHome .leitura-de-prova-section,
+.SectionMainHome .painel,
+.SectionMainHome .suporte-online,
+.SectionMainHome .video-tutorial {
+    border: none;
 }
 
-.SectionMainHome .alunos-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-
-}
-
-.SectionMainHome .alunos-section a{
-    max-width: 10%;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.SectionMainHome .adicionar-usuario-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 8px 10px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .adicionar-usuario-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .adicionar-usuario-section a{
-    max-width: 10%;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.SectionMainHome .leitura-de-prova-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .leitura-de-prova-section a{
-    max-width: 10%;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.SectionMainHome .leitura-de-prova-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .painel{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .painel:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .painel a{
-    max-width: 10%;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-}
-
-.SectionMainHome .suporte-online{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .suporte-online:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .video-tutorial{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .video-tutorial:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+/* Manter transição nos ícones */
+.SectionMainHome .escola-section,
+.SectionMainHome .alunos-section,
+.SectionMainHome .adicionar-usuario-section,
+.SectionMainHome .leitura-de-prova-section,
+.SectionMainHome .painel,
+.SectionMainHome .suporte-online,
+.SectionMainHome .video-tutorial {
+    transition: border .4s, transform .4s;
 }
