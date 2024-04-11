@@ -17,6 +17,7 @@
     padding: 10px;
     text-align: center;
     transition: border .4s, transform .4s;
+    font-weight: bold;
 }
 
 .SectionMainHome div:hover {
