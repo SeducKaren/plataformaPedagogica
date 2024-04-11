@@ -2,12 +2,12 @@
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-    height: 90vh;
+    height: 70vh;
 }
 
 .section-input{
     background-color: var(--branco);
-    padding: 50px;
+    padding: 40px;
     border-radius: 8px;
     border: 5px solid var(--azul2);
     margin-right: 5px;
