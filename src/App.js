@@ -10,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <NavbarLogin />
-      <Login />
-      <Outlet/>
+      <div className="content">
+        <Login />
+        <Outlet/>
+      </div>
       <Footer />
     </div>
   );
