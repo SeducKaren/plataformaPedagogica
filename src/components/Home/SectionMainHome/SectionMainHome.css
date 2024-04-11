@@ -8,6 +8,7 @@
 /* Ajustar tamanho dos ícones */
 .SectionMainHome div {
     color: #000;
+    max-width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -30,7 +31,7 @@
 
 /* Ajustar tamanho das imagens dentro dos ícones */
 .SectionMainHome div img {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
+    width: 80px; /* Ajuste o tamanho conforme necessário */
     height: 50px; /* Ajuste o tamanho conforme necessário */
     margin-right: 10px; /* Espaçamento entre a imagem e o texto */
 }
