@@ -1,13 +1,13 @@
 .SectionMainHome {
     display: flex;
     align-items: center;
-    overflow-x: auto; /* Adicionando overflow-x para evitar scroll horizontal */
+    overflow-x: auto;
     gap: 3em;
     margin: 70px 0 0 30px;
 }
 
 .SectionMainHome > div {
-    flex: 1; /* Todos os elementos ocupam o mesmo espaço */
+    flex: 1;
 }
 
 .SectionMainHome > div:hover {
@@ -16,20 +16,20 @@
 }
 
 .SectionMainHome > div > a {
-    display: block; /* Transforma os links em blocos para ocupar todo o espaço da div */
+    display: block;
     font-weight: bold;
     color: #000;
     text-decoration: none;
-    transition: color 0.4s; /* Adicionando transição de cor */
+    transition: color 0.4s;
 }
 
 .SectionMainHome > div:hover > a {
-    color: #04944c; /* Alterando a cor do link ao passar o mouse */
+    color: #04944c;
 }
 
 .SectionMainHome > div img {
-    display: block; /* Ajustando as imagens para ocuparem todo o espaço da div */
-    margin: 0 auto; /* Centralizando as imagens horizontalmente */
-    width: 50px; /* Ajustando o tamanho das imagens */
-    height: auto; /* Mantendo a proporção */
+    display: block;
+    margin: 0 auto;
+    width: 30px; /* Reduzindo o tamanho dos ícones */
+    height: auto;
 }
