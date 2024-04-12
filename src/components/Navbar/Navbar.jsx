@@ -39,9 +39,9 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
       <nav className='navegation'>
-      <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>       
-        <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
         <img src="\logo_avaliandocomvoce.jpeg" alt="logo" className='logo-plataforma'/>
+        <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
+        <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>       
 
         {/* <div className="buttons-back">
           <span className='back-arrow' onClick={() => window.history.back()}>
