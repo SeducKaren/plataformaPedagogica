@@ -105,7 +105,7 @@ const EscolasForm = () => {
       setCodigoINEP('');
       setEscola('');
       setSigla('');
-      
+      alert('Dados enviados')
       
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
