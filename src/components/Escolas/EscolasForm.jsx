@@ -248,7 +248,6 @@ const EscolasForm = () => {
                 <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} />
               </label>
             </div>
-          </form>
           {showSaveButton && (
               <button type="submit" className='button-save'>Salvar</button>
 
@@ -257,6 +256,7 @@ const EscolasForm = () => {
           {!isEditing && (
             <button onClick={handleEdit} className='button-edit'>Editar</button>
             )}
+          </form>
         </div>
 
 
