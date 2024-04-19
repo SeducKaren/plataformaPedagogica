@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './GabaritoNivel2.css'; 
+import './GabaritoNivel5.css'; 
 
 const renderOptions = (isEditing) => {
   const options = [];
@@ -25,7 +25,7 @@ const renderOptions = (isEditing) => {
 
 const renderQuestions = (subject, isEditing) => {
   const questions = [];
-  for (let i = 1; i <= 22; i++) {
+  for (let i = 1; i <= 15; i++) {
     questions.push(
       <div className="question" key={`${subject}-${i}`}>
         <p>{i}</p>
@@ -41,7 +41,7 @@ const renderQuestions = (subject, isEditing) => {
   return questions;
 };
 
-const GabaritoNivel2 = () => {
+const GabaritoNivel5 = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -50,7 +50,7 @@ const GabaritoNivel2 = () => {
 
   return (
     <>
-    <div className="page-container2">
+    <div className="page-container5">
       <div className="questions">
         <div className="subject">
           <p>LÍNGUA PORTUGUESA</p>
@@ -70,4 +70,4 @@ const GabaritoNivel2 = () => {
   );
 };
 
-export default GabaritoNivel2;
+export default GabaritoNivel5;

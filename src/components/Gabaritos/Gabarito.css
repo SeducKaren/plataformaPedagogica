@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+}
+
+
 .formulario {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  border: 1px solid #ccc; 
-  background-color: #f9f9f9; 
+  border: none;
+  padding: 20px 0px 0px 10px;
+  
+  
 }
 
 .formulario label {
@@ -11,13 +21,37 @@
   margin-bottom: 15px;  
 }
 
-.formulario select,
-.formulario input[type="text"],
-.formulario input[type="date"] {
+.inputData input{
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 17px;
+  
+}
+
+.formulario select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.formulario input[type="text"] {
+  cursor: text;
+  width: 97%;
+  height: 17px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input::placeholder,
+select::placeholder,
+.PlaceholderQuantidadeAcertos,
+.PlaceholderDataRegistro
+ {
+  font-size: 14px;
 }
 
 .formulario select {

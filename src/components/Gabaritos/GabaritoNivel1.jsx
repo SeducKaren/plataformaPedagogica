@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './GabaritoNivel1.css'; 
+import './GabaritoNivel1.css';
 
 const renderOptions = (isEditing) => {
   const options = [];
@@ -30,18 +30,18 @@ const renderQuestions = (subject, isEditing) => {
       <div className="question" key={`${subject}-${i}`}>
         <p>{i}</p>
         {renderOptions(isEditing)}
-        <select disabled={!isEditing}>
+        {/* <select disabled={!isEditing}>
           <option value="facil">Fácil</option>
           <option value="medio">Médio</option>
           <option value="dificil">Difícil</option>
-        </select>
+        </select> */}
       </div>
     );
   }
   return questions;
 };
 
-const GabaritoNivel1 = () => {
+const GabaritoNivel1 = ({ background }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -50,21 +50,25 @@ const GabaritoNivel1 = () => {
 
   return (
     <>
-    <div className="page-container">
-      <div className="questions">
-        <div className="subject">
-          <p>LÍNGUA PORTUGUESA</p>
+      <div style={
+        { backgroundColor: background }
+      }>
+        <div className="questions">
+          <div className="subject">
+            <p>LÍNGUA PORTUGUESA</p>
+          </div>
+          {renderQuestions('portugues', isEditing)}
         </div>
-        {renderQuestions('portugues', isEditing)}
-      </div>
-      <div className="questions">
-        <div className="subject">
-          <p>MATEMÁTICA</p>
+        <div className="questions">
+          <div className="subject">
+            <p>MATEMÁTICA</p>
+          </div>
+          {renderQuestions('matematica', isEditing)}
         </div>
-        {renderQuestions('matematica', isEditing)}
-      </div>
-      {/* Botão de editar */}
-      <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
+        <div className="buttonGabarito">          
+          <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
+        </div>
+
       </div>
     </>
   );

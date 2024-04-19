@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Gabarito.css';
 import Navbar from '../Navbar/Navbar';
 import GabaritoNivel1 from './GabaritoNivel1';
+import GabaritoNivel2 from './GabaritoNivel2';
+import GabaritoNivel3 from './GabaritoNivel3';
+import GabaritoNivel4 from './GabaritoNivel4';
+import GabaritoNivel5 from './GabaritoNivel5';
+import GabaritoNivel6 from './GabaritoNivel6';
+
 
 const GabaritoMain = () => {
   const [dataRegistro, setDataRegistro] = useState('');
@@ -11,15 +17,16 @@ const GabaritoMain = () => {
   const [serie, setSerie] = useState('');
   const [turma, setTurma] = useState('');
   const [turno, setTurno] = useState('');
-  const { regiao, setRegiao } = useState('');
+  const [regiao, setRegiao] = useState('');
   const [quantidadeAcertos, setQuantidadeAcertos] = useState('0/40');
   const [deficiencias, setDeficiencias] = useState([]);
-  const [modoEdicao, setModoEdicao] = useState(false); // Estado para controlar o modo de edição
+  const [modoEdicao, setModoEdicao] = useState(false); 
   const [nivelProva, setNivelProva] = useState('');
+  const [background, setBackground] = useState('#fff');
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para registrar os dados
     console.log('Data de Registro:', dataRegistro);
     console.log('Matrícula:', matricula);
     console.log('Escola:', escola);
@@ -32,6 +39,22 @@ const GabaritoMain = () => {
     console.log('Nível da Prova:', nivelProva);
   };
 
+  const handMudarCor = (evento) => {
+    if (evento === "Nível 1: 2° ano e 3° ano"){
+      setBackground('#dceaf7')      
+    }else if (evento === "Nível 2: 4° ano e 5° ano"){
+      setBackground('#f6c6ad')
+    }else if (evento === "Nível 3: 6° ano e 7° ano"){
+      setBackground('#c2f1c8')
+    }else if (evento === "Nível 4: 8° ano e 9° ano"){
+      setBackground('#f6fdb7')
+    }else if (evento === "Nível 5: Fase 1 e 2"){
+      setBackground('#f2cfee')
+    }else if (evento === "Nível 6: Fase 3 e 4"){
+      setBackground('#f6d766')
+    }
+  };
+
   const handleDeficienciaChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -42,54 +65,27 @@ const GabaritoMain = () => {
   };
 
   const handleEdit = () => {
-    // Alterar o estado para indicar que o formulário está em modo de edição
     setModoEdicao(true);
   };
 
-  const gabarito = (() => {
-    let gabaritoText = '';
-    switch (serie) {
-      case '2°ano':
-      case '3°ano':
-        gabaritoText = 'Gabarito para Anos Iniciais';
-        break;
-      case '4°ano':
-      case '5°ano':
-        gabaritoText = 'Gabarito para Anos Finais';
-        break;
-      case '6°ano':
-      case '7°ano':
-      case '8°ano':
-      case '9°ano':
-        gabaritoText = 'Gabarito para Anos Finais';
-        break;
-      case '1°ano':
-      case '10°ano':
-      case '11°ano':
-      case '12°ano':
-        gabaritoText = 'Gabarito para Ensino Médio';
-        break;
-      default:
-        gabaritoText = '';
-    }
-    return <p className="gabarito">{gabaritoText}</p>;
-  })();
+  
 
   return (
     <>
       <Navbar />
-      <form onSubmit={handleSubmit} className="formulario">
-        <label>
+      <form onSubmit={handleSubmit} className="formulario" style={{backgroundColor: background}}>
+        <label className='inputData'>
           Data de Registro:
           <input
-            type="date"
+            type="date"                      
             value={dataRegistro}
             onChange={(e) => setDataRegistro(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
+            className="PlaceholderDataRegistro"
           />
         </label>
-        
-        <label>
+        <br />        
+        <label className='inputMatricula'>
           Numero de Matrícula:
           <input
             type="text"
@@ -97,16 +93,19 @@ const GabaritoMain = () => {
             value={matricula}
             maxLength={15}
             onChange={(e) => setMatricula(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           />
         </label>
+        <br />
 
         <label>
           Nível da Prova:
           <select
             value={nivelProva}
-            onChange={(e) => setNivelProva(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            onChange={(e) => {setNivelProva(e.target.value)
+             handMudarCor(e.target.value)
+            }}
+            disabled={!modoEdicao} 
           >
             <option value="">Selecione o Nível da Prova</option>
             <option value="Nível 1: 2° ano e 3° ano">Nível 1: 2° ano e 3° ano</option>
@@ -118,6 +117,7 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
+
         <label>
           Nome Completo do Aluno:
           <input
@@ -125,10 +125,11 @@ const GabaritoMain = () => {
             placeholder='Informe o nome completo do aluno'
             value={nomeAluno}
             onChange={(e) => setNomeAluno(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           />
         </label>
         <br />
+
         <label>
           Escola:
           <input
@@ -136,7 +137,7 @@ const GabaritoMain = () => {
             placeholder="Informe o nome da Escola"
             value={escola}
             onChange={(e) => setEscola(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           />
         </label>
         <br />
@@ -146,7 +147,7 @@ const GabaritoMain = () => {
           <select
             value={serie}
             onChange={(e) => setSerie(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           >
             <option value="">Selecione a Série</option>
             <optgroup label="Anos Iniciais">
@@ -170,12 +171,13 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
+
         <label>
           Região:
           <select
             value={regiao}
             onChange={(e) => setRegiao(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           >
             <option value="">Selecione sua Regiao</option>
             <option value="Urbano">Urbana</option>
@@ -183,12 +185,13 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
+
         <label>
           Turma:
           <select
             value={turma}
             onChange={(e) => setTurma(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           >
             <option value="">Selecione a Turma</option>
             <option value="A">A</option>
@@ -200,25 +203,27 @@ const GabaritoMain = () => {
             <option value="G">G</option>
             <option value="OUTRA">Outra</option>
           </select>
-          <br />
         </label>
         <br />
+
         <label>
           Quantidade de Acertos:
           <input
             type="text"
             value={quantidadeAcertos}
             onChange={(e) => setQuantidadeAcertos(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
+            className="PlaceholderQuantidadeAcertos"
           />
         </label>
         <br />
+
         <label>
           Turno:
           <select
             value={turno}
             onChange={(e) => setTurno(e.target.value)}
-            disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+            disabled={!modoEdicao} 
           >
             <option value="">Selecione o Turno</option>
             <option value="Manhã">Manhã</option>
@@ -227,38 +232,39 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
-
+        
         <div className="checkbox-group">
           <label>
             Deficiência:
             <div className='column'>
-              
+
               <input
-                type="checkbox"
-                value="Deficiente visual"
-                onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
-              />
-              Deficiente visual
+              type="checkbox"
+              value="Não Possuo"
+              onChange={handleDeficienciaChange}
+              disabled={!modoEdicao} 
+            />
+            Não Possuo
+              
               <input
                 type="checkbox"
                 value="Autista"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+                disabled={!modoEdicao} 
               />
               Autista
               <input
                 type="checkbox"
                 value="Deficiencia multipla"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+                disabled={!modoEdicao} 
               />
               Deficiência múltipla
               <input
                 type="checkbox"
                 value="Deficiencia auditiva"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+                disabled={!modoEdicao} 
               />
               Deficiência auditiva
             </div>
@@ -267,35 +273,43 @@ const GabaritoMain = () => {
               type="checkbox"
               value="Deficiente Fisico"
               onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+              disabled={!modoEdicao} 
             />
             Deficiente físico
+            <input
+                type="checkbox"
+                value="Deficiente visual"
+                onChange={handleDeficienciaChange}
+                disabled={!modoEdicao} 
+              />            
+              Deficiente visual
             <input
               type="checkbox"
               value="Outra"
               onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
+              disabled={!modoEdicao} 
             />
             Outra
-            <input
-              type="checkbox"
-              value="Não Possuo"
-              onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} // Desabilita o campo se não estiver em modo de edição
-            />
-            Não Possuo</div>
+            
+            </div>
             
           </label>
         </div>
-        <br />
+        
+
         <div className="button-group">
           <button type="submit" disabled={modoEdicao ? false : true}>Registrar</button>
-          <button type="button" onClick={handleEdit}>Editar</button>
+          <button type="button" onClick={handleEdit}>Editar</button>          
         </div>
         <br />
       </form>
-      {gabarito}
-      {nivelProva === "Nível 1: 2° ano e 3° ano" && <GabaritoNivel1 />}
+      {nivelProva === "Nível 1: 2° ano e 3° ano" && <GabaritoNivel1 background={'#dceaf7'}/>}
+      {nivelProva === "Nível 2: 4° ano e 5° ano" && <GabaritoNivel2 />}
+      {nivelProva === "Nível 3: 6° ano e 7° ano" && <GabaritoNivel3 />}
+      {nivelProva === "Nível 4: 8° ano e 9° ano" && <GabaritoNivel4 />}
+      {nivelProva === "Nível 5: Fase 1 e 2" && <GabaritoNivel5 />}
+      {nivelProva === "Nível 6: Fase 3 e 4" && <GabaritoNivel6 />}
+
     </>
   );
 };

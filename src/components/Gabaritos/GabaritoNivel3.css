@@ -5,8 +5,8 @@ questions {
     gap: 20px;
   }
 
-  .page-container2 {
-    background-color: #f6c6ad; /* Cor de fundo desejada */    
+  .page-container3 {
+    background-color: #c2f1c8; /* Cor de fundo desejada */
   }
   
 
@@ -46,3 +46,4 @@ questions {
   .question select {
     margin-left: 10px;
   }
+

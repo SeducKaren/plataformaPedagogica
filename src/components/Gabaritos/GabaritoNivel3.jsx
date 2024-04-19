@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './GabaritoNivel2.css'; 
+import './GabaritoNivel3.css'; 
 
 const renderOptions = (isEditing) => {
   const options = [];
@@ -41,7 +41,7 @@ const renderQuestions = (subject, isEditing) => {
   return questions;
 };
 
-const GabaritoNivel2 = () => {
+const GabaritoNivel3 = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -50,7 +50,7 @@ const GabaritoNivel2 = () => {
 
   return (
     <>
-    <div className="page-container2">
+    <div className="page-container3">
       <div className="questions">
         <div className="subject">
           <p>LÍNGUA PORTUGUESA</p>
@@ -64,10 +64,12 @@ const GabaritoNivel2 = () => {
         {renderQuestions('matematica', isEditing)}
       </div>
       {/* Botão de editar */}
-      <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
+      <div className='buttonGabarito'>
+      <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>  
+      </div>
       </div>
     </>
   );
 };
 
-export default GabaritoNivel2;
+export default GabaritoNivel3;
