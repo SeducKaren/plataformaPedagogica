@@ -57,7 +57,7 @@ const Navbar = () => {
           </label>
           <input type="file" accept="image/*" id="file-upload" onChange={handleFotoChange} style={{ display: 'none' }} />
           <div className="info-user">
-          <p className='usuario'>{userData ? userData.nome.toUpperCase() : "Nome do Gestor"}</p>
+          <p className='usuario'>{userData ? userData.nome : "Nome do Gestor"}</p>
           </div>
         </h1>
 
