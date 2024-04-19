@@ -69,7 +69,7 @@ const Cadastros = () => {
     e.preventDefault();
     try {
       
-      const response = await api.post('/api/cadastro', formDataGestor); 
+      const response = await api.post('/api/gestor', formDataGestor); 
       
       console.log('Resposta do servidor:', response.data);
       

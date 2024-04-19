@@ -83,7 +83,7 @@ const Login = () => {
     try {
       setLoading(true);
       
-      const response = await api.get(`/api/cadastro/cpf/${cpf}`);
+      const response = await api.get(`/api/gestor/cpf/${cpf}`);
 
       if (response.data) {
         setUserData(response.data);
