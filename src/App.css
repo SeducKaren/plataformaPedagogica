@@ -1,11 +1,11 @@
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Faz com que a altura do conteúdo preencha pelo menos toda a altura da viewport */
+  min-height: 100vh; 
 }
 
 .footer {
-  margin-top: auto; /* Empurra o footer para a parte inferior */
+  margin-top: auto; 
   background-color: #333;
   color: white;
   text-align: center;
