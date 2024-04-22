@@ -1,7 +1,8 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
+.App{
+  margin: 0;
+  background-image: url(../public/criança-estudando.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footer {
