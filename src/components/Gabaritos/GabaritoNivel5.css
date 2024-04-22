@@ -1,48 +1,92 @@
-questions {
-    flex: 1 1 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
 
-  .page-container5 {
-    background-color: #f2cfee; /* Cor de fundo desejada */
-  }
+.questions1 {    
+  flex: 1 1 100%;
+  display: flex;
+  flex-wrap: wrap;      
+}
+
+.question1 {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 10px; */
+  /* width: calc(50% - 10px);  */
+  /* padding: 0px 0px 0px 0px;  */
+}
+
+label {
+  margin-right: 20px; /* Adiciona um espaço de 10 pixels entre cada checkbox */
+}
+
+.question1 p {
+  margin: 10px 0px 10px 0px;
+  margin-right: 20px;
+  font-size: 20px;
+
+}
+
+.question1 div {
+  display: flex;
+  align-items: center;
+}
+
+.question1 select {
+  margin-left: 10px;
+}
+
+
+.questions .subject {
+  flex-basis: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  align-items: center;
+  justify-content: center;   
+}
+
+.subject h3 {
+  /* margin-top: 0; */
+  text-align: center;
+  /* padding: 0px 0px 0px 0px; */
   
-
-  .subject {
-    flex-basis: 100%;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-
-  .subject h3 {
-    margin-top: 0;
-  }
-
-  .question {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    width: calc(50% - 10px); 
-    padding: 0px 0px 0px 10px;
-  }
-
-  .question p {
-    margin-right: 10px;
-    font-weight: bold; 
-    width: 60px; 
-  }
+}
 
 
-  .question div {
-    display: flex;
-    align-items: center;
-  }
 
-  .question select {
-    margin-left: 10px;
-  }
+.questions h3 {
+  font-size: 22px;    
+  font-weight: bold; 
+  width: 50%; 
+  align-items: center;      
+}
+
+
+
+.style .buttonGabarito {
+width: 10%;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.texto_gabarito {
+border: solid 3px;
+width: 85%;
+margin: 20px auto; 
+padding: 0px 0px 0px 10px; 
+}
+
+.texto__gabarito {
+font-size: 18px;
+font-weight: normal;
+
+}
+.texto__gabarito + .texto__gabarito {
+font-weight: normal;
+margin-top: 10px;
+
+}

@@ -55,6 +55,11 @@ const GabaritoMain = () => {
     }
   };
 
+  useEffect(() => {
+    // Atualiza a cor de fundo do corpo da página quando o estado background mudar
+    document.body.style.backgroundColor = background;
+  }, [background]);
+
   const handleDeficienciaChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {

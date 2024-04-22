@@ -27,7 +27,7 @@ const renderQuestions = (subject, isEditing) => {
   const questions = [];
   for (let i = 1; i <= 20; i++) {
     questions.push(
-      <div className="question" key={`${subject}-${i}`}>
+      <div className="question1" key={`${subject}-${i}`}>
         <p>{i}</p>
         {renderOptions(isEditing)}
         {/* <select disabled={!isEditing}>
@@ -50,18 +50,23 @@ const GabaritoNivel1 = ({ background }) => {
 
   return (
     <>
+    
       <div style={
         { backgroundColor: background }
       }>
+        <div className='texto_gabarito'>
+        <p className='texto__gabarito'><b>"M/E"</b> <span style={{ color: 'red' }}>"Múltipla Escolha"</span> é quando o aluno marca mais de uma opção em uma pergunta de escolha múltipla. Por exemplo preencheu a resposta A e B.</p>
+        <p className='texto__gabarito'><b>"N/R"</b> <span style={{color: 'red'}}>"Não Respondeu"</span> é usada quando o aluno não preencheu uma resposta para a pergunta específica da prova.</p>
+        </div>
         <div className="questions">
           <div className="subject">
-            <p>LÍNGUA PORTUGUESA</p>
+            <h3><span style={{color: 'red' }}>LÍNGUA PORTUGUESA</span></h3>
           </div>
           {renderQuestions('portugues', isEditing)}
         </div>
         <div className="questions">
           <div className="subject">
-            <p>MATEMÁTICA</p>
+            <h3><span style={{color: 'red' }}>MATEMÁTICA</span></h3>
           </div>
           {renderQuestions('matematica', isEditing)}
         </div>

@@ -7,8 +7,8 @@
 
 .navegation .logo-plataforma {
   padding: 5px;
-  max-width: 5%;
-  background-color: #fff;  
+  max-width: 5%;    
+  border-radius: 100%;  
 }
 
 .navegation .logo-prefeitura {
