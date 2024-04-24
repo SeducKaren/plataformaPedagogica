@@ -122,7 +122,7 @@ const Login = () => {
         {/* <SectionText /> */}
       </div>  
       <div className="section-input">
-        <h1>AvaliaEdu</h1>
+        <h1><img src="./logo.png" alt="logo" /></h1>
         <label>
           CPF:
           <input

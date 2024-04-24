@@ -16,6 +16,11 @@
     flex-direction: column;
 }
 
+.section-input h1 img {
+    max-width: 100px; 
+    height: auto;
+}
+
 label{
     display: flex;
     flex-direction: column;

@@ -67,10 +67,8 @@ const Cadastros = () => {
 
   const handleSubmitGestor = async (e) => {
     e.preventDefault();
-    try {
-      
-      const response = await api.post('/api/gestor', formDataGestor); 
-      
+    try {      
+      const response = await api.post('/api/gestor', formDataGestor);
       console.log('Resposta do servidor:', response.data);
       
       console.log('Dados do formulário gestor:', formDataGestor);
@@ -86,7 +84,6 @@ const Cadastros = () => {
       alert('Dados enviados')
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
-
     }
   };
 
