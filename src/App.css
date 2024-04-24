@@ -3,6 +3,7 @@
   background-image: url(../public/criança-estudando.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .footer {
