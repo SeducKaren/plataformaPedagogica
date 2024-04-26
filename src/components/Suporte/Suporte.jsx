@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Suporte.css'; 
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer'
 
 const Suporte = () => {
     const [formData, setFormData] = useState({
@@ -107,7 +108,7 @@ const Suporte = () => {
     };
 
     return (
-        <>
+        <div className='Suporte'>
             <Navbar />
             <div className="container">
                 <div className="header">
@@ -197,7 +198,8 @@ const Suporte = () => {
                         </div>
                 </form>
             </div>
-        </>
+            <Footer />
+        </div>
     );
 };
 

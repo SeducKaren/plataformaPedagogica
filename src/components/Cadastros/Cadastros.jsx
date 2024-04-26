@@ -95,28 +95,28 @@ const Cadastros = () => {
           <h1 className='title-gestor'>Cadastro Usuário</h1>
           <label>
             Nome:
-            <input type='text' name='nome' value={formDataGestor.nome} onChange={handleInputChangeGestor} />
+            <input type='text' name='nome' value={formDataGestor.nome} onChange={handleInputChangeGestor} placeholder='Digite seu nome'/>
           </label>
           <br />
           <label>
             CPF:
-            <input type='text' name='cpf' value={formDataGestor.cpf} onChange={handleInputChangeGestor} />
+            <input type='text' name='cpf' value={formDataGestor.cpf} onChange={handleInputChangeGestor} placeholder='Digite seu CPF'/>
             {!cpfValido && <span style={{ color: 'red' }}>CPF inválido</span>}
           </label>
           <br />
           <label>
             Escola:
-            <input type='text' name='escola' value={formDataGestor.escola} onChange={handleInputChangeGestor} />
+            <input type='text' name='escola' value={formDataGestor.escola} onChange={handleInputChangeGestor} placeholder='Digite sua escola'/>
           </label>
           <br />
           <label>
             Contato:
-            <input type='text' name='contato' value={formDataGestor.contato} onChange={handleInputChangeGestor} />
+            <input type='text' name='contato' value={formDataGestor.contato} onChange={handleInputChangeGestor} placeholder='Digite seu contato'/>
           </label>
           <br />
           <label>
             E-mail:
-            <input type='text' name='email' value={formDataGestor.email} onChange={handleInputChangeGestor} />
+            <input type='text' name='email' value={formDataGestor.email} onChange={handleInputChangeGestor} placeholder='Digite seu E-mail'/>
           </label>
           <br />
           <button type='submit' className='submit-button'>Cadastrar</button>

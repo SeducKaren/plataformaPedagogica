@@ -7,6 +7,7 @@ import GabaritoNivel3 from './GabaritoNivel3';
 import GabaritoNivel4 from './GabaritoNivel4';
 import GabaritoNivel5 from './GabaritoNivel5';
 import GabaritoNivel6 from './GabaritoNivel6';
+import Footer from '../Footer/Footer';
 
 
 const GabaritoMain = () => {
@@ -77,6 +78,7 @@ const GabaritoMain = () => {
   return (
     <>
       <Navbar />
+      <h1 className='titulo-gabarito'>Gabaritos</h1>
       <form onSubmit={handleSubmit} className="formulario" style={{backgroundColor: background}}>
         <label className='inputData'>
           Data de Registro:
@@ -314,6 +316,7 @@ const GabaritoMain = () => {
       {nivelProva === "Nível 5: Fase 1 e 2" && <GabaritoNivel5 />}
       {nivelProva === "Nível 6: Fase 3 e 4" && <GabaritoNivel6 />}
 
+      <Footer />
     </>
   );
 };

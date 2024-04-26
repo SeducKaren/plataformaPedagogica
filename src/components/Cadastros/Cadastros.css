@@ -5,22 +5,19 @@
   background-color: #fff;
 }
 
-.main-container {
-  display: flex;
+.Cadastros .main-container {
   gap: 20px;
   padding: 40px;
-  background-color: #fff;
+  background-color: #f2f8fb;
   margin: 0 auto;
+  border: 3px solid #2e4e7e; 
+  border-radius: 5px;
 }
 
 .cadastro-gestor {
   flex: 1;
   padding: 40px 80px;
   border-radius: 5px;
-}
-
-.cadastro-gestor {
-  border: 3px solid #2e4e7e; 
 }
 
 .title-gestor {

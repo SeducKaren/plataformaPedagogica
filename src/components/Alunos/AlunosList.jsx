@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import CadastroAluno from './CadastrosAlunos/CadastroAluno'
-import AlunosDashboard from './AlunosDashboard'
+import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao'
 
 import './AlunoList.css'
-import AlunosDetails from './AlunosDetails'
 
 const AlunosList = () => {
 
@@ -33,11 +32,11 @@ const AlunosList = () => {
         )}
         {section === 'lista-alunos' && (
           <div>
-            <AlunosDetails />
+            <PaginaConstrucao />
           </div>
         )}
         {section === 'grafico' && (
-          <AlunosDashboard />
+          <PaginaConstrucao />
         )}
       </div>
       <Footer />

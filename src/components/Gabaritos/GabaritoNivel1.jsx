@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Footer from '../Footer/Footer'
 import './GabaritoNivel1.css';
 
 const renderOptions = (isEditing) => {
@@ -76,7 +75,6 @@ const GabaritoNivel1 = ({ background }) => {
           <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

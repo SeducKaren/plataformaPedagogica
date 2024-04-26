@@ -44,7 +44,6 @@ const EscolasForm = () => {
     municipio: '',
     estado: '',
     telefone1: '',
-    telefone2: '',
     email: ''
   });
 
@@ -102,7 +101,6 @@ const EscolasForm = () => {
         municipio,
         estado,
         telefone1,
-        telefone2,
         email,
         anoAluno,
         instituicao,
@@ -130,245 +128,236 @@ const EscolasForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <div className="form-header">
-        <h1>Detalhes da Escola</h1>
-      </div>
-      <div className="form-all">
-        <div className="form-column-1">
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <label>
-                Código INEP:
-                <input
-                  type="text"
-                  value={codigoINEP}
-                  onChange={(e) => setCodigoINEP(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Digite o código INEP aqui"
-                />
-                {errors.codigoINEP && <span className="error-message">{errors.codigoINEP}</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Escola:
-                <input
-                  type="text"
-                  value={escola}
-                  onChange={(e) => setEscola(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Digite o nome da escola aqui"
-                />
-                {errors.escola && <span className="error-message">{errors.escola}</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Sigla:
-                <input
-                  type="text"
-                  value={sigla}
-                  onChange={(e) => setSigla(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Digite a sigla aqui"
-                />
-                {errors.sigla && <span className="error-message">{errors.sigla}</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Zona de Localização:
-                <select
-                  value={zonaLocalizacao}
-                  onChange={(e) => setZonaLocalizacao(e.target.value)}
-                  disabled={!isEditing}
-                >
-                  <option value="urbana">Urbana</option>
-                  <option value="rural">Rural</option>
-                </select>
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                CNPJ:
-                <input
-                  type="text"
-                  value={cnpj}
-                  onChange={handleCnpjChange}
-                  disabled={!isEditing}
-                  placeholder="Digite o CNPJ aqui"
-                />
-                {errors.cnpj && <span className="error-message">{errors.cnpj}</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                CEP:
-                <input
-                  type="text"
-                  value={cep}
-                  onChange={(e) => setCep(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Digite o CEP aqui"
-                />
-                {errors.cep && <span className="error-message">{errors.cep}</span>}
-                {enderecoLoading && <span>Carregando...</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Endereço:
-                <input
-                  type="text"
-                  value={endereco}
-                  onChange={(e) => setEndereco(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Endereço completo"
-                />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Número:
-                <input
-                  type="text"
-                  value={numero}
-                  onChange={(e) => setNumero(e.target.value)}
-                  disabled={!isEditing}
-                  placeholder="Digite o número aqui"
-                />
-                {errors.numero && <span className="error-message">{errors.numero}</span>}
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Complemento:
-                <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} placeholder="Digite o complemento aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Município:
-                <input type="text" value={municipio} onChange={(e) => setMunicipio(e.target.value)} disabled={!isEditing} placeholder="Digite o município aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Estado:
-                <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} placeholder="Digite o estado aqui" />
-              </label>
-            </div>
-            {showSaveButton && (
-              <button type="submit" className='button-save'>Salvar</button>
-            )}
-            {!isEditing && (
-              <button onClick={handleEdit} className='button-edit'>Editar</button>
-            )}
-          </form>
+    <div className="EscolaForm">
+      <div className="form-container">
+        <div className="form-header">
+          <h1>Detalhes da Escola</h1>
         </div>
-        <div className="form-column-2">
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <label>
-                Telefone 1:
-                <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 1 aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Telefone 2:
-                <input type="text" value={telefone2} onChange={(e) => setTelefone2(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 2 aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Email:
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} placeholder="Digite o email aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Ano do Aluno:
-                <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} placeholder="Digite o ano do aluno aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Instituição:
-                <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} placeholder="Digite a instituição aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Curso:
-                <select value={curso} onChange={(e) => setCurso(e.target.value)} disabled={!isEditing} className='curso'>
-                  <option value="fundamental">Fundamental</option>
-                  <option value="medio">Médio</option>
-                </select>
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Série:
-                <input type="text" value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!isEditing} placeholder="Digite a série aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Série do Aluno:
-                <input type="text" value={serieAluno} onChange={(e) => setSerieAluno(e.target.value)} disabled={!isEditing} placeholder="Digite a série do aluno aqui" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Quantidade de alunos matriculado na sua escola:
-                <input type="number" id="quantidadeAlunos" name="quantidadeAlunos" />
-              </label>
-            </div>
+        <div className="form-all">
+          <div className="form-column-1">
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <label>
+                  Código INEP:
+                  <input
+                    type="text"
+                    value={codigoINEP}
+                    onChange={(e) => setCodigoINEP(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Digite o código INEP aqui"
+                  />
+                  {errors.codigoINEP && <span className="error-message">{errors.codigoINEP}</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Escola:
+                  <input
+                    type="text"
+                    value={escola}
+                    onChange={(e) => setEscola(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Digite o nome da escola aqui"
+                  />
+                  {errors.escola && <span className="error-message">{errors.escola}</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Sigla:
+                  <input
+                    type="text"
+                    value={sigla}
+                    onChange={(e) => setSigla(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Digite a sigla aqui"
+                  />
+                  {errors.sigla && <span className="error-message">{errors.sigla}</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Zona de Localização:
+                  <select
+                    value={zonaLocalizacao}
+                    onChange={(e) => setZonaLocalizacao(e.target.value)}
+                    disabled={!isEditing}
+                  >
+                    <option value="urbana">Urbana</option>
+                    <option value="rural">Rural</option>
+                  </select>
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  CNPJ:
+                  <input
+                    type="text"
+                    value={cnpj}
+                    onChange={handleCnpjChange}
+                    disabled={!isEditing}
+                    placeholder="Digite o CNPJ aqui"
+                  />
+                  {errors.cnpj && <span className="error-message">{errors.cnpj}</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  CEP:
+                  <input
+                    type="text"
+                    value={cep}
+                    onChange={(e) => setCep(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Digite o CEP aqui"
+                  />
+                  {errors.cep && <span className="error-message">{errors.cep}</span>}
+                  {enderecoLoading && <span>Carregando...</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Endereço:
+                  <input
+                    type="text"
+                    value={endereco}
+                    onChange={(e) => setEndereco(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Endereço completo"
+                  />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Número:
+                  <input
+                    type="text"
+                    value={numero}
+                    onChange={(e) => setNumero(e.target.value)}
+                    disabled={!isEditing}
+                    placeholder="Digite o número aqui"
+                  />
+                  {errors.numero && <span className="error-message">{errors.numero}</span>}
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Complemento:
+                  <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} placeholder="Digite o complemento aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Município:
+                  <input type="text" value={municipio} onChange={(e) => setMunicipio(e.target.value)} disabled={!isEditing} placeholder="Digite o município aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Estado:
+                  <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} placeholder="Digite o estado aqui" />
+                </label>
+              </div>
+              {showSaveButton && (
+                <button type="submit" className='button-save'>Salvar</button>
+              )}
+              {!isEditing && (
+                <button onClick={handleEdit} className='button-edit'>Editar</button>
+              )}
             </form>
+          </div>
+          <div className="form-column-2">
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <label>
+                  Telefone 1:
+                  <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 1 aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Email:
+                  <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} placeholder="Digite o email aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Ano do Aluno:
+                  <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} placeholder="Digite o ano do aluno aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Instituição:
+                  <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} placeholder="Digite a instituição aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Curso:
+                  <select value={curso} onChange={(e) => setCurso(e.target.value)} disabled={!isEditing} className='curso'>
+                    <option value="fundamental">Fundamental</option>
+                    <option value="medio">Médio</option>
+                  </select>
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Série:
+                  <input type="text" value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!isEditing} placeholder="Digite a série aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Série do Aluno:
+                  <input type="text" value={serieAluno} onChange={(e) => setSerieAluno(e.target.value)} disabled={!isEditing} placeholder="Digite a série do aluno aqui" />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Quantidade de alunos matriculado na sua escola:
+                  <input type="number" id="quantidadeAlunos" name="quantidadeAlunos" />
+                </label>
+              </div>
+              </form>
+        </div>
+        </div>
+              <hr></hr>
+          <h3 className='titulo-gestores-escolares'>Gestores Escolares</h3>
+          <form className='gestores_escolares'>
+            <div className='gestores__escolares'>
+              <label For="inep">INEP</label>
+              <input type="number" id="inep" name="inep" placeholder="Digite o INEP aqui" />
+            </div>
+            <div className='gestores__escolares'>
+              <label For="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
+              <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
+            </div>
+            <div className='cargo_gestor'>
+              <label for='cargo_gestor'>Cargo do(a) Gestor(a)</label>
+              <select className='cargo__gestor'>
+                <option disabled>Selecione</option>
+                <option value="cargo_gestor">Diretor(a)</option>
+              </select>
+            </div>
+            <div className='gestores__escolares'>
+              <label For="detalhes">Detalhes</label>
+              <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
+            </div>
+            <div className='cargo_gestor'>
+              <label for='principal'>Principal</label>
+              <select className='cargo__gestor'>
+                <option disabled>Selecione</option>
+                <option value="principal">Sim</option>
+                <option value="principal">Não</option>
+              </select>
+            </div>
+            <div className='list_icons'>
+            <a className='icons1'><TiDelete /></a>
+            <a className='icons2'><IoMdAddCircle /></a>
+            </div>
+          </form>
       </div>
-      </div>
-
-            <hr></hr>
-        <h3 className='titulo-gestores-escolares'>Gestores Escolares</h3>
-        <form className='gestores_escolares'>
-          <div className='gestores__escolares'>
-            <label For="inep">INEP</label>
-            <input type="number" id="inep" name="inep" placeholder="Digite o INEP aqui" />
-          </div>
-          <div className='gestores__escolares'>
-            <label For="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
-            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
-          </div>
-          <div className='cargo_gestor'>
-            <label for='cargo_gestor'>Cargo do(a) Gestor(a)</label>
-            <select className='cargo__gestor'>
-              <option disabled>Selecione</option>
-              <option value="cargo_gestor">Diretor(a)</option>
-            </select>
-          </div>
-          <div className='gestores__escolares'>
-            <label For="detalhes">Detalhes</label>
-            <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
-          </div>
-          <div className='cargo_gestor'>
-            <label for='principal'>Principal</label>
-            <select className='cargo__gestor'>
-              <option disabled>Selecione</option>
-              <option value="principal">Sim</option>
-              <option value="principal">Não</option>
-            </select>
-          </div>
-          <div className='list_icons'>
-          <a className='icons1'><TiDelete /></a>
-          <a className='icons2'><IoMdAddCircle /></a>
-          </div>
-
-
-        </form>
-
-
     </div>
   );
 };
