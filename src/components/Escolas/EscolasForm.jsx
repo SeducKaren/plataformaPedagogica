@@ -19,9 +19,7 @@ const EscolasForm = () => {
   const [municipio, setMunicipio] = useState('');
   const [estado, setEstado] = useState('');
   const [telefone1, setTelefone1] = useState('');
-  const [telefone2, setTelefone2] = useState('');
   const [email, setEmail] = useState('');
-  const [anoAluno, setAnoAluno] = useState('');
   const [instituicao, setInstituicao] = useState('');
   const [curso, setCurso] = useState('fundamental');
   const [serie, setSerie] = useState('');
@@ -102,11 +100,9 @@ const EscolasForm = () => {
         estado,
         telefone1,
         email,
-        anoAluno,
         instituicao,
         curso,
         serie,
-        serieAluno,
         endereco
       });
       
@@ -270,20 +266,14 @@ const EscolasForm = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <label>
-                  Telefone 1:
-                  <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 1 aqui" />
+                  Telefone:
+                  <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone aqui" />
                 </label>
               </div>
               <div className="form-row">
                 <label>
                   Email:
                   <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} placeholder="Digite o email aqui" />
-                </label>
-              </div>
-              <div className="form-row">
-                <label>
-                  Ano do Aluno:
-                  <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} placeholder="Digite o ano do aluno aqui" />
                 </label>
               </div>
               <div className="form-row">
@@ -305,12 +295,6 @@ const EscolasForm = () => {
                 <label>
                   Série:
                   <input type="text" value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!isEditing} placeholder="Digite a série aqui" />
-                </label>
-              </div>
-              <div className="form-row">
-                <label>
-                  Série do Aluno:
-                  <input type="text" value={serieAluno} onChange={(e) => setSerieAluno(e.target.value)} disabled={!isEditing} placeholder="Digite a série do aluno aqui" />
                 </label>
               </div>
               <div className="form-row">

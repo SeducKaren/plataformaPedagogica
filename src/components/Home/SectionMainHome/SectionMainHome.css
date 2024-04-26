@@ -44,6 +44,11 @@
     max-width: 85%;
 }
 
+.SectionMainHome .adicionar-usuario-section{
+    width: 65%;
+    height: 22vh;
+}
+
 
 .SectionMainHome div img {
     width: 100px; /* Ajuste o tamanho conforme necessário */
