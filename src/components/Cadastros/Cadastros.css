@@ -1,71 +1,66 @@
-.Cadastros {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #fff;
-}
-
-.main-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  background-color: #fff;
+.container {
+  max-width: 600px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-.cadastro-gestor {
-  flex: 1;
-  padding: 40px;
-  border-radius: 5px;
+.header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.cadastro-gestor {
-  border: 3px solid #2e4e7e; 
+.cadastro-gestor,
+.CadastroAluno {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f2f8fb; /* Cor de fundo azul claro */
 }
 
 .title-gestor {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-.logo-gestor-titulo {
-  max-width: 100px; 
-  max-height: 100px; 
+.cadastro-gestor label,
+.CadastroAluno label {
+  margin-bottom: 10px;
 }
 
-.Cadastros label {
-  display: block;
-}
-
-.Cadastros input[type="text"] {
-  display: flex;
-  align-items: center;
-  width: 99%;
+.cadastro-gestor input[type='text'],
+.cadastro-gestor input[type='email'],
+.cadastro-gestor input[type='tel'],
+.cadastro-gestor textarea,
+.CadastroAluno input[type="text"],
+.CadastroAluno input[type="date"] {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #000000;
-  border-radius: 3px;
+  border: 1px solid #ccc; /* Alterado para a mesma borda cinza */
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
-.Cadastros .submit-button {
-  display: block;
-  max-width: 100%;
-  padding: 10px 20px 10px 20px;
-  background-color: #2e4e7e;
-  color: #fff;
+.cadastro-gestor button,
+.CadastroAluno button {
+  width: 100%;
+  padding: 10px;
+  background-color: #082465;
+  color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.Cadastros .submit-button:hover {
-  transform: none;
-  background-color: #1c3558;
+.cadastro-gestor button:hover,
+.CadastroAluno button:hover {
+  background-color: #1c355f;
 }
 
-.Cadastros .error-message {
-  color: red;
-  font-size: 14px;
+.cadastro-gestor textarea,
+.CadastroAluno textarea {
+  resize: vertical;
+  min-height: 100px;
 }

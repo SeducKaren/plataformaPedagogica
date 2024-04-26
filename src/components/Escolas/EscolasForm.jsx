@@ -32,6 +32,20 @@ const EscolasForm = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showSaveButton, setShowSaveButton] = useState(false); 
 
+  const [errors, setErrors] = useState({
+    codigoINEP: '',
+    escola: '',
+    sigla: '',
+    cnpj: '',
+    cep: '',
+    numero: '',
+    complemento: '',
+    municipio: '',
+    estado: '',
+    telefone1: '',
+    telefone2: '',
+    email: ''
+  });
 
   useEffect(() => {
     if (cep.length === 8) {
@@ -44,7 +58,6 @@ const EscolasForm = () => {
   const fetchAddress = async () => {
     setEnderecoLoading(true);
     try {
-      
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
       const { logradouro, bairro, localidade, uf } = response.data;
 
@@ -71,33 +84,30 @@ const EscolasForm = () => {
     }
   };
   
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validar campos do formulário
+    const validationErrors = {};
+    if (!codigoINEP) {
+      validationErrors.codigoINEP = 'Por favor, insira o código INEP.';
+    }
+    if (!escola) {
+      validationErrors.escola = 'Por favor, insira o nome da escola.';
+    }
+    // Adicione mais validações conforme necessário para os outros campos
+
+    if (Object.keys(validationErrors).length === 0) {
       console.log({
         codigoINEP,
         escola,
-        sigla,
-        zonaLocalizacao,
-        cnpj,
-        cep,
-        numero,
-        complemento,
-        centro,
-        municipio,
-        estado,
-        telefone1,
-        telefone2,
-        email,
-        anoAluno,
-        instituicao,
-        curso,
-        serie,
-        serieAluno,
-        endereco
+        // Outros campos...
       });
-    setIsEditing(false); // Desativa o modo de edição após o envio
-    setShowSaveButton(false); // Esconde o botão "Salvar" após enviar
+      setIsEditing(false); // Desativa o modo de edição após o envio
+      setShowSaveButton(false); // Esconde o botão "Salvar" após enviar
+      setErrors({}); // Limpa os erros
+    } else {
+      setErrors(validationErrors);
+    }
   };
 
   const handleEdit = () => {
@@ -110,7 +120,6 @@ const EscolasForm = () => {
       <div className="form-header">
         <h1>Detalhes da Escola</h1>
       </div>
-
       <div className="form-all">
         <div className="form-column-1">
           <form onSubmit={handleSubmit}>
@@ -124,6 +133,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o código INEP aqui"
                 />
+                {errors.codigoINEP && <span className="error-message">{errors.codigoINEP}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -136,6 +146,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o nome da escola aqui"
                 />
+                {errors.escola && <span className="error-message">{errors.escola}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -148,6 +159,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite a sigla aqui"
                 />
+                {errors.sigla && <span className="error-message">{errors.sigla}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -173,6 +185,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o CNPJ aqui"
                 />
+                {errors.cnpj && <span className="error-message">{errors.cnpj}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -185,6 +198,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o CEP aqui"
                 />
+                {errors.cep && <span className="error-message">{errors.cep}</span>}
                 {enderecoLoading && <span>Carregando...</span>}
               </label>
             </div>
@@ -210,6 +224,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o número aqui"
                 />
+                {errors.numero && <span className="error-message">{errors.numero}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -218,12 +233,6 @@ const EscolasForm = () => {
                 <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} />
               </label>
             </div>
-            {/* <div className="form-row">
-              <label>
-                Centro:
-                <input type="text" value={centro} onChange={(e) => setCentro(e.target.value)} disabled={!isEditing} />
-              </label>
-            </div> */}
             <div className="form-row">
               <label>
                 Município:
@@ -236,19 +245,14 @@ const EscolasForm = () => {
                 <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} />
               </label>
             </div>
-          </form>
-          {showSaveButton && (
+            {showSaveButton && (
               <button type="submit" className='button-save'>Salvar</button>
-
             )}
-
-          {!isEditing && (
-            <button onClick={handleEdit} className='button-edit'>Editar</button>
+            {!isEditing && (
+              <button onClick={handleEdit} className='button-edit'>Editar</button>
             )}
+          </form>
         </div>
-
-
-
         <div className="form-column-2">
           <form onSubmit={handleSubmit}>
             <div className="form-row">
@@ -270,10 +274,7 @@ const EscolasForm = () => {
               </label>
             </div>
             <div className="form-row">
-              <label>
-                Ano do Aluno:
-                <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} />
-              </label>
+              
             </div>
             {/* <div className="form-row">
               <label>

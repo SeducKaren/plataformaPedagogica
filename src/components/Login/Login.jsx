@@ -101,8 +101,10 @@ const Login = () => {
         <SectionText />
       </div>  
       <div className="section-input">
-        <h1>AvaliaEdu</h1>
-        <label>
+      <div className="logo_login">
+          <img src="\logo_avaliaedu 1c1c.jpeg" alt="logo" className='logo-avaliaedu'/>
+        </div>   
+        <label className='cpf_login'>
           CPF:
           <input
             type="text"
@@ -113,14 +115,14 @@ const Login = () => {
             style={{ border: error ? '3px solid red' : '3px solid black' }}
           />
         </label>
-
+        
         {<p id='paragrafo1'><strong>*Apenas números</strong></p>}
 
         <p id='paragrafo2' style={{ display: error ? 'flex' : 'none', color: 'red', fontSize: '14px' }}><strong>*CPF inválido.</strong></p>
         
         <p id='paragrafo3'><strong>*Login feito com sucesso</strong></p>
         <br />
-        <button 
+        <button className='button_login'
         onClick={handleLogin} id='btn-login'>Entrar</button>
       </div>
     </div>

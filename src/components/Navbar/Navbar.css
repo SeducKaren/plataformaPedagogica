@@ -35,6 +35,8 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  margin-top: 7px;
+  margin-right: -10px; 
 }
 
 .custom-file-upload:hover {
@@ -113,4 +115,18 @@
   max-width: 10%;
   background-color:#2e4e7e;
   border-radius: 50%;  
+}
+
+.btn-go-home {
+  background-color: #953333; /* Cor vermelha */
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #fff;
+  transition: color 0.3s ease;
+  margin-right: -10px; /* Adiciona uma margem à direita para separar os botões */
+}
+
+.btn-go-home:hover {
+  transform: none;
 }

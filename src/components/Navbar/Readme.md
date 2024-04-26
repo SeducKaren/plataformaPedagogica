@@ -1,0 +1,2 @@
+<!-- <button className="btn-go-home" onClick={handleGoToDashboard}>Voltar para a página principal</button> - Retirado : 25/04/2024
+<button className="btn-go-home" onClick={handleGoToDashboard}>Página Principal</button> - editado : 25/04/2024 -->

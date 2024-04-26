@@ -40,20 +40,25 @@ const Navbar = () => {
     };
   };
 
+  const handleGoToHomePage = () => {
+    // Navegar até a página principal
+    navigate('/');
+   
+  };
+
+  const handleGoToDashboard = () => {
+    // Navegar de volta para a página sectionhome
+    navigate('/home');
+  };
+
   return (
     <div className='Navbar'>
       <nav className='navegation'>
-      <img src="\logo_avaliandocomvoce.jpeg" alt="logo" className='logo-plataforma'/>              
+        <img src="\logo_avaliandocomvoce.jpeg" alt="logo" className='logo-plataforma'/>              
         <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
         <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>        
 
-        {/* <div className="buttons-back">
-          <span className='back-arrow' onClick={() => window.history.back()}>
-            &#8592;
-          </span>
-        </div> */}
-
-        <h1 className='file-gestor'>
+        <h1 className='file-gestor' onClick={handleGoToDashboard}>
           <label htmlFor="file-upload" className="custom-file-upload">
             <img src={fotoUsuario} alt="foto" id='foto-usuario' />
             <i className="fa fa-plus">+</i>
@@ -64,18 +69,15 @@ const Navbar = () => {
           </div>
         </h1>
 
+        {/* Botão para voltar para a página principal */}
+        <button className="btn-go-home" onClick={handleGoToDashboard}>Página Principal</button>
+        
         <button className='btn-logout' onClick={handleLogout}>Sair</button>
       </nav>
 
       <div className='escola-info'>
-      <img src="/logo_avaliaedu 2c2c.jpeg" alt="logo" className='logo-plataforma'/>
+        <img src="/logo_avaliaedu 2c2c.jpeg" alt="logo" className='logo-plataforma'/>
         <div className="gestorescolar"><h1>{gestorEscola.escola}</h1></div>
-        {/* <div></div> */}
-        {/* <h3>
-          {gestorEscola.tipoDeEnsino.map((tipo, index) => (
-            <span key={index}>{tipo}{index !== gestorEscola.tipoDeEnsino.length - 1 ? " - " : ""}</span>
-          ))}
-        </h3> */}
       </div>
     </div>
   );

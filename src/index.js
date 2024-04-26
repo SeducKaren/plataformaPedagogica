@@ -21,6 +21,7 @@ import GabaritoNivel3 from './components/Gabaritos/GabaritoNivel3';
 import GabaritoNivel4 from './components/Gabaritos/GabaritoNivel4';
 import GabaritoNivel5 from './components/Gabaritos/GabaritoNivel5';
 import GabaritoNivel6 from './components/Gabaritos/GabaritoNivel6';
+import Suporte from './components/Suporte/Suporte';
 
 
 
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 
   { path: '/cadastros', element: <Cadastros />},
   { path: '/gabaritos', element: <Gabarito />},
+  { path: '/suporte', element: <Suporte />},
+
 
   { path: '/gabaritoNivel1', element: <GabaritoNivel1 />},
   { path: '/gabaritoNivel2', element: <GabaritoNivel2 />},

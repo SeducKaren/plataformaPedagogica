@@ -4,7 +4,10 @@
     max-width: 80%;
     cursor: pointer;
     gap: 3em;
-    margin: 70px 0 0 30px;
+    margin: 0 auto;
+    margin-top: 6.25rem;
+    /* margin: 70px 0 0 30px; */
+    justify-content: center; /* Adicionado para centralizar horizontalmente */
 }
 
 .SectionMainHome .escola-section,
@@ -26,7 +29,8 @@
 }
 
 .SectionMainHome .escola-section a,
-.leitura-de-prova-section a{
+.leitura-de-prova-section a,
+.suporte-online a{
     font-weight: bold;
     color: #000;
     text-decoration: none;
@@ -100,7 +104,7 @@
     flex-direction: column;
     border: 5px solid #2e4e7e;
     border-radius: 8px;
-    padding: 10px;
+    padding: 13px;
     text-align: center;
     transition: .5s;
 }
@@ -149,3 +153,22 @@
     border: 5px solid #04944c;
     transform: translateY(-5px);
 }
+.dashboard-link {
+    height: 5px;
+    display: inline-block;
+    padding: 8px 16px;   
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: -10px;    
+  }  
+
+  .painel img {
+    max-width: 90%;
+    margin: 0 auto;    
+  }
+
+  
+
+  
