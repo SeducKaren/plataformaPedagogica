@@ -33,6 +33,20 @@ const EscolasForm = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showSaveButton, setShowSaveButton] = useState(false); 
 
+  const [errors, setErrors] = useState({
+    codigoINEP: '',
+    escola: '',
+    sigla: '',
+    cnpj: '',
+    cep: '',
+    numero: '',
+    complemento: '',
+    municipio: '',
+    estado: '',
+    telefone1: '',
+    telefone2: '',
+    email: ''
+  });
 
   useEffect(() => {
     if (cep.length === 8) {
@@ -45,7 +59,6 @@ const EscolasForm = () => {
   const fetchAddress = async () => {
     setEnderecoLoading(true);
     try {
-      
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
       const { logradouro, bairro, localidade, uf } = response.data;
 
@@ -72,7 +85,6 @@ const EscolasForm = () => {
     }
   };
   
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -114,7 +126,7 @@ const EscolasForm = () => {
 
   const handleEdit = () => {
     setIsEditing(true);
-    setShowSaveButton(true); // Exibe o botão "Salvar" ao clicar em editar
+    setShowSaveButton(true);
   };
 
   return (
@@ -122,7 +134,6 @@ const EscolasForm = () => {
       <div className="form-header">
         <h1>Detalhes da Escola</h1>
       </div>
-
       <div className="form-all">
         <div className="form-column-1">
           <form onSubmit={handleSubmit}>
@@ -136,6 +147,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o código INEP aqui"
                 />
+                {errors.codigoINEP && <span className="error-message">{errors.codigoINEP}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -148,6 +160,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o nome da escola aqui"
                 />
+                {errors.escola && <span className="error-message">{errors.escola}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -160,6 +173,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite a sigla aqui"
                 />
+                {errors.sigla && <span className="error-message">{errors.sigla}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -185,6 +199,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o CNPJ aqui"
                 />
+                {errors.cnpj && <span className="error-message">{errors.cnpj}</span>}
               </label>
             </div>
             <div className="form-row">
@@ -197,6 +212,7 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o CEP aqui"
                 />
+                {errors.cep && <span className="error-message">{errors.cep}</span>}
                 {enderecoLoading && <span>Carregando...</span>}
               </label>
             </div>
@@ -222,78 +238,68 @@ const EscolasForm = () => {
                   disabled={!isEditing}
                   placeholder="Digite o número aqui"
                 />
+                {errors.numero && <span className="error-message">{errors.numero}</span>}
               </label>
             </div>
             <div className="form-row">
               <label>
                 Complemento:
-                <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={complemento} onChange={(e) => setComplemento(e.target.value)} disabled={!isEditing} placeholder="Digite o complemento aqui" />
               </label>
             </div>
-            {/* <div className="form-row">
-              <label>
-                Centro:
-                <input type="text" value={centro} onChange={(e) => setCentro(e.target.value)} disabled={!isEditing} />
-              </label>
-            </div> */}
             <div className="form-row">
               <label>
                 Município:
-                <input type="text" value={municipio} onChange={(e) => setMunicipio(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={municipio} onChange={(e) => setMunicipio(e.target.value)} disabled={!isEditing} placeholder="Digite o município aqui" />
               </label>
             </div>
             <div className="form-row">
               <label>
                 Estado:
-                <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} placeholder="Digite o estado aqui" />
               </label>
             </div>
-          {showSaveButton && (
+            {showSaveButton && (
               <button type="submit" className='button-save'>Salvar</button>
-
             )}
-
-          {!isEditing && (
-            <button onClick={handleEdit} className='button-edit'>Editar</button>
+            {!isEditing && (
+              <button onClick={handleEdit} className='button-edit'>Editar</button>
             )}
           </form>
         </div>
-
-
-
         <div className="form-column-2">
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>
                 Telefone 1:
-                <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={telefone1} onChange={(e) => setTelefone1(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 1 aqui" />
               </label>
             </div>
             <div className="form-row">
               <label>
                 Telefone 2:
-                <input type="text" value={telefone2} onChange={(e) => setTelefone2(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={telefone2} onChange={(e) => setTelefone2(e.target.value)} disabled={!isEditing} placeholder="Digite o telefone 2 aqui" />
               </label>
             </div>
             <div className="form-row">
               <label>
                 Email:
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} placeholder="Digite o email aqui" />
               </label>
             </div>
             <div className="form-row">
               <label>
                 Ano do Aluno:
-                <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={anoAluno} onChange={(e) => setAnoAluno(e.target.value)} disabled={!isEditing} placeholder="Digite o ano do aluno aqui" />
               </label>
             </div>
-            {/* <div className="form-row">
+            <div className="form-row">
               <label>
                 Instituição:
-                <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} />
+                <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} placeholder="Digite a instituição aqui" />
               </label>
-            </div> */}
-            {/* <div className="form-row">
+            </div>
+            <div className="form-row">
               <label>
                 Curso:
                 <select value={curso} onChange={(e) => setCurso(e.target.value)} disabled={!isEditing} className='curso'>
@@ -301,54 +307,25 @@ const EscolasForm = () => {
                   <option value="medio">Médio</option>
                 </select>
               </label>
-            </div> */}
+            </div>
             <div className="form-row">
               <label>
                 Série:
-                <select className='serie'>
-                  <option value="1">Grupo 1</option>
-                  <option value="2">Grupo 2</option>
-                  <option value="3">Grupo 3</option>
-                  <option value="4">Grupo 4</option>
-                  <option value="5">Grupo 5</option>
-                  <option value="5">Grupo 6</option>
-                  <option value="5">Grupo 7</option>
-                  <option value="5">Grupo 8</option>
-                  <option value="5">Grupo 9</option>
-                </select>
+                <input type="text" value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!isEditing} placeholder="Digite a série aqui" />
               </label>
             </div>
-            <div className='input__escola'>
-              <label for='Curso'>Curso</label>
-              <select className='curso'>
-                <option disabled>Selecione</option>
-                <option value="Atendimento">Atendimento Educacional Especializado (AEE) (Migração até 2021)</option>
-                <option value="EJA Anos Finais">Educação de Jovens e Adultos - Anos Finais (EJA)</option>
-                <option value="EJA Anos Iniais">Educação de Jovens e Adultos - Anos Iniais (EJA)</option>
-                <option value="Educação Infantil">Educação Infantil</option>
-                <option value="Anos Finais">Ensino Fundamental - Anos Finais</option>
-                <option value="Anos Inicias">Ensino Fundamental - Anos Inicias</option>
-                <option value="9 anos">Ensino Fundamental de 9 anos - Multi (migração até 2021)</option>
-                <option value="Ensino medio">Ensino medio</option>
-              </select>
+            <div className="form-row">
+              <label>
+                Série do Aluno:
+                <input type="text" value={serieAluno} onChange={(e) => setSerieAluno(e.target.value)} disabled={!isEditing} placeholder="Digite a série do aluno aqui" />
+              </label>
             </div>
-            {/* <div className='formulario'>
-              <label For="Autorização">Autorização</label>
-              <input type="text" id="Autorização" name="Autorização" />
-            </div> */}
-            {/* <div className='formulario'>
-              <label For="Anos letivos">Anos letivos</label>
-              <input type="text" id="Anos letivos" name="Anos letivos" />
-            </div> */}
-            {/* <div className='formulario'>
-              <label For="Quantidade de alunos">Quantidade de alunos matriculado na sua escola</label>
-              <input type="numb" id="Quantidade de alunos" name="Quantidade de alunos" />
-            </div> */}
-            <div className="form-row">            
-              <label> Quantidade de alunos matriculado na sua escola</label>
-              <input type="numb" id="Quantidade de alunos" name="Quantidade de alunos" />
+            <div className="form-row">
+              <label>
+                Quantidade de alunos matriculado na sua escola:
+                <input type="number" id="quantidadeAlunos" name="quantidadeAlunos" />
+              </label>
             </div>
-
             </form>
       </div>
       </div>
@@ -358,11 +335,11 @@ const EscolasForm = () => {
         <form className='gestores_escolares'>
           <div className='gestores__escolares'>
             <label For="inep">INEP</label>
-            <input type="number" id="inep" name="inep" />
+            <input type="number" id="inep" name="inep" placeholder="Digite o INEP aqui" />
           </div>
           <div className='gestores__escolares'>
             <label For="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
-            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" />
+            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
           </div>
           <div className='cargo_gestor'>
             <label for='cargo_gestor'>Cargo do(a) Gestor(a)</label>
@@ -372,7 +349,7 @@ const EscolasForm = () => {
             </select>
           </div>
           <div className='gestores__escolares'>
-            <label For="detalhes">Destalhes</label>
+            <label For="detalhes">Detalhes</label>
             <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
           </div>
           <div className='cargo_gestor'>
@@ -395,5 +372,4 @@ const EscolasForm = () => {
     </div>
   );
 };
-
 export default EscolasForm;

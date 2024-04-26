@@ -5,7 +5,7 @@
   justify-content: center;
   border: 2px solid #ccc;
   padding: 15px; 
-  margin-left: 50px;
+  margin-left: 120px;
 }
 
 .form-container .form-header h1{
@@ -91,17 +91,16 @@
 }
 
 .gestores__escolares input {
-  height: 10px;    
+  height: 30px;    
 }
-
-
 
 .gestores__escolares input::placeholder {
   font-size: 12px;
 }
 
 .cargo__gestor {     
-  height: 33px;    
+  height: 35px;    
+  width: 100%;
 }
 
 .list_icons {
@@ -112,7 +111,7 @@
 }
 
 .icons1 {
-  margin-top: 8px;
+  margin-top: 15px;
   font-size: 2.3em; 
   color: rgb(215, 42, 42) !important;
 }
@@ -121,6 +120,7 @@
   display: flex;
   flex-direction: row;
   font-size: 2em;
+  margin-top: 5px;
   color: green !important;
   align-items: center;
 }

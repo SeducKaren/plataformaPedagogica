@@ -10,14 +10,11 @@ import EscolasForm from './EscolasForm';
 
 
 const EscolasList = () => {
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('detalhe');
 
   const handleSectionChange = (newSection) => {
     setSection(newSection);
   };
-
-
-
 
 
   return (

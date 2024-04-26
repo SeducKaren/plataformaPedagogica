@@ -8,14 +8,14 @@
 .main-container {
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 40px;
   background-color: #fff;
   margin: 0 auto;
 }
 
 .cadastro-gestor {
   flex: 1;
-  padding: 40px;
+  padding: 40px 80px;
   border-radius: 5px;
 }
 
@@ -43,7 +43,7 @@
 .Cadastros input[type="text"] {
   display: flex;
   align-items: center;
-  width: 99%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #000000;
   border-radius: 3px;

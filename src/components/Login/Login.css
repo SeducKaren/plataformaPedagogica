@@ -17,9 +17,9 @@
 }
 
 .section-input h1 img {
-    max-width: 100px; 
+    max-width: 150px;
     height: auto;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 label{
@@ -28,8 +28,9 @@ label{
     text-align: left;
 }
 
-input{
+.login .section-input input{
     font-size: 1em;
+    width: 97%;
     padding: 10px;
 }
 

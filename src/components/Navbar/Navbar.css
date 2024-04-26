@@ -3,6 +3,7 @@
   align-items: center;
   padding: 0px 10px;
   gap: 2.5em;
+  background-color: #fff;
 }
 
 .navegation .logo-plataforma {
@@ -21,7 +22,6 @@
   max-width: 5%;
   border-radius: 50%; 
 }
-
 
 
 #foto-usuario {
@@ -107,10 +107,20 @@
   margin-top: -10px;
 }
 
-.escola-info .logo-plataforma {  
+.logo-plataforma {  
   /* margin-right: auto; */
   padding: 5px;
   max-width: 10%;
   background-color:#2e4e7e;
-  border-radius: 50%;  
+  border-radius: 100%;  
+}
+
+.btn-go-home{
+  background-color: #2e4e7e;
+  border-radius: 8px;
+  transition: none;
+}
+
+.btn-go-home:hover{
+  transform: none;
 }

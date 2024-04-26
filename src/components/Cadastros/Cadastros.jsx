@@ -68,10 +68,9 @@ const Cadastros = () => {
   const handleSubmitGestor = async (e) => {
     e.preventDefault();
     try {      
+      console.log('Dados do formulário gestor:', formDataGestor)
       const response = await api.post('/api/gestor', formDataGestor);
-      console.log('Resposta do servidor:', response.data);
-      
-      console.log('Dados do formulário gestor:', formDataGestor);
+      console.log('Resposta do servidor:', response.data)
 
       setFormDataGestor({
         nome: '',
@@ -93,7 +92,7 @@ const Cadastros = () => {
 
       <div className="main-container">
         <form onSubmit={handleSubmitGestor} className="cadastro-gestor">
-          <h1 className='title-gestor'><img src="./logo.png" alt="logo" className='logo-gestor-titulo'/>Cadastro Usuário</h1>
+          <h1 className='title-gestor'>Cadastro Usuário</h1>
           <label>
             Nome:
             <input type='text' name='nome' value={formDataGestor.nome} onChange={handleInputChangeGestor} />

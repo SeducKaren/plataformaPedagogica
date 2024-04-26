@@ -17,6 +17,10 @@ const Navbar = () => {
   }
   }, []);
 
+  const handleGoToDashboard = () => {
+    navigate('/home');
+  };
+
   const handleLogout = () => {
     const isConfirmed = window.confirm('Tem certeza que deseja sair? Voltará para página de login.');
     if (isConfirmed) {
@@ -39,7 +43,7 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
       <nav className='navegation'>
-        <img src="\avaliando-com-vc.jpg" alt="logo" className='logo-plataforma'/>
+        <img src="\logo_avaliandocomvoce.jpeg" alt="logo" className='logo-plataforma'/>
         <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
         <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>       
 
@@ -60,6 +64,8 @@ const Navbar = () => {
           <p className='usuario'>{userData ? userData.nome_completo : "Nome do Gestor"}</p>
           </div>
         </h1>
+
+        <button className="btn-go-home" onClick={handleGoToDashboard}>Página Principal</button>
 
         <button className='btn-logout' onClick={handleLogout}>Sair</button>
       </nav>

@@ -1,0 +1,96 @@
+
+  .questions1 {    
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;      
+  }
+
+  .question1 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 10px; */
+    /* width: calc(50% - 10px);  */
+    /* padding: 0px 0px 0px 0px;  */
+  }
+
+  label {
+    margin-right: 20px; /* Adiciona um espaço de 10 pixels entre cada checkbox */
+  }
+
+  .question1 p {
+    margin: 10px 0px 10px 0px;
+    margin-right: 20px;
+    font-size: 20px;
+
+  }
+
+  .question1 div {
+    display: flex;
+    border-bottom: 1px solid #000;
+  }
+  
+  .question1{
+    align-items: center;
+
+  }
+
+  .question1 select {
+    margin-left: 10px;
+  }
+
+
+  .questions .subject {
+    flex-basis: 100%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+  }
+
+  .subject h3 {
+    /* margin-top: 0; */
+    text-align: center;
+    /* padding: 0px 0px 0px 0px; */
+    
+  }
+
+ 
+
+  .questions h3 {
+    font-size: 22px;    
+    font-weight: bold; 
+    width: 50%; 
+    align-items: center;      
+  }
+
+  .buttonGabarito {
+    width: 10%;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: translateX(450%);
+    margin: 20px 25px;
+  }
+
+.texto_gabarito {
+  border: solid 3px;
+  width: 85%;
+  margin: 20px auto; 
+  padding: 0px 0px 0px 10px; 
+}
+
+.texto__gabarito {
+  font-size: 18px;
+  font-weight: normal;
+  
+}
+.texto__gabarito + .texto__gabarito {
+  font-weight: normal;
+  margin-top: 10px;
+  
+}

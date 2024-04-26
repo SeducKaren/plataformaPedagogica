@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     gap: 3em;
-    margin: 70px 0 0 30px; 
+    margin: 70px 0px 0 30px; 
 }
 
 /* Ajustar tamanho dos ícones */
@@ -30,7 +30,21 @@
 
 }
 
-/* Ajustar tamanho das imagens dentro dos ícones */
+.SectionMainHome .painel{
+    height: 125px;
+    width: 110px;
+}
+
+.SectionMainHome .painel a{
+    text-decoration: none;
+    color: #000;
+}
+
+.SectionMainHome .painel img{
+    max-width: 85%;
+}
+
+
 .SectionMainHome div img {
     width: 100px; /* Ajuste o tamanho conforme necessário */
     height: 100px; /* Ajuste o tamanho conforme necessário */

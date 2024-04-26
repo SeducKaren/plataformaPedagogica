@@ -14,7 +14,14 @@ import EscolasDetails from './components/Escolas/EscolasDetails'
 import AlunosDetails from './components/Alunos/AlunosDetails'
 import AlunosList from './components/Alunos/AlunosList'
 import Cadastros from './components/Cadastros/Cadastros';
-import Gabarito from './components/Gabaritos/Gabarito';
+import Gabarito from './components/Gabaritos/GabaritoMain';
+import GabaritoNivel1 from './components/Gabaritos/GabaritoNivel1';
+import GabaritoNivel2 from './components/Gabaritos/GabaritoNivel2';
+import GabaritoNivel3 from './components/Gabaritos/GabaritoNivel3';
+import GabaritoNivel4 from './components/Gabaritos/GabaritoNivel4';
+import GabaritoNivel5 from './components/Gabaritos/GabaritoNivel5';
+import GabaritoNivel6 from './components/Gabaritos/GabaritoNivel6';
+import Suporte from './components/Suporte/Suporte';
 
 import{ createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -42,7 +49,17 @@ const router = createBrowserRouter([
   { path: '/api/turma:id', element: <TurmaDetails /> },
 
   { path: '/cadastros', element: <Cadastros />},
-  { path: '/gabaritos', element: <Gabarito />}
+  { path: '/gabaritos', element: <Gabarito />},
+
+  { path: '/suporte', element: <Suporte />},
+
+
+  { path: '/gabaritoNivel1', element: <GabaritoNivel1 />},
+  { path: '/gabaritoNivel2', element: <GabaritoNivel2 />},
+  { path: '/gabaritoNivel3', element: <GabaritoNivel3 />},
+  { path: '/gabaritoNivel4', element: <GabaritoNivel4 />},
+  { path: '/gabaritoNivel5', element: <GabaritoNivel5 />},
+  { path: '/gabaritoNivel6', element: <GabaritoNivel6 />}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

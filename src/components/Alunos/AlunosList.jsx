@@ -9,7 +9,7 @@ import AlunosDetails from './AlunosDetails'
 
 const AlunosList = () => {
 
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('cadastros');
 
   const handleSectionChange = (newSection) => {
     setSection(newSection);
