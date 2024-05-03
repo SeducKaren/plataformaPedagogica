@@ -1,0 +1,45 @@
+.painel-dash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+    cursor: pointer;
+    gap: 3em;
+    margin: 20px auto 0;
+}
+
+.title-dash{
+    text-align: center;
+}
+
+.painel-dash a {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    border: 5px solid #2e4e7e;
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+    transition: .5s;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.painel-dash a:hover {
+    border: 5px solid #04944c;
+    transform: translateY(-5px);
+}
+
+.footer-dash{
+    margin-top: 20px;
+}
+
+.painel-dash .img-1{
+    max-width: 165px !important;
+}
+.painel-dash .img-2{
+    max-width: 150px !important;
+}

@@ -7,11 +7,14 @@ import './Cadastros.css'
 
 const Cadastros = () => {
   const [formDataGestor, setFormDataGestor] = useState({
-    nome: '',
+    nome_completo: '',
     cpf: '',
+    email: '',
+    funcao: '',
+    telefone: '',
+    celular: '',
     escola: '',
-    contato: '',
-    email: ''
+    matricula: ''
   });
   
   const [cpfValido, setCpfValido] = useState(true);
@@ -73,11 +76,14 @@ const Cadastros = () => {
       console.log('Resposta do servidor:', response.data)
 
       setFormDataGestor({
-        nome: '',
+        nome_completo: '',
         cpf: '',
-        escola: '',
-        contato: '',
         email: '',
+        funcao: '',
+        telefone: '',
+        celular: '',
+        escola: '',
+        matricula: ''
       });
 
       alert('Dados enviados')
@@ -95,7 +101,7 @@ const Cadastros = () => {
           <h1 className='title-gestor'>Cadastro Usuário</h1>
           <label>
             Nome:
-            <input type='text' name='nome' value={formDataGestor.nome} onChange={handleInputChangeGestor} placeholder='Digite seu nome'/>
+            <input type='text' name='nome_completo' value={formDataGestor.nome_completo} onChange={handleInputChangeGestor} placeholder='Digite seu nome'/>
           </label>
           <br />
           <label>
@@ -105,18 +111,33 @@ const Cadastros = () => {
           </label>
           <br />
           <label>
+            E-mail:
+            <input type='text' name='email' value={formDataGestor.email} onChange={handleInputChangeGestor} placeholder='Digite seu E-mail'/>
+          </label>
+          <br />
+          <label>
+            Função:
+            <input type='text' name='funcao' value={formDataGestor.funcao} onChange={handleInputChangeGestor} placeholder='Digite sua função'/>
+          </label>
+          <br />
+          <label>
+            Telefone:
+            <input type='text' name='telefone' value={formDataGestor.telefone} onChange={handleInputChangeGestor} placeholder='Digite seu telefone'/>
+          </label>
+          <br />
+          <label>
+            Celular:
+            <input type='text' name='celular' value={formDataGestor.celular} onChange={handleInputChangeGestor} placeholder='Digite seu celular'/>
+          </label>
+          <br />
+          <label>
             Escola:
             <input type='text' name='escola' value={formDataGestor.escola} onChange={handleInputChangeGestor} placeholder='Digite sua escola'/>
           </label>
           <br />
           <label>
-            Contato:
-            <input type='text' name='contato' value={formDataGestor.contato} onChange={handleInputChangeGestor} placeholder='Digite seu contato'/>
-          </label>
-          <br />
-          <label>
-            E-mail:
-            <input type='text' name='email' value={formDataGestor.email} onChange={handleInputChangeGestor} placeholder='Digite seu E-mail'/>
+            Matrícula:
+            <input type='text' name='matricula' value={formDataGestor.matricula} onChange={handleInputChangeGestor} placeholder='Digite sua matrícula'/>
           </label>
           <br />
           <button type='submit' className='submit-button'>Cadastrar</button>

@@ -10,40 +10,25 @@ const EscolasForm = () => {
   const [codigoINEP, setCodigoINEP] = useState('');
   const [escola, setEscola] = useState('');
   const [sigla, setSigla] = useState('');
-  const [zonaLocalizacao, setZonaLocalizacao] = useState('urbana');
+  const [zonaDeLocalidade, setZonaLocalizacao] = useState('Urbana'); 
   const [cnpj, setCnpj] = useState('');
   const [cep, setCep] = useState('');
   const [numero, setNumero] = useState('');
   const [complemento, setComplemento] = useState('');
-  const [centro, setCentro] = useState('');
   const [municipio, setMunicipio] = useState('');
   const [estado, setEstado] = useState('');
   const [telefone1, setTelefone1] = useState('');
   const [email, setEmail] = useState('');
-  const [instituicao, setInstituicao] = useState('');
-  const [curso, setCurso] = useState('fundamental');
-  const [serie, setSerie] = useState('');
-  const [serieAluno, setSerieAluno] = useState('');
+  const [curso, setCurso] = useState([]); 
+  const [turnos, setTurnos] = useState([]);
+  const [serie, setSerie] = useState(''); 
+  const [quantidadeAlunos, setQuantidadeAlunos] = useState(0);
 
   const [enderecoLoading, setEnderecoLoading] = useState(false);
-  const [endereco, setEndereco] = useState('');
+  const [endereco, setEndereco] = useState('')
 
   const [isEditing, setIsEditing] = useState(false);
   const [showSaveButton, setShowSaveButton] = useState(false); 
-
-  const [errors, setErrors] = useState({
-    codigoINEP: '',
-    escola: '',
-    sigla: '',
-    cnpj: '',
-    cep: '',
-    numero: '',
-    complemento: '',
-    municipio: '',
-    estado: '',
-    telefone1: '',
-    email: ''
-  });
 
   useEffect(() => {
     if (cep.length === 8) {
@@ -51,8 +36,6 @@ const EscolasForm = () => {
     }
   }, [cep]);
 
-
-  // aqui é api do viacep
   const fetchAddress = async () => {
     setEnderecoLoading(true);
     try {
@@ -75,7 +58,7 @@ const EscolasForm = () => {
     const cnpjRegex = /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/; 
   
     if (cnpjRegex.test(formattedValue)) {
-      const formattedCnpj = formattedValue.replace(cnpjRegex, '$1.$2.$3/$4-$5'); // Formata o CNPJ
+      const formattedCnpj = formattedValue.replace(cnpjRegex, '$1.$2.$3/$4-$5');
       setCnpj(formattedCnpj);
     } else {
       setCnpj(formattedValue);
@@ -84,35 +67,50 @@ const EscolasForm = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const curso1 = curso.toString()
+    const turno1 = turnos.toString()
     
     try {
       const response = await api.post('/api/escola', {
-        codigoINEP,
-        escola,
-        sigla,
-        zonaLocalizacao,
-        cnpj,
-        cep,
-        numero,
-        complemento,
-        centro,
-        municipio,
-        estado,
-        telefone1,
-        email,
-        instituicao,
-        curso,
-        serie,
-        endereco
+        codigo_inep: codigoINEP,
+        escola: escola,
+        sigla: sigla,
+        zona_de_localidade: zonaDeLocalidade,
+        cnpj: cnpj,
+        cep: cep,
+        endereco: endereco,
+        numero: numero,
+        complemento: complemento,
+        municipio: municipio,
+        estado: estado,
+        telefone1: telefone1,
+        email: email,
+        turnos: turno1,
+        curso: curso1,
+        serie: serie,
+        quantidadeAlunos: quantidadeAlunos
       });
+      console.log(response.data)
       
-      console.log('Resposta do servidor:', response.data);
-
       setCodigoINEP('');
       setEscola('');
       setSigla('');
+      setZonaLocalizacao('')
+      setCnpj('')
+      setCep('')
+      setEndereco('')
+      setNumero('')
+      setComplemento('')
+      setMunicipio('')
+      setEstado('')
+      setTelefone1('')
+      setEmail('')
+      setTurnos([])
+      setCurso([])
+      setSerie('')
+      setQuantidadeAlunos('')
+
       alert('Dados enviados')
-      
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
     }
@@ -142,7 +140,6 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite o código INEP aqui"
                   />
-                  {errors.codigoINEP && <span className="error-message">{errors.codigoINEP}</span>}
                 </label>
               </div>
               <div className="form-row">
@@ -155,7 +152,6 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite o nome da escola aqui"
                   />
-                  {errors.escola && <span className="error-message">{errors.escola}</span>}
                 </label>
               </div>
               <div className="form-row">
@@ -168,19 +164,18 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite a sigla aqui"
                   />
-                  {errors.sigla && <span className="error-message">{errors.sigla}</span>}
                 </label>
               </div>
               <div className="form-row">
                 <label>
                   Zona de Localização:
                   <select
-                    value={zonaLocalizacao}
+                    value={zonaDeLocalidade}
                     onChange={(e) => setZonaLocalizacao(e.target.value)}
                     disabled={!isEditing}
                   >
-                    <option value="urbana">Urbana</option>
-                    <option value="rural">Rural</option>
+                    <option value="Urbana">Urbana</option>
+                    <option value="Rural">Rural</option>
                   </select>
                 </label>
               </div>
@@ -194,7 +189,6 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite o CNPJ aqui"
                   />
-                  {errors.cnpj && <span className="error-message">{errors.cnpj}</span>}
                 </label>
               </div>
               <div className="form-row">
@@ -207,7 +201,6 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite o CEP aqui"
                   />
-                  {errors.cep && <span className="error-message">{errors.cep}</span>}
                   {enderecoLoading && <span>Carregando...</span>}
                 </label>
               </div>
@@ -233,7 +226,6 @@ const EscolasForm = () => {
                     disabled={!isEditing}
                     placeholder="Digite o número aqui"
                   />
-                  {errors.numero && <span className="error-message">{errors.numero}</span>}
                 </label>
               </div>
               <div className="form-row">
@@ -254,12 +246,6 @@ const EscolasForm = () => {
                   <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} disabled={!isEditing} placeholder="Digite o estado aqui" />
                 </label>
               </div>
-              {showSaveButton && (
-                <button type="submit" className='button-save'>Salvar</button>
-              )}
-              {!isEditing && (
-                <button onClick={handleEdit} className='button-edit'>Editar</button>
-              )}
             </form>
           </div>
           <div className="form-column-2">
@@ -278,19 +264,113 @@ const EscolasForm = () => {
               </div>
               <div className="form-row">
                 <label>
-                  Instituição:
-                  <input type="text" value={instituicao} onChange={(e) => setInstituicao(e.target.value)} disabled={!isEditing} placeholder="Digite a instituição aqui" />
+                  Turnos:
                 </label>
+                <div className="checkbox-container">
+                  <input
+                    type="checkbox"
+                    value="Manhã"
+                    checked={turnos.includes("Manhã")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setTurnos((prevTurnos) => [...prevTurnos, value]);
+                      } else {
+                        setTurnos((prevTurnos) => prevTurnos.filter((turno) => turno !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Manhã</span>
+                  <input
+                    type="checkbox"
+                    value="Tarde"
+                    checked={turnos.includes("Tarde")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setTurnos((prevTurnos) => [...prevTurnos, value]);
+                      } else {
+                        setTurnos((prevTurnos) => prevTurnos.filter((turno) => turno !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Tarde</span>
+                  <input
+                    type="checkbox"
+                    value="Noite"
+                    checked={turnos.includes("Noite")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setTurnos((prevTurnos) => [...prevTurnos, value]);
+                      } else {
+                        setTurnos((prevTurnos) => prevTurnos.filter((turno) => turno !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Noite</span>
+                </div>
               </div>
+
+              <hr />
+
               <div className="form-row">
                 <label>
                   Curso:
-                  <select value={curso} onChange={(e) => setCurso(e.target.value)} disabled={!isEditing} className='curso'>
-                    <option value="fundamental">Fundamental</option>
-                    <option value="medio">Médio</option>
-                  </select>
                 </label>
+                <div className="checkbox-container">
+                  <input
+                    type="checkbox"
+                    value="Fundamental"
+                    checked={curso.includes("Fundamental")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Fundamental</span>
+                  <input
+                    type="checkbox"
+                    value="Médio"
+                    checked={curso.includes("Médio")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Médio</span>
+                  <input
+                    type="checkbox"
+                    value="EJA"
+                    checked={curso.includes("EJA")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>EJA</span>
+                </div>
               </div>
+              <hr />
+
               <div className="form-row">
                 <label>
                   Série:
@@ -300,49 +380,57 @@ const EscolasForm = () => {
               <div className="form-row">
                 <label>
                   Quantidade de alunos matriculado na sua escola:
-                  <input type="number" id="quantidadeAlunos" name="quantidadeAlunos" />
+                  <input type="number" value={quantidadeAlunos} onChange={(e) => setQuantidadeAlunos(e.target.value)} disabled={!isEditing}  id="quantidadeAlunos" name="quantidadeAlunos" />
                 </label>
               </div>
-              </form>
+              {showSaveButton && (
+                <button type="submit" className='button-save'>Salvar</button>
+              )}
+              {!isEditing && (
+                <button onClick={handleEdit} className='button-edit'>Editar</button>
+              )}
+            </form>
+          </div>
+          
         </div>
-        </div>
-              <hr></hr>
-          <h3 className='titulo-gestores-escolares'>Gestores Escolares</h3>
-          <form className='gestores_escolares'>
-            <div className='gestores__escolares'>
-              <label For="inep">INEP</label>
-              <input type="number" id="inep" name="inep" placeholder="Digite o INEP aqui" />
-            </div>
-            <div className='gestores__escolares'>
-              <label For="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
-              <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
-            </div>
-            <div className='cargo_gestor'>
-              <label for='cargo_gestor'>Cargo do(a) Gestor(a)</label>
-              <select className='cargo__gestor'>
-                <option disabled>Selecione</option>
-                <option value="cargo_gestor">Diretor(a)</option>
-              </select>
-            </div>
-            <div className='gestores__escolares'>
-              <label For="detalhes">Detalhes</label>
-              <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
-            </div>
-            <div className='cargo_gestor'>
-              <label for='principal'>Principal</label>
-              <select className='cargo__gestor'>
-                <option disabled>Selecione</option>
-                <option value="principal">Sim</option>
-                <option value="principal">Não</option>
-              </select>
-            </div>
-            <div className='list_icons'>
+        <hr></hr>
+        <h3 className='titulo-gestores-escolares'>Gestores Escolares</h3>
+        <form className='gestores_escolares'>
+          <div className='gestores__escolares'>
+            <label htmlFor="inep">INEP</label>
+            <input type="number" id="inep" name="inep" placeholder="Digite o INEP aqui" />
+          </div>
+          <div className='gestores__escolares'>
+            <label htmlFor="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
+            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
+          </div>
+          <div className='cargo_gestor'>
+            <label htmlFor='cargo_gestor'>Cargo do(a) Gestor(a)</label>
+            <select className='cargo__gestor'>
+              <option disabled>Selecione</option>
+              <option value="Diretor(a)">Diretor(a)</option>
+            </select>
+          </div>
+          <div className='gestores__escolares'>
+            <label htmlFor="detalhes">Detalhes</label>
+            <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
+          </div>
+          <div className='cargo_gestor'>
+            <label htmlFor='principal'>Principal</label>
+            <select className='cargo__gestor'>
+              <option disabled>Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+          <div className='list_icons'>
             <a className='icons1'><TiDelete /></a>
             <a className='icons2'><IoMdAddCircle /></a>
-            </div>
-          </form>
+          </div>
+        </form>
       </div>
     </div>
   );
 };
+
 export default EscolasForm;

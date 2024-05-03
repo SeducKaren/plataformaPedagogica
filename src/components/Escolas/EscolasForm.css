@@ -44,6 +44,17 @@
   margin-bottom: 5px;
 }
 
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  /* margin-right: 5px; */
+  margin-top: 5px;
+}
+
 .form-row input,
 .form-row select {
   max-width: 100%;

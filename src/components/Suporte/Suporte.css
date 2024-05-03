@@ -12,6 +12,11 @@
   background-color: #f2f8fb;
 }
 
+.titulo-suporte, 
+.paragrafo-suporte {
+  text-align: center;
+}
+
 .container form {
   display: flex;
   flex-direction: column;
@@ -47,8 +52,7 @@
 }
 
 input[type="radio"] {
-  margin-right: 45px;
-  top: 20px;
+  margin-right: 15px;
 }
 
 .container button {
@@ -66,6 +70,6 @@ input[type="radio"] {
 }
 
 .error-message {
-  color: red; /* Define a cor do texto da mensagem de erro como vermelha */
-  margin-top: 5px; /* Adiciona uma pequena margem superior para separar da entrada */
+  color: red; 
+  margin-top: 5px; 
 }

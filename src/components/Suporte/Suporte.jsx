@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import './Suporte.css'; 
+import emailjs from 'emailjs-com';
+import './Suporte.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer'
 
@@ -38,7 +38,7 @@ const Suporte = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         // Validar campos do formulário
         const validationErrors = {};
@@ -66,30 +66,37 @@ const Suporte = () => {
             setErrors(validationErrors);
             return;
         }
-        
-        // Se todos os campos estiverem preenchidos corretamente, enviar o formulário
-        try {
-            await axios.post('https://seusite.com/Suporte/joaopinteraminense@gmail.com', formData);
-            window.location.href = 'https://seusite.com/obrigado';
-            setFormData({
-                nome: '',
-                email: '',
-                telefone: '',
-                assunto: '',
-                mensagem: '',
-                opcaoSelecionada: '',
+
+        // Enviar o formulário usando EmailJS
+       
+
+        emailjs.sendForm('service_y3q9raa', 'template_lbkkmxs', e.currentTarget, "CIYv-FO5FhsE2BIag")
+            .then((result) => {
+                console.log(result.text);
+                alert('Mensagem enviada com sucesso!');
+                resetForm();
+            }, (error) => {
+                console.error('Ocorreu um erro ao enviar o formulário:', error);
+                alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
             });
-            setErrors({});
-        } catch (error) {
-            console.error('Ocorreu um erro ao enviar o formulário:', error);
-            alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
-        }
     };
 
     const isValidEmail = (email) => {
         // Função para validar o formato do e-mail
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
+    };
+
+    const resetForm = () => {
+        setFormData({
+            nome: '',
+            email: '',
+            telefone: '',
+            assunto: '',
+            mensagem: '',
+            opcaoSelecionada: '',
+        });
+        setErrors({});
     };
 
     const getPlaceholder = () => {
@@ -112,15 +119,14 @@ const Suporte = () => {
             <Navbar />
             <div className="container">
                 <div className="header">
-                    <h1>Fale Conosco</h1>
+                    <h2 className='titulo-suporte'>Fale Conosco</h2>
                 </div>
-                <p>Use o formulário abaixo para tirar suas dúvidas, dar sugestões ou registrar sua crítica, lembrando sempre de indicar o assunto e o destino da mensagem.</p>
+                <p className='paragrafo-suporte'>Use o formulário abaixo para tirar dúvidas.</p>
                 <form onSubmit={handleSubmit} className="formulario">
                     <div className="borda-azul">
                         <h3>Escolha uma opção:</h3>
                         <div className="multipla-escolha">
                             <label>
-                                Elogio
                                 <input
                                     type="radio"
                                     name="opcao"
@@ -128,9 +134,9 @@ const Suporte = () => {
                                     checked={formData.opcaoSelecionada === 'elogio'}
                                     onChange={() => handleOpcaoChange('elogio')}
                                 />
+                                Elogio
                             </label>
                             <label>
-                                Sugestão
                                 <input
                                     type="radio"
                                     name="opcao"
@@ -138,9 +144,9 @@ const Suporte = () => {
                                     checked={formData.opcaoSelecionada === 'sugestao'}
                                     onChange={() => handleOpcaoChange('sugestao')}
                                 />
+                                Sugestão
                             </label>
                             <label>
-                                Dúvida
                                 <input
                                     type="radio"
                                     name="opcao"
@@ -148,9 +154,9 @@ const Suporte = () => {
                                     checked={formData.opcaoSelecionada === 'duvida'}
                                     onChange={() => handleOpcaoChange('duvida')}
                                 />
+                                Dúvida
                             </label>
                             <label>
-                                Crítica
                                 <input
                                     type="radio"
                                     name="opcao"
@@ -158,23 +164,23 @@ const Suporte = () => {
                                     checked={formData.opcaoSelecionada === 'critica'}
                                     onChange={() => handleOpcaoChange('critica')}
                                 />
+                                Crítica
                             </label>
                         </div>
-                    </div>
 
                         <label>
                             Nome completo:
-                            <input type="text" name="nome" value={formData.nome} onChange={handleChange} placeholder='Digite seu nome completo'/>
+                            <input type="text" name="nome" value={formData.nome} onChange={handleChange} placeholder='Digite seu nome'/>
                             {errors.nome && <div className="error-message">{errors.nome}</div>}
                         </label>
                         <label>
                             E-mail:
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='Digite seu e-mail'/>
+                            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='Digite seu E-mail'/>
                             {errors.email && <div className="error-message">{errors.email}</div>}
                         </label>
                         <label>
                             Telefone:
-                            <input type="tel" name="telefone" value={formData.telefone} onChange={handleChange} placeholder='Digite o seu telefone'/>
+                            <input type="tel" name="telefone" value={formData.telefone} onChange={handleChange} placeholder='Digite seu telefone'/>
                             {errors.telefone && <div className="error-message">{errors.telefone}</div>}
                         </label>
                         <label>
@@ -196,6 +202,7 @@ const Suporte = () => {
                         <div className="botao">
                             <button type="submit">Enviar</button>
                         </div>
+                    </div>
                 </form>
             </div>
             <Footer />
