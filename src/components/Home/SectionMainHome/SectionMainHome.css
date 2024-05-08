@@ -1,174 +1,61 @@
-.SectionMainHome{
+.SectionMainHome {
     display: flex;
     align-items: center;
-    max-width: 80%;
-    cursor: pointer;
     gap: 3em;
-    margin: 0 auto;
-    margin-top: 6.25rem;
-    /* margin: 70px 0 0 30px; */
-    justify-content: center; /* Adicionado para centralizar horizontalmente */
+    margin: 70px 0px 0 30px; 
 }
 
-.SectionMainHome .escola-section,
-.leitura-de-prova-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .4s;
-}
-
-.SectionMainHome .escola-section:hover,
-.leitura-de-prova-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .escola-section a,
-.leitura-de-prova-section a,
-.suporte-online a{
-    font-weight: bold;
+/* Ajustar tamanho dos ícones */
+.SectionMainHome div {
     color: #000;
-    text-decoration: none;
-}
-
-.SectionMainHome .alunos-section{
-    max-width: 10%;
+    max-width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     border: 5px solid #2e4e7e;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    transition: .4s;
+    transition: border .4s, transform .4s;
+    font-weight: bold;
 }
 
-.SectionMainHome .alunos-section:hover{
+.SectionMainHome div:hover {
     border: 5px solid #04944c;
     transform: translateY(-5px);
-
 }
 
-.SectionMainHome .alunos-section a{
+.SectionMainHome a{
     text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
 
-.SectionMainHome .adicionar-usuario-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 8px 10px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .adicionar-usuario-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
-}
-
-.SectionMainHome .adicionar-usuario-section a{
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.SectionMainHome .leitura-de-prova-section{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
-}
-
-.SectionMainHome .leitura-de-prova-section:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
 }
 
 .SectionMainHome .painel{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    border-radius: 8px;
-    padding: 13px;
-    text-align: center;
-    transition: .5s;
-}
-
-.SectionMainHome .painel:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+    height: 125px;
+    width: 110px;
 }
 
 .SectionMainHome .painel a{
-    font-weight: bold;
+    text-decoration: none;
     color: #000;
-    text-decoration: none;
 }
 
-.SectionMainHome .suporte-online{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
+.SectionMainHome .painel img{
+    max-width: 85%;
 }
 
-.SectionMainHome .suporte-online:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+.SectionMainHome .adicionar-usuario-section{
+    width: 60%;
+    height: 22vh;
 }
 
-.SectionMainHome .video-tutorial{
-    max-width: 10%;
-    display: flex;
-    flex-direction: column;
-    border: 5px solid #2e4e7e;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    transition: .5s;
-    font-weight: bold;
+
+.SectionMainHome div img {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
 }
 
-.SectionMainHome .video-tutorial:hover{
-    border: 5px solid #04944c;
-    transform: translateY(-5px);
+/* Remover margem da barra lateral */
+.SectionMainHome div:first-child {
+    margin-left: 0;
 }
-.dashboard-link {
-    height: 5px;
-    display: inline-block;
-    padding: 8px 16px;   
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: -10px;    
-  }  
-
-  .painel img {
-    max-width: 90%;
-    margin: 0 auto;    
-  }
-
-  
-
-  

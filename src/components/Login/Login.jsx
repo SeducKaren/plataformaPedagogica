@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import SectionText from './SectionText/SectionText';
-
+import React, { useState, useContext } from 'react';
+import { DadosContext } from '../Context/DadosContext';
+// import SectionText from './SectionText/SectionText';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services/apiConfig';
 
 import './Login.css'
-
 
 const Login = () => {
   const [cpf, setCpf] = useState('');
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate()
+  const { setUserData } = useContext(DadosContext);
   
   const handleNavigate = () => {
      navigate('/home')
@@ -64,47 +66,64 @@ const Login = () => {
   };
 
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!validateCPF(cpf)) {
-
-      const inputCpf = document.getElementById('input-cpf')
+      const inputCpf = document.getElementById('input-cpf');
       inputCpf.style.border = '3px solid red';
       
-      const paragrafo2 = document.getElementById('paragrafo2')
-      paragrafo2.style.display = 'flex'
-      paragrafo2.style.color = 'red'
-      paragrafo2.style.fontSize = '14px'
+      const paragrafo2 = document.getElementById('paragrafo2');
+      paragrafo2.style.display = 'flex';
+      paragrafo2.style.color = 'red';
+      paragrafo2.style.fontSize = '14px';
       
-      setError(true)
+      setError(true);
       return;
+    }
+  
+    try {
+      setLoading(true);
       
-    }else{
-      setError(false)
+      const response = await api.get(`/api/gestor/cpf/${cpf}`);
 
-      const inputCpf = document.getElementById('input-cpf')
-      inputCpf.style.border = '3px solid green';
+      if (response.data) {
+        setUserData(response.data);
+        setError(false);
 
-      const paragrafo3 = document.getElementById('paragrafo3')
-      paragrafo3.style.display = 'flex'
-      paragrafo3.style.color = 'green'
-      paragrafo3.style.fontSize = '14px'
-      
-      alert('Login bem-sucedido!');
-      handleNavigate()
+        const inputCpf = document.getElementById('input-cpf');
+        inputCpf.style.border = '3px solid green';
+  
+        const paragrafo3 = document.getElementById('paragrafo3');
+        paragrafo3.style.display = 'flex';
+        paragrafo3.style.color = 'green';
+        paragrafo3.style.fontSize = '14px';
+  
+        handleNavigate();
+      } else {
+
+        const paragrafo2 = document.getElementById('paragrafo2');
+        paragrafo2.style.display = 'flex';
+        paragrafo2.style.color = 'red';
+        paragrafo2.style.fontSize = '14px';
+        
+        setError(true);
+      }
+    } catch (error) {
+      console.error('Erro ao fazer a requisição:', error);
+    } finally {
+      setLoading(false); 
     }
   };
+  
 
 
   return (
     <div className='login'>
       <div className="section-text">
-        <SectionText />
+        {/* <SectionText /> */}
       </div>  
       <div className="section-input">
-      <div className="logo_login">
-          <img src="\logo_avaliaedu 1c1c.jpeg" alt="logo" className='logo-avaliaedu'/>
-        </div>   
-        <label className='cpf_login'>
+        <h1><img src="./logo.png" alt="logo" /></h1>
+        <label>
           CPF:
           <input
             type="text"
@@ -115,15 +134,20 @@ const Login = () => {
             style={{ border: error ? '3px solid red' : '3px solid black' }}
           />
         </label>
-        
+
         {<p id='paragrafo1'><strong>*Apenas números</strong></p>}
 
         <p id='paragrafo2' style={{ display: error ? 'flex' : 'none', color: 'red', fontSize: '14px' }}><strong>*CPF inválido.</strong></p>
         
         <p id='paragrafo3'><strong>*Login feito com sucesso</strong></p>
         <br />
-        <button className='button_login'
-        onClick={handleLogin} id='btn-login'>Entrar</button>
+        <button 
+        onClick={handleLogin} 
+        id='btn-login'
+        disabled={loading} 
+        >
+          {loading ? 'Carregando...' : 'Entrar'} 
+        </button>
       </div>
     </div>
   );

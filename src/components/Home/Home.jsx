@@ -3,11 +3,11 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 
 
+import SectionMainHome from './SectionMainHome/SectionMainHome';
 import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import './Home.css'
-import SectionMainHome from './SectionMainHome/SectionMainHome';
 
 
 const Home = () => {

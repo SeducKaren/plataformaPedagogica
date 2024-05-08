@@ -1,20 +1,25 @@
+.EscolaForm{
+  width: 70%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
   text-align: left;
   justify-content: center;
-  border: 2px solid #ccc;
+  border: 2px solid #2e4e7e;
   padding: 15px; 
-  margin-left: 50px;
-  border-radius: 10px;
-  background-color: #f2f8fb; /* Define o fundo do formulário */
+  background-color: #f2f8fb;
+  border-radius: 5px;
 }
 
-.form-container .form-header h1 {
+.form-container .form-header h1{
   text-align: center;
 }
 
-.form-all {
+.form-all{
   display: flex;
   flex-direction: row;
 }
@@ -24,9 +29,10 @@
   padding: 0 20px;
 }
 
-.form-column-2 {
+.form-column-2{
   flex: 1;
 }
+
 
 .form-row {
   display: flex;
@@ -37,6 +43,17 @@
 
 .form-row label {
   margin-bottom: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  /* margin-right: 5px; */
+  margin-top: 5px;
 }
 
 .form-row input,
@@ -61,18 +78,12 @@
   background-color: #0056b3;
 }
 
-.error-message {
-  color: #d9534f; /* Cor vermelha para a mensagem de erro */
-  font-size: 14px;
-  margin-top: 5px;
-}
-
 .form-nome {
   text-align: center; 
   margin-bottom: 20px;
 }
 
-.curso {
+.curso{
   padding: 10px;
   margin-bottom: 5px;
 }
@@ -87,18 +98,19 @@
   font-weight: 600;
   padding: 5px;
   text-decoration: none;
-  margin: 0;
+  margin: 20px;
 }
 
 .gestores_escolares {
   display: flex;
   width: 100%; 
   gap: 20px;       
-  padding: 10px;       
+  padding: 0px 0px 0px 20px; 
+  margin: 0 auto;      
 }
 
 .gestores__escolares input {
-  height: 10px;    
+  height: 30px;    
 }
 
 .gestores__escolares input::placeholder {
@@ -106,7 +118,8 @@
 }
 
 .cargo__gestor {     
-  height: 33px;    
+  height: 35px;    
+  width: 100%;
 }
 
 .list_icons {
@@ -117,39 +130,41 @@
 }
 
 .icons1 {
-  margin-top: 8px;
+  margin-top: 15px;
   font-size: 2.3em; 
   color: rgb(215, 42, 42) !important;
 }
 
-.icons2 svg { 
+.icons2 svg{ 
   display: flex;
   flex-direction: row;
   font-size: 2em;
+  margin-top: 5px;
   color: green !important;
   align-items: center;
 }
 
-.button-edit {
+.button-edit{
   max-width: 100%;
   background-color: #04944c;
   padding: 10px 20px;
   transition: none;
+  /* margin-top: 10px; */
 }
 
-.button-edit:hover {
+.button-edit:hover{
   transform: none;
 }
 
-.button-save {
+.button-save{
   padding: 10px 20px;
   background-color: rgb(215, 42, 42); 
 }
 
-.button-save:hover {
+.button-save:hover{
   transform: none;
 }
 
-hr {
+hr{
   width: 100%;
 }

@@ -3,12 +3,12 @@
   align-items: center;
   padding: 0px 10px;
   gap: 2.5em;
+  background-color: #fff;
 }
 
-.navegation .logo-plataforma {
-  padding: 5px;
-  max-width: 5%;    
-  border-radius: 100%;  
+.logo-plataforma-2 {
+  max-width: 12%;
+  background-color: #fff;  
 }
 
 .navegation .logo-prefeitura {
@@ -16,12 +16,11 @@
   max-width: 11%;
 }
 
-.navegation .logo-secretaria {
+.logo-secretaria {
   padding: 5px;
   max-width: 5%;
   border-radius: 50%; 
 }
-
 
 
 #foto-usuario {
@@ -35,8 +34,6 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  margin-top: 7px;
-  margin-right: -10px; 
 }
 
 .custom-file-upload:hover {
@@ -109,24 +106,20 @@
   margin-top: -10px;
 }
 
-.escola-info .logo-plataforma {  
+.logo-plataforma {  
   /* margin-right: auto; */
   padding: 5px;
   max-width: 10%;
   background-color:#2e4e7e;
-  border-radius: 50%;  
+  border-radius: 100%;  
 }
 
-.btn-go-home {
-  background-color: #953333; /* Cor vermelha */
-  cursor: pointer;
+.btn-go-home{
+  background-color: #2e4e7e;
   border-radius: 8px;
-  font-size: 1em;
-  color: #fff;
-  transition: color 0.3s ease;
-  margin-right: -10px; /* Adiciona uma margem à direita para separar os botões */
+  transition: none;
 }
 
-.btn-go-home:hover {
+.btn-go-home:hover{
   transform: none;
 }

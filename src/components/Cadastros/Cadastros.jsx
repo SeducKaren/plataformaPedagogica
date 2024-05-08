@@ -1,31 +1,27 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer'
+import api from '../../services/apiConfig';
 
-import './Cadastros.css';
+import './Cadastros.css'
 
 const Cadastros = () => {
   const [formDataGestor, setFormDataGestor] = useState({
-    nome: '',
+    nome_completo: '',
     cpf: '',
+    email: '',
+    funcao: '',
+    telefone: '',
+    celular: '',
     escola: '',
-    contato: '',
-    email: ''
+    matricula: ''
   });
   
   const [cpfValido, setCpfValido] = useState(true);
-  const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição do balão de confirmação
 
   const handleInputChangeGestor = (e) => {
     const { name, value } = e.target;
-    let newValue = value;
-
-    if (name === 'contato') {
-      newValue = value.replace(/\D/g, '');
-      newValue = newValue.substring(0, 11);
-    }
-
-    setFormDataGestor({ ...formDataGestor, [name]: newValue });
+    setFormDataGestor({ ...formDataGestor, [name]: value });
 
     if (name === 'cpf') {
       setCpfValido(validateCPF(value));
@@ -33,7 +29,7 @@ const Cadastros = () => {
   };
 
   const validateCPF = (cpf) => {
-    if (!cpf || cpf.length > 12) return false;
+    if (!cpf || cpf.length !== 11) return false;
     
     if (/^(\d)\1+$/.test(cpf)) return false;
 
@@ -72,77 +68,86 @@ const Cadastros = () => {
     return true;
   };
 
-  const handleSubmitGestor = (e) => {
+  const handleSubmitGestor = async (e) => {
     e.preventDefault();
+    try {      
+      console.log('Dados do formulário gestor:', formDataGestor)
+      const response = await api.post('/api/gestor', formDataGestor);
+      console.log('Resposta do servidor:', response.data)
 
-    // Verificar se todos os campos estão preenchidos e o CPF é válido
-    const camposPreenchidos = Object.values(formDataGestor).every((value) => value.trim() !== '');
-    if (camposPreenchidos && cpfValido) {
-      console.log('Dados do formulário gestor:', formDataGestor);
+      setFormDataGestor({
+        nome_completo: '',
+        cpf: '',
+        email: '',
+        funcao: '',
+        telefone: '',
+        celular: '',
+        escola: '',
+        matricula: ''
+      });
 
-      // Definir o estado "showConfirmation" como true para exibir o balão de confirmação
-      setShowConfirmation(true);
-
-      // Resetar o formulário após 3 segundos
-      setTimeout(() => {
-        setShowConfirmation(false);
-        setFormDataGestor({
-          nome: '',
-          cpf: '',
-          escola: '',
-          contato: '',
-          email: '',
-        });
-      }, 3000);
-    } else {
-      // Se algum campo estiver vazio ou o CPF for inválido, exibir mensagem de erro
-      alert('Por favor, preencha todos os campos corretamente.');
+      alert('Dados enviados')
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
     }
   };
 
   return (
-    <div className='Cadastros'>
+    <div className='Cadastros'>      
       <Navbar />
+      
 
       <div className="main-container">
         <form onSubmit={handleSubmitGestor} className="cadastro-gestor">
           <h1 className='title-gestor'>Cadastro Usuário</h1>
           <label>
             Nome:
-            <input type='text' name='nome' placeholder='Digite aqui seu nome' value={formDataGestor.nome} onChange={handleInputChangeGestor} />
+            <input type='text' name='nome_completo' value={formDataGestor.nome_completo} onChange={handleInputChangeGestor} placeholder='Digite seu nome'/>
           </label>
           <br />
           <label>
             CPF:
-            <input type='text' name='cpf' placeholder='Digite aqui seu CPF' value={formDataGestor.cpf} onChange={handleInputChangeGestor} maxLength={12} />
+            <input type='text' name='cpf' value={formDataGestor.cpf} onChange={handleInputChangeGestor} placeholder='Digite seu CPF'/>
             {!cpfValido && <span style={{ color: 'red' }}>CPF inválido</span>}
           </label>
           <br />
           <label>
-            Escola:
-            <input type='text' name='escola' placeholder='Digite aqui sua escola' value={formDataGestor.escola} onChange={handleInputChangeGestor} />
+            E-mail:
+            <input type='text' name='email' value={formDataGestor.email} onChange={handleInputChangeGestor} placeholder='Digite seu E-mail'/>
+          </label>
+          <br />
+          <label>
+            Função:
+            <input type='text' name='funcao' value={formDataGestor.funcao} onChange={handleInputChangeGestor} placeholder='Digite sua função'/>
           </label>
           <br />
           <label>
             Telefone:
-            <input type='text' name='contato' placeholder='Digite aqui seu contato' value={formDataGestor.contato} onChange={handleInputChangeGestor} maxLength={11} />
+            <input type='text' name='telefone' value={formDataGestor.telefone} onChange={handleInputChangeGestor} placeholder='Digite seu telefone'/>
           </label>
           <br />
           <label>
-            E-mail:
-            <input type='text' name='email' placeholder='Digite aqui seu e-mail' value={formDataGestor.email} onChange={handleInputChangeGestor} />
+            Celular:
+            <input type='text' name='celular' value={formDataGestor.celular} onChange={handleInputChangeGestor} placeholder='Digite seu celular'/>
+          </label>
+          <br />
+          <label>
+            Escola:
+            <input type='text' name='escola' value={formDataGestor.escola} onChange={handleInputChangeGestor} placeholder='Digite sua escola'/>
+          </label>
+          <br />
+          <label>
+            Matrícula:
+            <input type='text' name='matricula' value={formDataGestor.matricula} onChange={handleInputChangeGestor} placeholder='Digite sua matrícula'/>
           </label>
           <br />
           <button type='submit' className='submit-button'>Cadastrar</button>
         </form>
-        {showConfirmation && (
-          <div className="confirmation-balloon">
-            Cadastrado com sucesso!
-          </div>
-        )}
       </div>
-
+      <div className='footer'>
       <Footer />
+      </div>
+      
     </div>
   );
 };

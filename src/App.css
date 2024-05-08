@@ -1,3 +1,14 @@
 .App{
   margin: 0;
+  background-image: url(../public/criança-estudando.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.footer {
+  margin-top: auto; 
+  color: white;
+  text-align: center;
 }

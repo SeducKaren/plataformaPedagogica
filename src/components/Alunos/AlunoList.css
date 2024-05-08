@@ -1,58 +1,59 @@
 .AlunoList {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .navbar {
-    display: flex;
-    align-items: center;
-    gap: 3em;
-    justify-content: center;
-    background-color: #082465;
-    color: white;
-    padding: 10px 0;
-  }
-  
-  .navbar button {
-    border: none;
-    background: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    padding: 10px;
-    border: 2px solid #fff;
-    transition: background-color 0.3s;
-  }
-  
-  .navbar button:hover {
-    background-color: #24416b;
-  }
-  
-  .main-container {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  .AlunoList h1 {
-    text-align: center;
-  }
-  
-  .main-container > div {
-    margin-top: 20px;
-  }
-  
-  .main-container h2 {
-    margin-bottom: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
 
-  .main-container .graficos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  justify-content: center;
+  background-color: #082465;
+  color: white;
+  padding: 10px 0;
+}
+
+.navbar button {
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid #fff;
+  transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #24416b;
+}
+
+.main-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.AlunoList h1 {
+  text-align: center;
+}
+
+.main-container > div {
+  margin-top: 20px;
+}
+
+.main-container h2 {
+  margin-bottom: 10px;
+}
+
+.main-container .graficos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
-  .main-container .grafico-pizza{
-    max-width: 40%;
-  }
+.main-container .grafico-pizza{
+  max-width: 40%;
+}

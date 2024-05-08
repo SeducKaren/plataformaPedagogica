@@ -6,18 +6,16 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer';
 
 import EscolasForm from './EscolasForm';
+import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao';
 
 
 
 const EscolasList = () => {
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('detalhe');
 
   const handleSectionChange = (newSection) => {
     setSection(newSection);
   };
-
-
-
 
 
   return (
@@ -49,7 +47,7 @@ const EscolasList = () => {
           )} */}
           {section === 'equipe' && (
             <div>
-              Equipe de gestores da escola
+              <PaginaConstrucao />
             </div>
           )}
         </div>

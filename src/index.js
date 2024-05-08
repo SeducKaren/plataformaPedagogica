@@ -22,15 +22,12 @@ import GabaritoNivel4 from './components/Gabaritos/GabaritoNivel4';
 import GabaritoNivel5 from './components/Gabaritos/GabaritoNivel5';
 import GabaritoNivel6 from './components/Gabaritos/GabaritoNivel6';
 import Suporte from './components/Suporte/Suporte';
-
-
+import Dashboard from './components/Dashboard/Dashboard';
 
 import{ createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { DadosProvider } from './components/Context/DadosContext';
 import './index.css';
-
-
 
 
 
@@ -54,7 +51,10 @@ const router = createBrowserRouter([
 
   { path: '/cadastros', element: <Cadastros />},
   { path: '/gabaritos', element: <Gabarito />},
+
   { path: '/suporte', element: <Suporte />},
+  { path: '/dashboard', element: <Dashboard />},
+
 
 
   { path: '/gabaritoNivel1', element: <GabaritoNivel1 />},
@@ -63,8 +63,6 @@ const router = createBrowserRouter([
   { path: '/gabaritoNivel4', element: <GabaritoNivel4 />},
   { path: '/gabaritoNivel5', element: <GabaritoNivel5 />},
   { path: '/gabaritoNivel6', element: <GabaritoNivel6 />}
-
-  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

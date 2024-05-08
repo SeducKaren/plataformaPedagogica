@@ -1,17 +1,15 @@
 .CadastroAluno {
-  width: 1100px;
-  margin: 0 auto; /* Centralizar horizontalmente */
+  width: 800px;
   padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px; /* Aumentando o arredondamento das bordas */
-  background-color:  #f2f8fb; /* Cor de fundo azul claro */
+  border: 2px solid #2e4e7e;
+  border-radius: 5px;
+  background-color: #f2f8fb;
+  margin: 0 auto;
 }
 
 .CadastroAluno form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto; /* Centralizar horizontalmente */
-  max-width: 600px; /* Limitar a largura do formulário */
 }
 
 .CadastroAluno label {
@@ -20,20 +18,27 @@
 
 .CadastroAluno input[type="text"],
 .CadastroAluno input[type="date"] {
-  width: 100%; /* Mudança para 100% para ocupar todo o espaço disponível */
+  width: 95%;
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid #ccc;
   border-radius: 3px;
 }
 
+.CadastroAluno select{
+  border-radius: 3px;
+  width: 97%;
+  padding: 10px;
+}
+
 .CadastroAluno button {
-  width: 100%; /* Alterado para ocupar toda a largura disponível */
+  max-width: 20%;
   padding: 10px;
   background-color: #2e4e7e;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transform: none;
 }
 
 .CadastroAluno button:hover {
@@ -44,3 +49,18 @@
   color: red;
   font-size: 14px;
 }
+
+.checkbox_group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkbox_group .column {
+  display: flex;
+  margin-right: 20px; /* Ajuste o valor conforme necessário */
+}
+
+
+
+

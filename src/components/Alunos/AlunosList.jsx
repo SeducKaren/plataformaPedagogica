@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import CadastroAluno from './CadastrosAlunos/CadastroAluno'
-import AlunosDashboard from './AlunosDashboard'
+import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao'
 
 import './AlunoList.css'
 
 const AlunosList = () => {
-  const [section, setSection] = useState('');
+
+  const [section, setSection] = useState('cadastros');
 
   const handleSectionChange = (newSection) => {
     setSection(newSection);
@@ -26,19 +27,18 @@ const AlunosList = () => {
       <div className="main-container">
         {section === 'cadastros' && (
           <div>
-            <p><CadastroAluno /></p>
+            <CadastroAluno />
           </div>
         )}
         {section === 'lista-alunos' && (
           <div>
-            Lista de Alunos
+            <PaginaConstrucao />
           </div>
         )}
         {section === 'grafico' && (
-          <AlunosDashboard />
+          <PaginaConstrucao />
         )}
       </div>
-
       <Footer />
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Gabarito.css';
 import Navbar from '../Navbar/Navbar';
 import GabaritoNivel1 from './GabaritoNivel1';
@@ -7,12 +7,13 @@ import GabaritoNivel3 from './GabaritoNivel3';
 import GabaritoNivel4 from './GabaritoNivel4';
 import GabaritoNivel5 from './GabaritoNivel5';
 import GabaritoNivel6 from './GabaritoNivel6';
-
+import Footer from '../Footer/Footer';
 
 const GabaritoMain = () => {
   const [dataRegistro, setDataRegistro] = useState('');
   const [matricula, setMatricula] = useState('');
   const [escola, setEscola] = useState('');
+  const [cod, setCod] = useState('');
   const [nomeAluno, setNomeAluno] = useState('');
   const [serie, setSerie] = useState('');
   const [turma, setTurma] = useState('');
@@ -20,16 +21,16 @@ const GabaritoMain = () => {
   const [regiao, setRegiao] = useState('');
   const [quantidadeAcertos, setQuantidadeAcertos] = useState('0/40');
   const [deficiencias, setDeficiencias] = useState([]);
-  const [modoEdicao, setModoEdicao] = useState(false); 
+  const [modoEdicao, setModoEdicao] = useState(false);
   const [nivelProva, setNivelProva] = useState('');
   const [background, setBackground] = useState('#fff');
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Data de Registro:', dataRegistro);
     console.log('Matrícula:', matricula);
     console.log('Escola:', escola);
+    console.log('Cod:', cod);
     console.log('Nome do Aluno:', nomeAluno);
     console.log('Série:', serie);
     console.log('Turma:', turma);
@@ -40,23 +41,22 @@ const GabaritoMain = () => {
   };
 
   const handMudarCor = (evento) => {
-    if (evento === "Nível 1: 2° ano e 3° ano"){
-      setBackground('#dceaf7')      
-    }else if (evento === "Nível 2: 4° ano e 5° ano"){
-      setBackground('#f6c6ad')
-    }else if (evento === "Nível 3: 6° ano e 7° ano"){
-      setBackground('#c2f1c8')
-    }else if (evento === "Nível 4: 8° ano e 9° ano"){
-      setBackground('#f6fdb7')
-    }else if (evento === "Nível 5: Fase 1 e 2"){
-      setBackground('#f2cfee')
-    }else if (evento === "Nível 6: Fase 3 e 4"){
-      setBackground('#f6d766')
+    if (evento === 'Nível 1: 2° ano e 3° ano') {
+      setBackground('#dceaf7');
+    } else if (evento === 'Nível 2: 4° ano e 5° ano') {
+      setBackground('#f6c6ad');
+    } else if (evento === 'Nível 3: 6° ano e 7° ano') {
+      setBackground('#c2f1c8');
+    } else if (evento === 'Nível 4: 8° ano e 9° ano') {
+      setBackground('#f6fdb7');
+    } else if (evento === 'Nível 5: Fase 1 e 2') {
+      setBackground('#f2cfee');
+    } else if (evento === 'Nível 6: Fase 3 e 4') {
+      setBackground('#f6d766');
     }
   };
 
   useEffect(() => {
-    // Atualiza a cor de fundo do corpo da página quando o estado background mudar
     document.body.style.backgroundColor = background;
   }, [background]);
 
@@ -73,24 +73,23 @@ const GabaritoMain = () => {
     setModoEdicao(true);
   };
 
-  
-
   return (
     <>
       <Navbar />
-      <form onSubmit={handleSubmit} className="formulario" style={{backgroundColor: background}}>
-        <label className='inputData'>
+      <h1 className="titulo-gabarito">Gabaritos</h1>
+      <form onSubmit={handleSubmit} className="formulario" style={{ backgroundColor: background }}>
+        <label className="inputData">
           Data de Registro:
           <input
-            type="date"                      
+            type="date"
             value={dataRegistro}
             onChange={(e) => setDataRegistro(e.target.value)}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
             className="PlaceholderDataRegistro"
           />
         </label>
-        <br />        
-        <label className='inputMatricula'>
+        <br />
+        <label className="inputMatricula">
           Numero de Matrícula:
           <input
             type="text"
@@ -98,19 +97,30 @@ const GabaritoMain = () => {
             value={matricula}
             maxLength={15}
             onChange={(e) => setMatricula(e.target.value)}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
           />
         </label>
         <br />
-
+        <label>
+          Cod Inep:
+          <input
+            type="text"
+            placeholder="Insira o código"
+            value={cod}
+            onChange={(e) => setCod(e.target.value)}
+            disabled={!modoEdicao}
+          />
+        </label>
+        <br />
         <label>
           Nível da Prova:
           <select
             value={nivelProva}
-            onChange={(e) => {setNivelProva(e.target.value)
-             handMudarCor(e.target.value)
+            onChange={(e) => {
+              setNivelProva(e.target.value);
+              handMudarCor(e.target.value);
             }}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
           >
             <option value="">Selecione o Nível da Prova</option>
             <option value="Nível 1: 2° ano e 3° ano">Nível 1: 2° ano e 3° ano</option>
@@ -122,19 +132,17 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
-
         <label>
           Nome Completo do Aluno:
           <input
             type="text"
-            placeholder='Informe o nome completo do aluno'
+            placeholder="Informe o nome completo do aluno"
             value={nomeAluno}
             onChange={(e) => setNomeAluno(e.target.value)}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
           />
         </label>
         <br />
-
         <label>
           Escola:
           <input
@@ -142,18 +150,13 @@ const GabaritoMain = () => {
             placeholder="Informe o nome da Escola"
             value={escola}
             onChange={(e) => setEscola(e.target.value)}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
           />
         </label>
         <br />
-
         <label>
           Série:
-          <select
-            value={serie}
-            onChange={(e) => setSerie(e.target.value)}
-            disabled={!modoEdicao} 
-          >
+          <select value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!modoEdicao}>
             <option value="">Selecione a Série</option>
             <optgroup label="Anos Iniciais">
               <option value="2°ano">2° Ano</option>
@@ -176,28 +179,18 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
-
         <label>
           Região:
-          <select
-            value={regiao}
-            onChange={(e) => setRegiao(e.target.value)}
-            disabled={!modoEdicao} 
-          >
+          <select value={regiao} onChange={(e) => setRegiao(e.target.value)} disabled={!modoEdicao}>
             <option value="">Selecione sua Regiao</option>
             <option value="Urbano">Urbana</option>
             <option value="Rural">Rural</option>
           </select>
         </label>
         <br />
-
         <label>
           Turma:
-          <select
-            value={turma}
-            onChange={(e) => setTurma(e.target.value)}
-            disabled={!modoEdicao} 
-          >
+          <select value={turma} onChange={(e) => setTurma(e.target.value)} disabled={!modoEdicao}>
             <option value="">Selecione a Turma</option>
             <option value="A">A</option>
             <option value="B">B</option>
@@ -210,26 +203,20 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
-
         <label>
           Quantidade de Acertos:
           <input
             type="text"
             value={quantidadeAcertos}
             onChange={(e) => setQuantidadeAcertos(e.target.value)}
-            disabled={!modoEdicao} 
+            disabled={!modoEdicao}
             className="PlaceholderQuantidadeAcertos"
           />
         </label>
         <br />
-
         <label>
           Turno:
-          <select
-            value={turno}
-            onChange={(e) => setTurno(e.target.value)}
-            disabled={!modoEdicao} 
-          >
+          <select value={turno} onChange={(e) => setTurno(e.target.value)} disabled={!modoEdicao}>
             <option value="">Selecione o Turno</option>
             <option value="Manhã">Manhã</option>
             <option value="Tarde">Tarde</option>
@@ -237,84 +224,85 @@ const GabaritoMain = () => {
           </select>
         </label>
         <br />
-        
-        <div className="checkbox-group">
+        <div className="checkbox--group">
           <label>
             Deficiência:
-            <div className='column'>
-
+            <div className="column">
               <input
-              type="checkbox"
-              value="Não Possuo"
-              onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} 
-            />
-            Não Possuo
-              
+                type="checkbox"
+                value="Não Possuo"
+                onChange={handleDeficienciaChange}
+                disabled={!modoEdicao}
+              />
+              Não Possuo
               <input
                 type="checkbox"
                 value="Autista"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} 
+                disabled={!modoEdicao}
               />
               Autista
               <input
                 type="checkbox"
                 value="Deficiencia multipla"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} 
+                disabled={!modoEdicao}
               />
               Deficiência múltipla
               <input
                 type="checkbox"
                 value="Deficiencia auditiva"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} 
+                disabled={!modoEdicao}
               />
               Deficiência auditiva
             </div>
-            
-            <div className='column'><input
-              type="checkbox"
-              value="Deficiente Fisico"
-              onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} 
-            />
-            Deficiente físico
-            <input
+            <div className="column">
+              <input
+                type="checkbox"
+                value="Deficiente Fisico"
+                onChange={handleDeficienciaChange}
+                disabled={!modoEdicao}
+              />
+              Deficiente físico
+              <input
                 type="checkbox"
                 value="Deficiente visual"
                 onChange={handleDeficienciaChange}
-                disabled={!modoEdicao} 
-              />            
+                disabled={!modoEdicao}
+              />
               Deficiente visual
-            <input
-              type="checkbox"
-              value="Outra"
-              onChange={handleDeficienciaChange}
-              disabled={!modoEdicao} 
-            />
-            Outra
-            
+              <input
+                type="checkbox"
+                value="Outra"
+                onChange={handleDeficienciaChange}
+                disabled={!modoEdicao}
+              />
+              Outra
             </div>
-            
           </label>
         </div>
-        
-
         <div className="button-group">
-          <button type="submit" disabled={modoEdicao ? false : true}>Registrar</button>
-          <button type="button" onClick={handleEdit}>Editar</button>          
+          <button type="submit" disabled={modoEdicao ? false : true}>
+            Registrar
+          </button>
+          <button
+            type="button"
+            onClick={handleEdit}
+            style={{ backgroundColor: 'green', color: 'white' }}
+          >
+            Editar
+          </button>
         </div>
         <br />
       </form>
-      {nivelProva === "Nível 1: 2° ano e 3° ano" && <GabaritoNivel1 background={'#dceaf7'}/>}
-      {nivelProva === "Nível 2: 4° ano e 5° ano" && <GabaritoNivel2 />}
-      {nivelProva === "Nível 3: 6° ano e 7° ano" && <GabaritoNivel3 />}
-      {nivelProva === "Nível 4: 8° ano e 9° ano" && <GabaritoNivel4 />}
-      {nivelProva === "Nível 5: Fase 1 e 2" && <GabaritoNivel5 />}
-      {nivelProva === "Nível 6: Fase 3 e 4" && <GabaritoNivel6 />}
-
+      {nivelProva === 'Nível 1: 2° ano e 3° ano' && <GabaritoNivel1 background={'#dceaf7'} />}
+      {nivelProva === 'Nível 2: 4° ano e 5° ano' && <GabaritoNivel2 />}
+      {nivelProva === 'Nível 3: 6° ano e 7° ano' && <GabaritoNivel3 />}
+      {nivelProva === 'Nível 4: 8° ano e 9° ano' && <GabaritoNivel4 />}
+      {nivelProva === 'Nível 5: Fase 1 e 2' && <GabaritoNivel5 />}
+      {nivelProva === 'Nível 6: Fase 3 e 4' && <GabaritoNivel6 />}
+      <Footer />
     </>
   );
 };
