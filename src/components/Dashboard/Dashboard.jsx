@@ -9,7 +9,7 @@ const Dashboard = () => {
   const powerBiLink2023 = 'https://app.powerbi.com/view?r=eyJrIjoiZTRiNTVmMjAtYTZmZC00MzI0LTljNGUtMzEyMjRhYjQ0NTNiIiwidCI6IjlhYTU0YWNjLWQzNGEtNDJlNy1iMTVhLTc0NGU2NDMyOTI5MiJ9&pageName=ReportSection&year=2023';
 
   return (
-    <>
+    <div className='Dashboard'>
       <Navbar />
       <h1 className='title-dash'>Dashboards Power BI</h1>
       <div className='painel-dash'>
@@ -25,7 +25,7 @@ const Dashboard = () => {
       <div className="footer-dash">
           <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
