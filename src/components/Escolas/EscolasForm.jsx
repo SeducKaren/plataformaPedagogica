@@ -68,7 +68,7 @@ const EscolasForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const curso1 = curso.toString()
-    const turno1 = turnos.toString()
+    const turno1 = turnos.toString() 
     
     try {
       const response = await api.post('/api/escola', {
