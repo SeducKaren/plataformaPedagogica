@@ -144,7 +144,9 @@ const Cadastros = () => {
         </form>
       </div>
 
+      <div className='footer'>
       <Footer />
+      </div>
     </div>
   );
 };

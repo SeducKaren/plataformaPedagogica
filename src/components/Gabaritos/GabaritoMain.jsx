@@ -14,6 +14,7 @@ const GabaritoMain = () => {
   const [dataRegistro, setDataRegistro] = useState('');
   const [matricula, setMatricula] = useState('');
   const [escola, setEscola] = useState('');
+  const [cod, setCod] = useState('');
   const [nomeAluno, setNomeAluno] = useState('');
   const [serie, setSerie] = useState('');
   const [turma, setTurma] = useState('');
@@ -31,6 +32,7 @@ const GabaritoMain = () => {
     console.log('Data de Registro:', dataRegistro);
     console.log('Matrícula:', matricula);
     console.log('Escola:', escola);
+    console.log('Cod:', cod);
     console.log('Nome do Aluno:', nomeAluno);
     console.log('Série:', serie);
     console.log('Turma:', turma);
@@ -100,6 +102,17 @@ const GabaritoMain = () => {
             maxLength={15}
             onChange={(e) => setMatricula(e.target.value)}
             disabled={!modoEdicao} 
+          />
+        </label>
+        <br />
+        <label>
+          Cod Inep:
+          <input
+            type="text"
+            placeholder="Insira o código"
+            value={cod}
+            onChange={(e) => setCod(e.target.value)}
+            disabled={!modoEdicao}
           />
         </label>
         <br />
@@ -239,7 +252,7 @@ const GabaritoMain = () => {
         </label>
         <br />
         
-        <div className="checkbox-group">
+        <div className="checkbox--group">
           <label>
             Deficiência:
             <div className='column'>

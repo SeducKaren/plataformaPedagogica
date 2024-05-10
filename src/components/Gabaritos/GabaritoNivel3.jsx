@@ -14,9 +14,9 @@ const renderOptions = (isEditing) => {
   }
   options.push(
     <div key="npme">
-      <input type="checkbox" id="np" name="np" value="np" disabled={!isEditing} />
+      <input type="radio" id="np" name="np" value="np" disabled={!isEditing} />
       <label htmlFor="np">N/P</label>
-      <input type="checkbox" id="me" name="me" value="me" disabled={!isEditing} />
+      <input type="radio" id="me" name="me" value="me" disabled={!isEditing} />
       <label htmlFor="me">M/E</label>
     </div>
   );
@@ -56,7 +56,7 @@ const GabaritoNivel1 = ({ background }) => {
       }>
         <div className='texto_gabarito'>
         <p className='texto__gabarito'><b>"M/E"</b> <span style={{ color: 'red' }}>"Múltipla Escolha"</span> é quando o aluno marca mais de uma opção em uma pergunta de escolha múltipla. Por exemplo preencheu a resposta A e B.</p>
-        <p className='texto__gabarito'><b>"N/R"</b> <span style={{color: 'red'}}>"Não Respondeu"</span> é usada quando o aluno não preencheu uma resposta para a pergunta específica da prova.</p>
+        <p className='texto__gabarito'><b>"N/P"</b> <span style={{ color: 'red' }}>"Não Preencheu"</span> é usada quando o aluno não preencheu uma resposta para a pergunta específica da prova.</p>
         </div>
         <div className="questions">
           <div className="subject">

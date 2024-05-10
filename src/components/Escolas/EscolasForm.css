@@ -47,7 +47,8 @@
 .checkbox-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 .checkbox-container input[type="checkbox"] {

@@ -1,9 +1,10 @@
 .CadastroAluno {
-  width: 1180px;
+  width: 800px;
   padding: 20px;
   border: 2px solid #2e4e7e;
   border-radius: 5px;
   background-color: #f2f8fb;
+  margin: 0 auto;
 }
 
 .CadastroAluno form {
@@ -47,4 +48,15 @@
 .CadastroAluno .error-message {
   color: red;
   font-size: 14px;
+}
+
+.checkbox_group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkbox_group .column {
+  display: flex;
+  margin-right: 20px;
 }

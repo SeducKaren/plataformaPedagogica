@@ -61,26 +61,25 @@ select::placeholder,
   cursor: pointer;
 }
 
-.checkbox-group {
+.checkbox--group {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-top: -70px;
       
 }
 
-.column {
+.checkbox--group .column {
   width: 100%; /* Ajuste conforme necessário */
-  display: flex;
-  
+  display: flex;  
 }
 
 
-.checkbox-group input[type="checkbox"] {
-  margin-right: 5px; 
-   
+.checkbox--group input[type="checkbox"] {
+  margin-right: 5px;    
 }
 
-.checkbox-group label {
+.checkbox--group label {
   display: flex;
   
 }

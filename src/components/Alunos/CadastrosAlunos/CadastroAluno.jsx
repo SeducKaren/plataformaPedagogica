@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './CadastroAluno.css';
-import api from '../../../services/apiConfig'
+import api from '../../../services/apiConfig';
 
 const CadastroAluno = () => {
   const [formDataAluno, setFormDataAluno] = useState({
@@ -17,7 +17,8 @@ const CadastroAluno = () => {
     turno: '',
     nomeMae: '',
     nomePai: '',
-    nomeResponsavel: ''
+    nomeResponsavel: '',
+    deficiencia: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -29,9 +30,7 @@ const CadastroAluno = () => {
 
     switch (name) {
       case 'cpf':
-        inputPonto = value
-          .slice(0, 14)
-          // .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        inputPonto = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
         break;
       default:
         inputPonto = value.slice(0, 50);
@@ -45,10 +44,15 @@ const CadastroAluno = () => {
     }
   };
 
+  const handleDeficienciaChange = (e) => {
+    const { value } = e.target;
+    setFormDataAluno({ ...formDataAluno, deficiencia: value });
+  };
+
   const handleSubmitAluno = async (e) => {
     e.preventDefault();
     const validationErrors = {};
-    Object.keys(formDataAluno).forEach(key => {
+    Object.keys(formDataAluno).forEach((key) => {
       if (!formDataAluno[key]) {
         validationErrors[key] = 'Este campo é obrigatório';
       }
@@ -74,10 +78,10 @@ const CadastroAluno = () => {
           turno: '',
           nomeMae: '',
           nomePai: '',
-          nomeResponsavel: ''
+          nomeResponsavel: '',
+          deficiencia: ''
         });
         setFormSubmitted(false);
-
       } catch (error) {
         console.error('Erro ao cadastrar aluno:', error);
       }
@@ -95,35 +99,67 @@ const CadastroAluno = () => {
       <form onSubmit={handleSubmitAluno}>
         <label>
           Matrícula:
-          <input style={inputStyle(errors.matricula)} type='text' name='matricula' value={formDataAluno.matricula} onChange={handleInputChangeAluno} placeholder="Matrícula" />
+          <input
+            style={inputStyle(errors.matricula)}
+            type='text'
+            name='matricula'
+            value={formDataAluno.matricula}
+            onChange={handleInputChangeAluno}
+            placeholder='Matrícula'
+          />
           {errors.matricula && <span className='error-msg'>{errors.matricula}</span>}
         </label>
         <br />
 
         <label>
           Nome Aluno:
-          <input style={inputStyle(errors.nomeAluno)} type='text' name='nomeAluno' value={formDataAluno.nomeAluno} onChange={handleInputChangeAluno} placeholder="Nome Aluno" />
+          <input
+            style={inputStyle(errors.nomeAluno)}
+            type='text'
+            name='nomeAluno'
+            value={formDataAluno.nomeAluno}
+            onChange={handleInputChangeAluno}
+            placeholder='Nome Aluno'
+          />
           {errors.nomeAluno && <span className='error-msg'>{errors.nomeAluno}</span>}
         </label>
         <br />
 
         <label>
           CPF:
-          <input style={inputStyle(errors.cpf)} type='text' name='cpf' value={formDataAluno.cpf} onChange={handleInputChangeAluno} placeholder="CPF" />
+          <input
+            style={inputStyle(errors.cpf)}
+            type='text'
+            name='cpf'
+            value={formDataAluno.cpf}
+            onChange={handleInputChangeAluno}
+            placeholder='CPF'
+          />
           {errors.cpf && <span className='error-msg'>{errors.cpf}</span>}
         </label>
         <br />
 
         <label>
           Data de Nascimento:
-          <input style={inputStyle(errors.dataNascimento)} type='date' name='dataNascimento' value={formDataAluno.dataNascimento} onChange={handleInputChangeAluno} />
+          <input
+            style={inputStyle(errors.dataNascimento)}
+            type='date'
+            name='dataNascimento'
+            value={formDataAluno.dataNascimento}
+            onChange={handleInputChangeAluno}
+          />
           {errors.dataNascimento && <span className='error-msg'>{errors.dataNascimento}</span>}
         </label>
         <br />
 
         <label>
           Gênero:
-          <select style={inputStyle(errors.genero)} name='genero' value={formDataAluno.genero} onChange={handleInputChangeAluno} placeholder='Gênero'>
+          <select
+            style={inputStyle(errors.genero)}
+            name='genero'
+            value={formDataAluno.genero}
+            onChange={handleInputChangeAluno}
+          >
             <option value=''>Selecione o Gênero</option>
             <option value='mulher'>Mulher</option>
             <option value='homem'>Homem</option>
@@ -137,74 +173,213 @@ const CadastroAluno = () => {
         </label>
         <br />
 
+        <div className="checkbox_group">
+          <label>Deficiência:</label>
+          <div className='column'>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Não Possuo"
+                checked={formDataAluno.deficiencia === "Não Possuo"}
+                onChange={handleDeficienciaChange}
+              />
+              Não Possuo
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Autista"
+                checked={formDataAluno.deficiencia === "Autista"}
+                onChange={handleDeficienciaChange}
+              />
+              Autista
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Deficiencia multipla"
+                checked={formDataAluno.deficiencia === "Deficiencia multipla"}
+                onChange={handleDeficienciaChange}
+              />
+              Deficiência múltipla
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Deficiencia auditiva"
+                checked={formDataAluno.deficiencia === "Deficiencia auditiva"}
+                onChange={handleDeficienciaChange}
+              />
+              Deficiência auditiva
+            </label>
+          </div>
+
+          <div className='column'>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Deficiente Fisico"
+                checked={formDataAluno.deficiencia === "Deficiente Fisico"}
+                onChange={handleDeficienciaChange}
+              />
+              Deficiente físico
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Deficiente visual"
+                checked={formDataAluno.deficiencia === "Deficiente visual"}
+                onChange={handleDeficienciaChange}
+              />
+              Deficiente visual
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="deficiencia"
+                value="Outra"
+                checked={formDataAluno.deficiencia === "Outra"}
+                onChange={handleDeficienciaChange}
+              />
+              Outra
+            </label>
+          </div>
+        </div>
+        <hr />
         <label>
           Escola:
-          <input style={inputStyle(errors.escola)} type='text' name='escola' value={formDataAluno.escola} onChange={handleInputChangeAluno} placeholder='Escola' />
+          <input
+            style={inputStyle(errors.escola)}
+            type='text'
+            name='escola'
+            value={formDataAluno.escola}
+            onChange={handleInputChangeAluno}
+            placeholder='Escola'
+          />
           {errors.escola && <span className='error-msg'>{errors.escola}</span>}
         </label>
         <br />
 
         <label>
-          Turma:
-          <input style={inputStyle(errors.turma)} type='text' name='turma' value={formDataAluno.turma} onChange={handleInputChangeAluno} placeholder="Turma" />
-          {errors.turma && <span className='error-msg'>{errors.turma}</span>}
-        </label>
-        <br />
-
-        <label>
-          Serie:
-          <input style={inputStyle(errors.serie)} type='text' name='serie' value={formDataAluno.serie} onChange={handleInputChangeAluno} placeholder="Serie" />
-          {errors.serie && <span className='error-msg'>{errors.serie}</span>}
-        </label>
-        <br />
-
-        <label>
           Curso:
-          <input style={inputStyle(errors.curso)} type='text' name='curso' value={formDataAluno.curso} onChange={handleInputChangeAluno} placeholder="Curso" />
+          <input
+            style={inputStyle(errors.curso)}
+            type='text'
+            name='curso'
+            value={formDataAluno.curso}
+            onChange={handleInputChangeAluno}
+            placeholder='Curso'
+          />
           {errors.curso && <span className='error-msg'>{errors.curso}</span>}
         </label>
         <br />
 
         <label>
-          Ano Letivo:
-          <input style={inputStyle(errors.ano)} type='text' name='ano' value={formDataAluno.ano} onChange={handleInputChangeAluno} placeholder="Ano Letivo" />
-          {errors.ano && <span className='error-msg'>{errors.ano}</span>}
+          Serie:
+          <input
+            style={inputStyle(errors.serie)}
+            type='text'
+            name='serie'
+            value={formDataAluno.serie}
+            onChange={handleInputChangeAluno}
+            placeholder='Serie'
+          />
+          {errors.serie && <span className='error-msg'>{errors.serie}</span>}
+        </label>
+        <br />
+
+        <label>
+          Turma:
+          <input
+            style={inputStyle(errors.turma)}
+            type='text'
+            name='turma'
+            value={formDataAluno.turma}
+            onChange={handleInputChangeAluno}
+            placeholder='Turma'
+          />
+          {errors.turma && <span className='error-msg'>{errors.turma}</span>}
         </label>
         <br />
 
         <label>
           Turno:
-          <input style={inputStyle(errors.turno)} type='text' name='turno' value={formDataAluno.turno} onChange={handleInputChangeAluno} placeholder="Turno" />
+          <input
+            style={inputStyle(errors.turno)}
+            type='text'
+            name='turno'
+            value={formDataAluno.turno}
+            onChange={handleInputChangeAluno}
+            placeholder='Turno'
+          />
           {errors.turno && <span className='error-msg'>{errors.turno}</span>}
         </label>
         <br />
         
         <label>
+          Ano Letivo:
+          <input
+            style={inputStyle(errors.ano)}
+            type='text'
+            name='ano'
+            value={formDataAluno.ano}
+            onChange={handleInputChangeAluno}
+            placeholder='Ano Letivo'
+          />
+          {errors.ano && <span className='error-msg'>{errors.ano}</span>}
+        </label>
+        <br />
+
+        <label>
           Nome da Mãe:
-          <input style={inputStyle(errors.nomeMae)} type='text' name='nomeMae' value={formDataAluno.nomeMae} onChange={handleInputChangeAluno} placeholder="Nome da Mãe" />
+          <input
+            style={inputStyle(errors.nomeMae)}
+            type='text'
+            name='nomeMae'
+            value={formDataAluno.nomeMae}
+            onChange={handleInputChangeAluno}
+            placeholder='Nome da Mãe'
+          />
           {errors.nomeMae && <span className='error-msg'>{errors.nomeMae}</span>}
         </label>
         <br />
 
         <label>
           Nome do Pai:
-          <input style={inputStyle(errors.nomePai)} type='text' name='nomePai' value={formDataAluno.nomePai} onChange={handleInputChangeAluno} placeholder="Nome do Pai" />
+          <input
+            style={inputStyle(errors.nomePai)}
+            type='text'
+            name='nomePai'
+            value={formDataAluno.nomePai}
+            onChange={handleInputChangeAluno}
+            placeholder='Nome do Pai'
+          />
           {errors.nomePai && <span className='error-msg'>{errors.nomePai}</span>}
         </label>
         <br />
 
-
         <label>
           Nome do Responsável:
-          <input style={inputStyle(errors.nomeResponsavel)} type='text' name='nomeResponsavel' value={formDataAluno.nomeResponsavel} onChange={handleInputChangeAluno} placeholder="Nome do Responsável" />
+          <input
+            style={inputStyle(errors.nomeResponsavel)}
+            type='text'
+            name='nomeResponsavel'
+            value={formDataAluno.nomeResponsavel}
+            onChange={handleInputChangeAluno}
+            placeholder='Nome do Responsável'
+          />
           {errors.nomeResponsavel && <span className='error-msg'>{errors.nomeResponsavel}</span>}
         </label>
         <br />
 
         <button type='submit'>Cadastrar</button>
-
       </form>
-
     </div>
   );
 };

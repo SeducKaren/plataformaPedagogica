@@ -121,7 +121,7 @@ const Suporte = () => {
                 <div className="header">
                     <h2 className='titulo-suporte'>Fale Conosco</h2>
                 </div>
-                <p className='paragrafo-suporte'>Use o formulário abaixo para tirar dúvidas.</p>
+                <p className='paragrafo-suporte'>Use o formulário abaixo para tirar dúvidas, dar sugestão ou registrar sua crítica, lembrando sempre de indicar o assunto e o destino da mensagem.</p>
                 <form onSubmit={handleSubmit} className="formulario">
                     <div className="borda-azul">
                         <h3>Escolha uma opção:</h3>
