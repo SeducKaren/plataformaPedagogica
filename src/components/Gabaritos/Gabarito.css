@@ -5,60 +5,47 @@
   font-weight: bold;
 }
 
+.gabarito-container{
+  margin: 20px 0 20px 0;
+}
 
-.titulo-gabarito{
+.titulo-gabarito {
   text-align: center;
   font-size: 38px;
 }
 
 .formulario {
+margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border: none;
-  padding: 20px 0px 0px 10px;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #2e4e7e;
+  padding: 20px 10px;
+  max-width: 50%;
+  border-radius: 8px;
 }
 
 .formulario label {
-  width: 48%;
+  width: 80%;
   margin-bottom: 15px;  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.inputData input{
-  width: 50%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  height: 17px;
-  
-}
-
-.formulario select {
+.formulario input, .formulario select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-.formulario input[type="text"] {
-  cursor: text;
-  width: 97%;
-  height: 17px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-top: 5px;
 }
 
 input::placeholder,
 select::placeholder,
 .PlaceholderQuantidadeAcertos,
-.PlaceholderDataRegistro
- {
+.PlaceholderDataRegistro {
   font-size: 14px;
-}
-
-.formulario select {
-  cursor: pointer;
 }
 
 .checkbox--group {
@@ -66,14 +53,12 @@ select::placeholder,
   display: flex;
   justify-content: flex-end;
   margin-top: -70px;
-      
 }
 
 .checkbox--group .column {
-  width: 100%; /* Ajuste conforme necessário */
+  width: 100%;
   display: flex;  
 }
-
 
 .checkbox--group input[type="checkbox"] {
   margin-right: 5px;    
@@ -81,7 +66,6 @@ select::placeholder,
 
 .checkbox--group label {
   display: flex;
-  
 }
 
 .button-group {
@@ -102,7 +86,6 @@ select::placeholder,
   cursor: pointer;
 }
 
-/* Estilo para o gabarito */
 .gabarito {
   font-weight: bold;
   margin-top: 20px;

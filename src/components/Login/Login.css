@@ -10,7 +10,6 @@
     padding: 40px;
     border-radius: 8px;
     border: 5px solid var(--azul2);
-    margin-right: 5px;
     display: flex;
     justify-content: center;
     flex-direction: column;
