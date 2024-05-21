@@ -1,3 +1,7 @@
+.Dashboard{
+    background-color: #fff;
+}
+
 .painel-dash {
     display: flex;
     align-items: center;

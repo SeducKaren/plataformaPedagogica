@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer';
 
 import EscolasForm from './EscolasForm';
-import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao';
+// import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao';
 
 
 
@@ -47,7 +47,8 @@ const EscolasList = () => {
           )} */}
           {section === 'equipe' && (
             <div>
-              <PaginaConstrucao />
+              
+              {/* <PaginaConstrucao /> */}
             </div>
           )}
         </div>

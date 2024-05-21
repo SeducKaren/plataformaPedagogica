@@ -21,7 +21,7 @@ const EscolasForm = () => {
   const [email, setEmail] = useState('');
   const [curso, setCurso] = useState([]); 
   const [turnos, setTurnos] = useState([]);
-  const [serie, setSerie] = useState(''); 
+  const [serie, setSerie] = useState([]); 
   const [quantidadeAlunos, setQuantidadeAlunos] = useState(0);
 
   const [enderecoLoading, setEnderecoLoading] = useState(false);
@@ -68,7 +68,8 @@ const EscolasForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const curso1 = curso.toString()
-    const turno1 = turnos.toString()
+    const turno1 = turnos.toString() 
+    const serie1 = serie.toString() 
     
     try {
       const response = await api.post('/api/escola', {
@@ -87,8 +88,10 @@ const EscolasForm = () => {
         email: email,
         turnos: turno1,
         curso: curso1,
-        serie: serie,
+        serie: serie1,
         quantidadeAlunos: quantidadeAlunos
+      
+        
       });
       console.log(response.data)
       
@@ -107,8 +110,9 @@ const EscolasForm = () => {
       setEmail('')
       setTurnos([])
       setCurso([])
-      setSerie('')
+      setSerie([])
       setQuantidadeAlunos('')
+      
 
       alert('Dados enviados')
     } catch (error) {
@@ -324,8 +328,8 @@ const EscolasForm = () => {
                 <div className="checkbox-container">
                   <input
                     type="checkbox"
-                    value="Fundamental"
-                    checked={curso.includes("Fundamental")}
+                    value="Anos Iniciais"
+                    checked={curso.includes("Anos Iniciais")}
                     onChange={(e) => {
                       const { value, checked } = e.target;
                       if (checked) {
@@ -336,11 +340,11 @@ const EscolasForm = () => {
                     }}
                     disabled={!isEditing}
                   />
-                  <span>Fundamental</span>
+                  <span>Ensino Fundamental</span>
                   <input
                     type="checkbox"
-                    value="Médio"
-                    checked={curso.includes("Médio")}
+                    value="Ensino Médio"
+                    checked={curso.includes("Ensino Médio")}
                     onChange={(e) => {
                       const { value, checked } = e.target;
                       if (checked) {
@@ -351,11 +355,11 @@ const EscolasForm = () => {
                     }}
                     disabled={!isEditing}
                   />
-                  <span>Médio</span>
+                  <span>Ensino Médio</span>
                   <input
                     type="checkbox"
-                    value="EJA"
-                    checked={curso.includes("EJA")}
+                    value="EJA anos Finais"
+                    checked={curso.includes("EJA anos Finais")}
                     onChange={(e) => {
                       const { value, checked } = e.target;
                       if (checked) {
@@ -366,16 +370,168 @@ const EscolasForm = () => {
                     }}
                     disabled={!isEditing}
                   />
-                  <span>EJA</span>
+                  <span>EJA Anos Finais</span>
+                  <input
+                    type="checkbox"
+                    value="EJA anos Iniciais"
+                    checked={curso.includes("EJA anos Iniciais")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>EJA Anos Iniciais</span>
+                </div>
+                <div className="checkbox-container">
+                <input
+                    type="checkbox"
+                    value="Atendimento"
+                    checked={curso.includes("Atendimento")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>(AEE) (Migração até 2021)</span>
+                <input
+                    type="checkbox"
+                    value="Educação Infantil"
+                    checked={curso.includes("Educação Infantil")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Educação Infantil</span>
+                <input
+                    type="checkbox"
+                    value="Anos Finais"
+                    checked={curso.includes("Anos Finais")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Anos Finais</span>
+                </div>
+                <div className="checkbox-container">
+                <input
+                    type="checkbox"
+                    value="9 anos"
+                    checked={curso.includes("9 anos")}
+                    onChange={(e) => {
+                      const { value, checked } = e.target;
+                      if (checked) {
+                        setCurso((prevCurso) => [...prevCurso, value]);
+                      } else {
+                        setCurso((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                      }
+                    }}
+                    disabled={!isEditing}
+                  />
+                  <span>Ensino Fundamental de 9° ano - Multi (migração até 2021)</span>
+
                 </div>
               </div>
               <hr />
 
               <div className="form-row">
                 <label>
-                  Série:
-                  <input type="text" value={serie} onChange={(e) => setSerie(e.target.value)} disabled={!isEditing} placeholder="Digite a série aqui" />
+                    Séries:
                 </label>
+                <div className="checkbox-container-two">
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Anos Iniciais"
+                      checked={serie.includes("Anos Iniciais")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Anos Iniciais (1º ano, 2º ano, 3º ano, 4º ano, 5º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Anos Finais"
+                      checked={serie.includes("Anos Finais")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Anos Finais (6º ano, 7º ano, 8º ano, 9º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Ensino Medio"
+                      checked={serie.includes("Ensino Medio")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Ensino Médio (1º ano, 2º ano, 3º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="EJA"
+                      checked={serie.includes("EJA")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>EJA (Fase 1, Fase 2, Fase 3, Fase 4)</span>
+                  </div>
+                  <hr />
+                </div>
+
+
               </div>
               <div className="form-row">
                 <label>
@@ -402,22 +558,32 @@ const EscolasForm = () => {
           </div>
           <div className='gestores__escolares'>
             <label htmlFor="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
-            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="nome do(a) gestor(a)" />
+            <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
+          </div>
+           {/* Adicione o campo CPF aqui */}
+           <div className='gestores__escolares'>
+            <label htmlFor="cpf">CPF do(a) Gestor(a)</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF do(a) gestor(a) aqui com pontos e traços" maxLength={14} />
           </div>
           <div className='cargo_gestor'>
             <label htmlFor='cargo_gestor'>Cargo do(a) Gestor(a)</label>
             <select className='cargo__gestor'>
               <option disabled>Selecione</option>
               <option value="Diretor(a)">Diretor(a)</option>
+              <option value="Diretor(a)">Vice-diretor(a)</option>
+              <option value="Diretor(a)">Interino(a)</option>
+              <option value="Diretor(a)">Professor(a)</option>
+              <option value="Diretor(a)">Outros(a)</option>
             </select>
           </div>
           <div className='gestores__escolares'>
             <label htmlFor="detalhes">Detalhes</label>
-            <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais' />
+            <input type="text" id="detalhes" name="detalhes" placeholder='Dados adicionais do(a) gestor(a)' />
           </div>
           <div className='cargo_gestor'>
             <label htmlFor='principal'>Principal</label>
             <select className='cargo__gestor'>
+              
               <option disabled>Selecione</option>
               <option value="Sim">Sim</option>
               <option value="Não">Não</option>

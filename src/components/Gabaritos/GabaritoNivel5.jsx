@@ -50,13 +50,8 @@ const renderQuestions = (subject, isEditing, handleRadioChange) => {
   for (let i = 1; i <= 15; i++) {
     questions.push(
       <div className="question1" key={`${subject}-${i}`}>
-        <p>{i} - </p>
+        <p>{i} -</p>
         {renderOptions(isEditing, handleRadioChange, i)}
-        {/* <select disabled={!isEditing}>
-          <option value="facil">Fácil</option>
-          <option value="medio">Médio</option>
-          <option value="dificil">Difícil</option>
-        </select> */}
       </div>
     );
   }
@@ -65,41 +60,39 @@ const renderQuestions = (subject, isEditing, handleRadioChange) => {
 
 const GabaritoNivel1 = ({ background }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
   };
 
   const handleRadioChange = (e) => {
-    // Sua lógica de manipulação do estado aqui
+    const { name, value } = e.target;
+    setSelectedOptions({ ...selectedOptions, [name]: value });
   };
 
   return (
     <>
-    
-      <div style={
-        { backgroundColor: background }
-      }>
+      <div style={{ backgroundColor: background }}>
         <div className='texto_gabarito'>
-        <p className='texto__gabarito'><b>"M/E"</b> <span style={{ color: 'red' }}>"Múltipla Escolha"</span> é quando o aluno marca mais de uma opção em uma pergunta de escolha múltipla. Por exemplo preencheu a resposta A e B.</p>
-        <p className='texto__gabarito'><b>"N/P"</b> <span style={{color: 'red'}}>"Não preencheu"</span> é usada quando o aluno não preencheu uma resposta para a pergunta específica da prova.</p>
+          <p className='texto__gabarito'><b>"M/E"</b> <span style={{ color: 'red' }}>"Múltipla Escolha"</span> é quando o aluno marca mais de uma opção em uma pergunta de escolha múltipla. Por exemplo preencheu a resposta A e B.</p>
+          <p className='texto__gabarito'><b>"N/P"</b> <span style={{ color: 'red' }}>"Não Preencheu"</span> é usada quando o aluno não preencheu uma resposta para a pergunta específica da prova.</p>
         </div>
         <div className="questions">
           <div className="subject">
-            <h3><span style={{color: 'red' }}>LÍNGUA PORTUGUESA</span></h3>
+            <h3><span style={{ color: 'red' }}>LÍNGUA PORTUGUESA</span></h3>
           </div>
           {renderQuestions('portugues', isEditing, handleRadioChange)}
         </div>
         <div className="questions">
           <div className="subject">
-            <h3><span style={{color: 'red' }}>MATEMÁTICA</span></h3>
+            <h3><span style={{ color: 'red' }}>MATEMÁTICA</span></h3>
           </div>
           {renderQuestions('matematica', isEditing, handleRadioChange)}
         </div>
-        <div className="buttonGabarito">          
+        <div className="buttonGabarito">
           <button onClick={handleEditClick}>{isEditing ? 'Salvar' : 'Editar'}</button>
         </div>
-
       </div>
     </>
   );

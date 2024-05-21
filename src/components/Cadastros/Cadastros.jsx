@@ -93,9 +93,8 @@ const Cadastros = () => {
   };
 
   return (
-    <div className='Cadastros'>      
+    <div className='Cadastros'>
       <Navbar />
-      
 
       <div className="main-container">
         <form onSubmit={handleSubmitGestor} className="cadastro-gestor">
@@ -144,10 +143,10 @@ const Cadastros = () => {
           <button type='submit' className='submit-button'>Cadastrar</button>
         </form>
       </div>
+
       <div className='footer'>
       <Footer />
       </div>
-      
     </div>
   );
 };
