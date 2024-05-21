@@ -56,6 +56,19 @@
   margin-top: 5px;
 }
 
+.checkbox-container-two {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-bottom: 5px;
+}
+
 .form-row input,
 .form-row select {
   max-width: 100%;

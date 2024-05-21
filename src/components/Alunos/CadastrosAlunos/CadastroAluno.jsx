@@ -11,10 +11,10 @@ const CadastroAluno = () => {
     escola: '',
     cpf: '',
     turma: '',
-    serie: '',
-    curso: '',
+    serie: [],
+    curso: [],
     ano: '',
-    turno: '',
+    turno: [],
     nomeMae: '',
     nomePai: '',
     nomeResponsavel: '',
@@ -63,6 +63,9 @@ const CadastroAluno = () => {
     if (Object.keys(validationErrors).length === 0) {
       try {
         await api.post('/api/aluno', formDataAluno);
+        const turnoString = formDataAluno.turno.toString()
+        const cursoString = formDataAluno.curso.toString()
+        const serieString = formDataAluno.serie.toString()
 
         setFormDataAluno({
           matricula: '',
@@ -72,10 +75,10 @@ const CadastroAluno = () => {
           escola: '',
           cpf: '',
           turma: '',
-          serie: '',
-          curso: '',
+          serie: serieString,
+          curso: cursoString,
           ano: '',
-          turno: '',
+          turno: turnoString,
           nomeMae: '',
           nomePai: '',
           nomeResponsavel: '',
@@ -87,6 +90,53 @@ const CadastroAluno = () => {
       }
     }
   };
+
+  const handleTurnoChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        turno: [...prevFormData.turno, value], 
+      }));
+    } else {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        turno: prevFormData.turno.filter((item) => item !== value), 
+      }));
+    }
+  };
+
+  const handleCursoChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        curso: [...prevFormData.curso, value], 
+      }));
+    } else {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        curso: prevFormData.curso.filter((item) => item !== value), 
+      }));
+    }
+  };
+  
+  const handleSerieChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        serie: [...prevFormData.serie, value], 
+      }));
+    } else {
+      setFormDataAluno((prevFormData) => ({
+        ...prevFormData,
+        serie: prevFormData.serie.filter((item) => item !== value), 
+      }));
+    }
+  };
+
+  
 
   const inputStyle = (error) => ({
     border: error ? '2px solid red' : '1px solid black'
@@ -268,58 +318,149 @@ const CadastroAluno = () => {
 
         <label>
           Curso:
-          <input
-            style={inputStyle(errors.curso)}
-            type='text'
-            name='curso'
-            value={formDataAluno.curso}
-            onChange={handleInputChangeAluno}
-            placeholder='Curso'
-          />
-          {errors.curso && <span className='error-msg'>{errors.curso}</span>}
         </label>
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            value="Anos Iniciais"
+            checked={formDataAluno.curso.includes("Anos Iniciais")}
+            onChange={handleCursoChange}
+          />
+          <span>Ensino Fundamental</span>
+          <input
+            type="checkbox"
+            value="Ensino Médio"
+            checked={formDataAluno.curso.includes("Ensino Médio")}
+            onChange={handleCursoChange}
+          />
+          <span>Ensino Médio</span>
+          <input
+            type="checkbox"
+            value="EJA anos Finais"
+            checked={formDataAluno.curso.includes("EJA anos Finais")}
+            onChange={handleCursoChange}
+          />
+          <span>EJA Anos Finais</span>
+          <input
+            type="checkbox"
+            value="EJA anos Iniciais"
+            checked={formDataAluno.curso.includes("EJA anos Iniciais")}
+            onChange={handleCursoChange}
+          />
+          <span>EJA Anos Iniciais</span>
+        </div>
+
+        <div className="checkbox-container">
+        <input
+            type="checkbox"
+            value="Atendimento"
+            checked={formDataAluno.curso.includes("Atendimento")}
+            onChange={handleCursoChange}
+          />
+          <span>(AEE) (Migração até 2021)</span>
+        <input
+            type="checkbox"
+            value="Educação Infantil"
+            checked={formDataAluno.curso.includes("Educação Infantil")}
+            onChange={handleCursoChange}
+          />
+        <span>Educação Infantil</span>
+        <input
+            type="checkbox"
+            value="Anos Finais"
+            checked={formDataAluno.curso.includes("Anos Finais")}
+            onChange={handleCursoChange}
+          />
+          <span>Anos Finais</span>
+        </div>
+        
+        <div className="checkbox-container">
+        <input
+            type="checkbox"
+            value="9 anos"
+            checked={formDataAluno.curso.includes("9 anos")}
+            onChange={handleCursoChange}
+          />
+          <span>Ensino Fundamental de 9° ano - Multi (migração até 2021)</span>
+        </div>
+        <hr/>
+
+
+      {/* parte das series */}
+        <label>
+          Séries:
+        </label>
+        <div className="checkbox-container-two">
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              value="Anos Iniciais"
+              checked={formDataAluno.serie.includes("Anos Iniciais")}
+              onChange={handleSerieChange}
+
+            />
+            <span>Anos Iniciais (1º ano, 2º ano, 3º ano, 4º ano, 5º ano)</span>
+          </div>
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              value="Anos Finais"
+              checked={formDataAluno.serie.includes("Anos Finais")}
+              onChange={handleSerieChange}
+            />
+            <span>Anos Finais (6º ano, 7º ano, 8º ano, 9º ano)</span>
+          </div>
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              value="Ensino Medio"
+              checked={formDataAluno.serie.includes("Ensino Medio")}
+              onChange={handleSerieChange}
+            />
+            <span>Ensino Médio (1º ano, 2º ano, 3º ano)</span>
+          </div>
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              value="EJA"
+              checked={formDataAluno.serie.includes("EJA")}
+              onChange={handleSerieChange}
+            />
+            <span>EJA (Fase 1, Fase 2, Fase 3, Fase 4)</span>
+          </div>
+          <hr />
+        </div>
         <br />
 
-        <label>
-          Serie:
-          <input
-            style={inputStyle(errors.serie)}
-            type='text'
-            name='serie'
-            value={formDataAluno.serie}
-            onChange={handleInputChangeAluno}
-            placeholder='Serie'
-          />
-          {errors.serie && <span className='error-msg'>{errors.serie}</span>}
-        </label>
-        <br />
-
-        <label>
-          Turma:
-          <input
-            style={inputStyle(errors.turma)}
-            type='text'
-            name='turma'
-            value={formDataAluno.turma}
-            onChange={handleInputChangeAluno}
-            placeholder='Turma'
-          />
-          {errors.turma && <span className='error-msg'>{errors.turma}</span>}
-        </label>
-        <br />
-
-        <label>
-          Turno:
-          <input
-            style={inputStyle(errors.turno)}
-            type='text'
-            name='turno'
-            value={formDataAluno.turno}
-            onChange={handleInputChangeAluno}
-            placeholder='Turno'
-          />
-          {errors.turno && <span className='error-msg'>{errors.turno}</span>}
-        </label>
+        <div className="form-row">
+                <label>
+                  Turnos:
+                </label>
+                <div className="checkbox-container">
+                  <input
+                    type="checkbox"
+                    value="Manhã"
+                    checked={formDataAluno.turno.includes("Manhã")}
+                    onChange={handleTurnoChange}
+                  />
+                  <span>Manhã</span>
+                  <input
+                    type="checkbox"
+                    value="Tarde"
+                    checked={formDataAluno.turno.includes("Tarde")}
+                    onChange={handleTurnoChange}
+                  />
+                  <span>Tarde</span>
+                  <input
+                    type="checkbox"
+                    value="Noite"
+                    checked={formDataAluno.turno.includes("Noite")}
+                    onChange={handleTurnoChange}
+                  />
+                  <span>Noite</span>
+                </div>
+                <hr />
+              </div>
         <br />
         
         <label>

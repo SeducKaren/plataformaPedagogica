@@ -51,6 +51,7 @@
 .Cadastros .submit-button {
   display: block;
   max-width: 100%;
+  margin: 0 auto;
   padding: 10px 20px 10px 20px;
   background-color: #2e4e7e;
   color: #fff;

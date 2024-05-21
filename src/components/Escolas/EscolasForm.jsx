@@ -456,69 +456,77 @@ const EscolasForm = () => {
                 <label>
                     Séries:
                 </label>
-                <div className="checkbox-container">
-                <input
-                    type="checkbox"
-                    value="Anos Iniciais"
-                    checked={serie.includes("Anos iniciais")}
-                    onChange={(e) => {
-                      const { value, checked } = e.target;
-                      if (checked) {
-                        setSerie((prevCurso) => [...prevCurso, value]);
-                      } else {
-                        setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
-                      }
-                    }}
-                    disabled={!isEditing}
-                  />
-                  <span>Anos Iniciais</span>
-                <input
-                    type="checkbox"
-                    value="Anos Finais" 
-                    checked={serie.includes("Anos Finais")}
-                    onChange={(e) => {
-                      const { value, checked } = e.target;
-                      if (checked) {
-                        setSerie((prevCurso) => [...prevCurso, value]);
-                      } else {
-                        setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
-                      }
-                    }}
-                    disabled={!isEditing}
-                  />
-                  <span>Anos Finais</span>
-                <input
-                    type="checkbox"
-                    value="Ensino Medio"
-                    checked={serie.includes("Ensino Medio")}
-                    onChange={(e) => {
-                      const { value, checked } = e.target;
-                      if (checked) {
-                        setSerie((prevCurso) => [...prevCurso, value]);
-                      } else {
-                        setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
-                      }
-                    }}
-                    disabled={!isEditing}
-                  />
-                  <span>Ensino Médio</span>
-                <input
-                    type="checkbox"
-                    value="EJA"
-                    checked={serie.includes("EJA")}
-                    onChange={(e) => {
-                      const { value, checked } = e.target;
-                      if (checked) {
-                        setSerie((prevCurso) => [...prevCurso, value]);
-                      } else {
-                        setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
-                      }
-                    }}
-                    disabled={!isEditing}
-                  />
-                  <span>EJA</span>
+                <div className="checkbox-container-two">
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Anos Iniciais"
+                      checked={serie.includes("Anos Iniciais")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Anos Iniciais (1º ano, 2º ano, 3º ano, 4º ano, 5º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Anos Finais"
+                      checked={serie.includes("Anos Finais")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Anos Finais (6º ano, 7º ano, 8º ano, 9º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="Ensino Medio"
+                      checked={serie.includes("Ensino Medio")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>Ensino Médio (1º ano, 2º ano, 3º ano)</span>
+                  </div>
+                  <div className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      value="EJA"
+                      checked={serie.includes("EJA")}
+                      onChange={(e) => {
+                        const { value, checked } = e.target;
+                        if (checked) {
+                          setSerie((prevCurso) => [...prevCurso, value]);
+                        } else {
+                          setSerie((prevCurso) => prevCurso.filter((curso) => curso !== value));
+                        }
+                      }}
+                      disabled={!isEditing}
+                    />
+                    <span>EJA (Fase 1, Fase 2, Fase 3, Fase 4)</span>
+                  </div>
+                  <hr />
                 </div>
-
 
 
               </div>

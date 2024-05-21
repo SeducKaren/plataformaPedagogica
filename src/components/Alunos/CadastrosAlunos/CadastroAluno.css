@@ -7,6 +7,11 @@
   margin: 0 auto;
 }
 
+.CadastroAluno hr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .CadastroAluno form {
   display: flex;
   flex-direction: column;

@@ -10,7 +10,11 @@ import GabaritoNivel5 from './GabaritoNivel5';
 import GabaritoNivel6 from './GabaritoNivel6';
 
 const GabaritoMain = () => {
-  const [dataRegistro, setDataRegistro] = useState('');
+  const [dataRegistro, setDataRegistro] = useState(() => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  });
+
   const [matricula, setMatricula] = useState('');
   const [cod, setCod] = useState('');
   const [nivelProva, setNivelProva] = useState('');
@@ -20,7 +24,10 @@ const GabaritoMain = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Data de Registro:', dataRegistro);
+
+    const dataRegistroDate = new Date(dataRegistro);
+
+    console.log('Data de Registro:', dataRegistroDate);
     console.log('Matrícula:', matricula);
     console.log('Cod Inep:', cod);
     console.log('Nível da Prova:', nivelProva);
@@ -48,6 +55,8 @@ const GabaritoMain = () => {
   }, [background]);
 
   const handleEdit = () => {
+    const dataSistema = new Date().toISOString().split('T')[0];
+    setDataRegistro(dataSistema);
     setModoEdicao(true);
   };
 
@@ -56,7 +65,7 @@ const GabaritoMain = () => {
       <Navbar />
       <div className="gabarito-container">
         <form onSubmit={handleSubmit} className="formulario" style={{ backgroundColor: background }}>
-        <h1 className='titulo-gabarito'>Gabaritos</h1>
+          <h1 className='titulo-gabarito'>Gabaritos</h1>
           <label className='inputData'>
             Data de Registro:
             <input
@@ -128,17 +137,16 @@ const GabaritoMain = () => {
           </div>
           <br />
         </form>
-        {nivelProva === "Nível 1: 2° ano e 3° ano" && <GabaritoNivel1 background={'#dceaf7'}/>}
+        {nivelProva === "Nível 1: 2° ano e 3° ano" && <GabaritoNivel1 background={'#dceaf7'} />}
         {nivelProva === "Nível 2: 4° ano e 5° ano" && <GabaritoNivel2 />}
         {nivelProva === "Nível 3: 6° ano e 7° ano" && <GabaritoNivel3 />}
         {nivelProva === "Nível 4: 8° ano e 9° ano" && <GabaritoNivel4 />}
         {nivelProva === "Nível 5: Fase 1 e 2" && <GabaritoNivel5 />}
         {nivelProva === "Nível 6: Fase 3 e 4" && <GabaritoNivel6 />}
-
-        </div>
-          <Footer />
       </div>
+      <Footer />
+    </div>
   );
 };
 
-export default GabaritoMain
+export default GabaritoMain;

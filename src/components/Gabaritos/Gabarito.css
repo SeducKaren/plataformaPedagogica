@@ -14,8 +14,8 @@
   font-size: 38px;
 }
 
-.formulario {
-margin: 0 auto;
+.GabaritoMain .formulario {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

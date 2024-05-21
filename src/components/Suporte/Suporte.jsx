@@ -117,7 +117,7 @@ const Suporte = () => {
     return (
         <div className='Suporte'>
             <Navbar />
-            <div className="container">
+            <div className="container-suporte">
                 <div className="header">
                     <h2 className='titulo-suporte'>Fale Conosco</h2>
                 </div>
