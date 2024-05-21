@@ -590,8 +590,8 @@ const EscolasForm = () => {
             </select>
           </div>
           <div className='list_icons'>
-            <a className='icons1'><TiDelete /></a>
-            <a className='icons2'><IoMdAddCircle /></a>
+            <TiDelete className='icons1' />
+            <IoMdAddCircle className='icons2' />
           </div>
         </form>
       </div>
