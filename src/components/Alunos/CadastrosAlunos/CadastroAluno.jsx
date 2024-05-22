@@ -23,6 +23,7 @@ const CadastroAluno = () => {
 
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const handleInputChangeAluno = (e) => {
     const { name, value } = e.target;
@@ -51,6 +52,8 @@ const CadastroAluno = () => {
 
   const handleSubmitAluno = async (e) => {
     e.preventDefault();
+    setIsButtonClicked(true); // Adiciona a classe 'clicked' ao botão
+
     const validationErrors = {};
     Object.keys(formDataAluno).forEach((key) => {
       if (!formDataAluno[key]) {
@@ -89,6 +92,10 @@ const CadastroAluno = () => {
         console.error('Erro ao cadastrar aluno:', error);
       }
     }
+
+    setTimeout(() => {
+      setIsButtonClicked(false); // Remove a classe 'clicked' após 2 segundos
+    }, 2000);
   };
 
   const handleTurnoChange = (e) => {
@@ -120,7 +127,7 @@ const CadastroAluno = () => {
       }));
     }
   };
-  
+
   const handleSerieChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -135,8 +142,6 @@ const CadastroAluno = () => {
       }));
     }
   };
-
-  
 
   const inputStyle = (error) => ({
     border: error ? '2px solid red' : '1px solid black'
@@ -351,21 +356,21 @@ const CadastroAluno = () => {
         </div>
 
         <div className="checkbox-container">
-        <input
+          <input
             type="checkbox"
             value="Atendimento"
             checked={formDataAluno.curso.includes("Atendimento")}
             onChange={handleCursoChange}
           />
           <span>(AEE) (Migração até 2021)</span>
-        <input
+          <input
             type="checkbox"
             value="Educação Infantil"
             checked={formDataAluno.curso.includes("Educação Infantil")}
             onChange={handleCursoChange}
           />
-        <span>Educação Infantil</span>
-        <input
+          <span>Educação Infantil</span>
+          <input
             type="checkbox"
             value="Anos Finais"
             checked={formDataAluno.curso.includes("Anos Finais")}
@@ -373,9 +378,9 @@ const CadastroAluno = () => {
           />
           <span>Anos Finais</span>
         </div>
-        
+
         <div className="checkbox-container">
-        <input
+          <input
             type="checkbox"
             value="9 anos"
             checked={formDataAluno.curso.includes("9 anos")}
@@ -385,8 +390,7 @@ const CadastroAluno = () => {
         </div>
         <hr/>
 
-
-      {/* parte das series */}
+        {/* parte das series */}
         <label>
           Séries:
         </label>
@@ -397,7 +401,6 @@ const CadastroAluno = () => {
               value="Anos Iniciais"
               checked={formDataAluno.serie.includes("Anos Iniciais")}
               onChange={handleSerieChange}
-
             />
             <span>Anos Iniciais (1º ano, 2º ano, 3º ano, 4º ano, 5º ano)</span>
           </div>
@@ -433,34 +436,34 @@ const CadastroAluno = () => {
         <br />
 
         <div className="form-row">
-                <label>
-                  Turnos:
-                </label>
-                <div className="checkbox-container">
-                  <input
-                    type="checkbox"
-                    value="Manhã"
-                    checked={formDataAluno.turno.includes("Manhã")}
-                    onChange={handleTurnoChange}
-                  />
-                  <span>Manhã</span>
-                  <input
-                    type="checkbox"
-                    value="Tarde"
-                    checked={formDataAluno.turno.includes("Tarde")}
-                    onChange={handleTurnoChange}
-                  />
-                  <span>Tarde</span>
-                  <input
-                    type="checkbox"
-                    value="Noite"
-                    checked={formDataAluno.turno.includes("Noite")}
-                    onChange={handleTurnoChange}
-                  />
-                  <span>Noite</span>
-                </div>
-                <hr />
-              </div>
+          <label>
+            Turnos:
+          </label>
+          <div className="checkbox-container">
+            <input
+              type="checkbox"
+              value="Manhã"
+              checked={formDataAluno.turno.includes("Manhã")}
+              onChange={handleTurnoChange}
+            />
+            <span>Manhã</span>
+            <input
+              type="checkbox"
+              value="Tarde"
+              checked={formDataAluno.turno.includes("Tarde")}
+              onChange={handleTurnoChange}
+            />
+            <span>Tarde</span>
+            <input
+              type="checkbox"
+              value="Noite"
+              checked={formDataAluno.turno.includes("Noite")}
+              onChange={handleTurnoChange}
+            />
+            <span>Noite</span>
+          </div>
+          <hr />
+        </div>
         <br />
         
         <label>
@@ -519,7 +522,12 @@ const CadastroAluno = () => {
         </label>
         <br />
 
-        <button type='submit'>Cadastrar</button>
+        <button 
+          type='submit' 
+          className={isButtonClicked ? 'clicked' : ''}
+        >
+          Cadastrar
+        </button>
       </form>
     </div>
   );

@@ -5,9 +5,10 @@
   border-radius: 5px;
   background-color: #f2f8fb;
   margin: 0 auto;
+  text-align: center;
 }
 
-.CadastroAluno hr{
+.CadastroAluno hr {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -29,7 +30,7 @@
   border-radius: 3px;
 }
 
-.CadastroAluno select{
+.CadastroAluno select {
   border-radius: 3px;
   width: 97%;
   padding: 10px;
@@ -44,6 +45,7 @@
   border-radius: 3px;
   cursor: pointer;
   transform: none;
+  margin: 20px auto;
 }
 
 .CadastroAluno button:hover {
@@ -64,4 +66,14 @@
 .checkbox_group .column {
   display: flex;
   margin-right: 20px;
+}
+
+
+.CadastroAluno button.clicked {
+  background-color: red;
+}
+
+
+.CadastroAluno.complete button {
+  background-color: green;
 }

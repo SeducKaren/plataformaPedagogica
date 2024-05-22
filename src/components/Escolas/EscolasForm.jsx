@@ -90,6 +90,8 @@ const EscolasForm = () => {
         curso: curso1,
         serie: serie1,
         quantidadeAlunos: quantidadeAlunos
+      
+        
       });
       console.log(response.data)
       
@@ -110,6 +112,7 @@ const EscolasForm = () => {
       setCurso([])
       setSerie([])
       setQuantidadeAlunos('')
+      
 
       alert('Dados enviados')
     } catch (error) {
@@ -557,11 +560,20 @@ const EscolasForm = () => {
             <label htmlFor="nome do(a) gestor(a)">Nome do(a) Gestor(a)</label>
             <input type="text" id="nome do(a) gestor(a)" name="nome do(a) gestor(a)" placeholder="Digite o nome do(a) gestor(a) aqui" />
           </div>
+           {/* Adicione o campo CPF aqui */}
+           <div className='gestores__escolares'>
+            <label htmlFor="cpf">CPF do(a) Gestor(a)</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF do(a) gestor(a) aqui com pontos e traços" maxLength={14} />
+          </div>
           <div className='cargo_gestor'>
             <label htmlFor='cargo_gestor'>Cargo do(a) Gestor(a)</label>
             <select className='cargo__gestor'>
               <option disabled>Selecione</option>
               <option value="Diretor(a)">Diretor(a)</option>
+              <option value="Diretor(a)">Vice-diretor(a)</option>
+              <option value="Diretor(a)">Interino(a)</option>
+              <option value="Diretor(a)">Professor(a)</option>
+              <option value="Diretor(a)">Outros(a)</option>
             </select>
           </div>
           <div className='gestores__escolares'>
@@ -571,14 +583,15 @@ const EscolasForm = () => {
           <div className='cargo_gestor'>
             <label htmlFor='principal'>Principal</label>
             <select className='cargo__gestor'>
+              
               <option disabled>Selecione</option>
               <option value="Sim">Sim</option>
               <option value="Não">Não</option>
             </select>
           </div>
           <div className='list_icons'>
-            <a className='icons1'><TiDelete /></a>
-            <a className='icons2'><IoMdAddCircle /></a>
+            <TiDelete className='icons1' />
+            <IoMdAddCircle className='icons2' />
           </div>
         </form>
       </div>

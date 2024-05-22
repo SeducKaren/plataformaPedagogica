@@ -43,9 +43,14 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
       <nav className='navegation'>
-        <img src="\avaliando-com-vc.jpg" alt="logo" className='logo-plataforma-2'/>
+       
         <img src="\logo_secretaria.jpeg" alt="logo" className='logo-secretaria'/>
-        <img src="\logo_prefeitura.jpeg" alt="logo" className='logo-prefeitura'/>       
+        <img 
+          src="\logo_prefeitura2.png" 
+          alt="logo" 
+          className='logo-prefeitura' 
+          style={{ width: '100px', height: 'auto' }} 
+        />     
 
         {/* <div className="buttons-back">
           <span className='back-arrow' onClick={() => window.history.back()}>
@@ -83,5 +88,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

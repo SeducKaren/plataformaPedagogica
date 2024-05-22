@@ -17,10 +17,10 @@ const GabaritoMain = () => {
 
   const [matricula, setMatricula] = useState('');
   const [cod, setCod] = useState('');
-  const [nivelProva, setNivelProva] = useState('');
+  const [nivelProva, setNivelProva] = useState('Nível 1: 2° ano e 3° ano');
   const [quantidadeAcertos, setQuantidadeAcertos] = useState('0/40');
   const [modoEdicao, setModoEdicao] = useState(false); 
-  const [background, setBackground] = useState('#fff');
+  const [background, setBackground] = useState('#dceaf7');
 
   const handleSubmit = (e) => {
     e.preventDefault();
