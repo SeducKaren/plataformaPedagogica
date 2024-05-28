@@ -4,7 +4,7 @@ const ServidorListagem = ({ servidores }) => {
   return (
     <div className="servidor-container">
       <div className="servidor_formulario">
-        <h3>Lista de Gestores Escolares</h3>
+        <h3>Servidor - Listgem</h3>
       </div>
       <div className="filtro_formulario">            
         {/* Iterar sobre os gestores encontrados e exibir suas informações */}

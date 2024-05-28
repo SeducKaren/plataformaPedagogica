@@ -30,7 +30,7 @@ const FiltroBusca = () => {
   return (
     <div className="formulario-container">
       <div className="formulario-header">
-        <h3>Filtro de Busca de Gestores Escolares</h3>
+        <h3>Filtro de Buscas</h3>
       </div>
       <form onSubmit={handleSearch}>
         {/* Inputs para filtrar a busca */}
