@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-
 import './EscolasList.css';
-
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-
 import EscolasForm from './EscolasForm';
-// import PaginaConstrucao from '../PaginaConstrucao/PaginaConstrucao';
-
-
+import FiltroBusca from './FiltroBusca';  // Importando o novo componente para o formulário de busca
 
 const EscolasList = () => {
   const [section, setSection] = useState('detalhe');
@@ -17,15 +12,14 @@ const EscolasList = () => {
     setSection(newSection);
   };
 
-
   return (
     <div className='EscolasList'>
       <Navbar />
       <main>
-        <div className='ancora_escola'>                  
+        <div className='ancora_escola'>
           <button onClick={() => handleSectionChange('detalhe')}>Detalhe da Escola</button>
-          {/* <button onClick={() => handleSectionChange('endereco')}>Endereço</button>
-          <button onClick={() => handleSectionChange('modalidade')}>Modalidade</button> */}
+          {/* <button onClick={() => handleSectionChange('endereco')}>Endereço</button> */}
+          {/* <button onClick={() => handleSectionChange('modalidade')}>Modalidade</button> */}
           <button onClick={() => handleSectionChange('equipe')}>Equipe Gestores da Escola</button>
         </div>
 
@@ -47,18 +41,15 @@ const EscolasList = () => {
           )} */}
           {section === 'equipe' && (
             <div>
-              
-              {/* <PaginaConstrucao /> */}
+              <FiltroBusca /> {/* Utilizando o novo componente para o formulário de busca */}
             </div>
           )}
         </div>
       </main>
 
-
       <div className='footer'>
-      <Footer />
+        <Footer />
       </div>
-
     </div>
   );
 };
