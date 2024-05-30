@@ -68,8 +68,6 @@ const Suporte = () => {
         }
 
         // Enviar o formulário usando EmailJS
-       
-
         emailjs.sendForm('service_y3q9raa', 'template_lbkkmxs', e.currentTarget, "CIYv-FO5FhsE2BIag")
             .then((result) => {
                 console.log(result.text);
