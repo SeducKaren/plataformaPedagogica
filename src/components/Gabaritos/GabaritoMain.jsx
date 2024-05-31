@@ -17,10 +17,10 @@ const GabaritoMain = () => {
 
   const [matricula, setMatricula] = useState('');
   const [cod, setCod] = useState('');
-  const [nivelProva, setNivelProva] = useState('Nível 1: 2° ano e 3° ano');
+  const [nivelProva, setNivelProva] = useState('');
   const [quantidadeAcertos, setQuantidadeAcertos] = useState('0/40');
   const [modoEdicao, setModoEdicao] = useState(false); 
-  const [background, setBackground] = useState('#dceaf7');
+  const [background, setBackground] = useState('#fff');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,24 +29,26 @@ const GabaritoMain = () => {
 
     console.log('Data de Registro:', dataRegistroDate);
     console.log('Matrícula:', matricula);
-    console.log('Cod Inep:', cod);
+    console.log('Código Ineep:', cod);
     console.log('Nível da Prova:', nivelProva);
     console.log('Quantidade de Acertos:', quantidadeAcertos);
   };
 
   const handMudarCor = (evento) => {
     if (evento === "Nível 1: 2° ano e 3° ano") {
-      setBackground('#dceaf7')      
+      setBackground('#dceaf7');     
     } else if (evento === "Nível 2: 4° ano e 5° ano") {
-      setBackground('#f6c6ad')
+      setBackground('#f6c6ad');
     } else if (evento === "Nível 3: 6° ano e 7° ano") {
-      setBackground('#c2f1c8')
+      setBackground('#c2f1c8');
     } else if (evento === "Nível 4: 8° ano e 9° ano") {
-      setBackground('#f6fdb7')
+      setBackground('#f6fdb7');
     } else if (evento === "Nível 5: Fase 1 e 2") {
-      setBackground('#f2cfee')
+      setBackground('#f2cfee');
     } else if (evento === "Nível 6: Fase 3 e 4") {
-      setBackground('#f6d766')
+      setBackground('#f6d766');
+    } else {
+      setBackground('#fff');
     }
   };
 
@@ -90,7 +92,7 @@ const GabaritoMain = () => {
           </label>
           <br />
           <label>
-            Cod Inep:
+            Código Inep:
             <input
               type="text"
               placeholder="Insira o código"
