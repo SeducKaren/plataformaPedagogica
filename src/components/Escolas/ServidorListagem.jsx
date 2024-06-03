@@ -6,14 +6,14 @@ const ServidorListagem = ({ servidores }) => {
       <div className="servidor_formulario">
         <h3>Servidor - Listgem</h3>
       </div>
-      <div className="filtro_formulario">            
-        {/* Iterar sobre os gestores encontrados e exibir suas informações */}
+      <div className="filtro_formulario">
+        
         {servidores.map((gestor, index) => (
           <div key={index}>
             <p>Nome: {gestor.nome}</p>
             <p>CPF: {gestor.cpf}</p>
             <p>Função: {gestor.funcao}</p>
-            {/* Adicione aqui os demais campos de informação dos gestores */}
+            
           </div>
         ))}
       </div>
